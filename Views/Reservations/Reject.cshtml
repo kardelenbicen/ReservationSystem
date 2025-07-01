@@ -1,0 +1,22 @@
+@model ReservationSystem.Models.Reservation
+@{
+    ViewData["Title"] = "Rezervasyon Reddet";
+}
+<h1>Rezervasyon Reddet</h1>
+<div class="mb-3">
+    <b>Oda:</b> @Model.MeetingRoom?.Name<br />
+    <b>Etkinlik:</b> @Model.EventName<br />
+    <b>Kullanıcı:</b> @Model.UserId<br />
+    <b>Başlangıç:</b> @Model.StartTime.ToString("g")<br />
+    <b>Bitiş:</b> @Model.EndTime.ToString("g")<br />
+    <b>Açıklama:</b> @Model.Description
+</div>
+<form asp-action="Reject" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="mb-3">
+        <label for="rejectMessage" class="form-label">Reddetme Mesajı</label>
+        <textarea name="rejectMessage" class="form-control" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-danger">Reddet</button>
+    <a asp-action="Pending" class="btn btn-secondary">Geri Dön</a>
+</form> 

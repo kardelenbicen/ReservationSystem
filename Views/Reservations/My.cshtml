@@ -1,0 +1,37 @@
+@model IEnumerable<ReservationSystem.Models.Reservation>
+@{
+    ViewData["Title"] = "Rezervasyonlarım";
+}
+<h1>Rezervasyonlarım</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Oda</th>
+            <th>Etkinlik</th>
+            <th>Başlangıç</th>
+            <th>Bitiş</th>
+            <th>Durum</th>
+            <th>Reddetme Mesajı</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.MeetingRoom?.Name</td>
+        <td>@item.EventName</td>
+        <td>@item.StartTime.ToString("g")</td>
+        <td>@item.EndTime.ToString("g")</td>
+        <td>
+            @if (item.Status == ReservationSystem.Models.ReservationStatus.Pending) {
+                <span class="badge bg-warning text-dark">Beklemede</span>
+            } else if (item.Status == ReservationSystem.Models.ReservationStatus.Approved) {
+                <span class="badge bg-success">Onaylandı</span>
+            } else {
+                <span class="badge bg-danger">Reddedildi</span>
+            }
+        </td>
+        <td>@item.RejectMessage</td>
+    </tr>
+}
+    </tbody>
+</table> 
