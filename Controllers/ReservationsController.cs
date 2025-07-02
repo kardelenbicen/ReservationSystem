@@ -59,7 +59,7 @@ namespace ReservationSystem.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Pending()
         {
-            var pending = _context.Reservations.Where(r => r.Status == "Pending").OrderBy(r => r.StartTime).ToList();
+            var pending = _context.Reservations.Include(r => r.MeetingRoom).Include(r => r.User).Where(r => r.Status == "Pending").OrderBy(r => r.StartTime).ToList();
             return View(pending);
         }
         [Authorize(Roles = "Admin")]
