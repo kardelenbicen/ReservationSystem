@@ -13,6 +13,7 @@ public class Reservation
     public string Description { get; set; }
     public string Status { get; set; }
     public string RejectMessage { get; set; }
+    public MeetingRoom MeetingRoom { get; set; }
 }
 
 public enum ReservationStatus

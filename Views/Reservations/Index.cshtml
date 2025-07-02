@@ -6,6 +6,32 @@
 
 <h1>Index</h1>
 
+<!-- Filtreleme Formu Başlangıç -->
+<form method="get" asp-action="Index" class="mb-3">
+    <div class="row g-2 align-items-end">
+        <div class="col-auto">
+            <label for="meetingRoomId" class="form-label">Toplantı Odası</label>
+            <select id="meetingRoomId" name="meetingRoomId" class="form-select">
+                <option value="">Tümü</option>
+                @foreach (var room in (IEnumerable<ReservationSystem.Models.MeetingRoom>)ViewBag.MeetingRooms)
+                {
+                    <option value="@room.Id" @(ViewBag.SelectedMeetingRoomId != null && (int)ViewBag.SelectedMeetingRoomId == room.Id ? "selected" : "")>@room.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Filtrele</button>
+        </div>
+        <div class="col-auto">
+            @if (ViewBag.SelectedMeetingRoomId != null)
+            {
+                <button type="submit" name="clearFilter" value="1" class="btn btn-secondary">Filtreyi Kaldır</button>
+            }
+        </div>
+    </div>
+</form>
+<!-- Filtreleme Formu Bitiş -->
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -13,7 +39,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.MeetingRoom)
+                Oda Adı
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.UserId)
@@ -43,7 +69,7 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.MeetingRoom.Id)
+                @item.MeetingRoom?.Name
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UserId)
