@@ -6,6 +6,7 @@
 <table class="table table-striped">
     <thead>
         <tr>
+            <th>No</th>
             <th>Oda</th>
             <th>Etkinlik</th>
             <th>Başlangıç</th>
@@ -15,16 +16,20 @@
         </tr>
     </thead>
     <tbody>
+@{
+    int i = 1;
+}
 @foreach (var item in Model) {
     <tr>
+        <td>@i</td>
         <td>@item.MeetingRoom?.Name</td>
         <td>@item.EventName</td>
         <td>@item.StartTime.ToString("g")</td>
         <td>@item.EndTime.ToString("g")</td>
         <td>
-            @if (item.Status == ReservationSystem.Models.ReservationStatus.Pending) {
+            @if (item.Status == "Pending") {
                 <span class="badge bg-warning text-dark">Beklemede</span>
-            } else if (item.Status == ReservationSystem.Models.ReservationStatus.Approved) {
+            } else if (item.Status == "Approved") {
                 <span class="badge bg-success">Onaylandı</span>
             } else {
                 <span class="badge bg-danger">Reddedildi</span>
@@ -32,6 +37,7 @@
         </td>
         <td>@item.RejectMessage</td>
     </tr>
+    i++;
 }
     </tbody>
 </table> 

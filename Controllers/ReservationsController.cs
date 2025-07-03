@@ -52,6 +52,7 @@ namespace ReservationSystem.Controllers
             }
             r.UserId = _userManager.GetUserId(User);
             r.Status = "Pending";
+            r.RejectMessage = "";
             _context.Reservations.Add(r);
             _context.SaveChanges();
             return RedirectToAction("Index", "MeetingRooms");
@@ -97,8 +98,33 @@ namespace ReservationSystem.Controllers
         public IActionResult My()
         {
             var userId = _userManager.GetUserId(User);
-            var myReservations = _context.Reservations.Where(r => r.UserId == userId).ToList();
+            var myReservations = _context.Reservations.Include(r => r.MeetingRoom).Where(r => r.UserId != null && r.UserId == userId).ToList();
             return View(myReservations);
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult CleanNullUserId()
+        {
+            var nullReservations = _context.Reservations.Where(r => r.UserId == null).ToList();
+            if (nullReservations.Any())
+            {
+                _context.Reservations.RemoveRange(nullReservations);
+                _context.SaveChanges();
+            }
+            return Content($"Silinen kayıt sayısı: {nullReservations.Count}");
+        }
+        public IActionResult Calendar()
+        {
+            return View();
+        }
+        public IActionResult CalendarData()
+        {
+            var events = _context.Reservations.Select(r => new {
+                title = r.EventName,
+                start = r.StartTime,
+                end = r.EndTime,
+                description = r.Description
+            }).ToList();
+            return Json(events);
         }
     }
 }

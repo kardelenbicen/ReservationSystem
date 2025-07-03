@@ -11,7 +11,7 @@
     <b>Bitiş:</b> @Model.EndTime.ToString("g")<br />
     <b>Açıklama:</b> @Model.Description
 </div>
-<form asp-action="Approve" method="post">
+<form asp-action="ApproveConfirmed" method="post">
     <input type="hidden" asp-for="Id" />
     <button type="submit" class="btn btn-success">Onayla</button>
     <a asp-action="Pending" class="btn btn-secondary">Geri Dön</a>

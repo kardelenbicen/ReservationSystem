@@ -4,10 +4,45 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ReservationSystem</title>
-    <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/test.css" />
     <link rel="stylesheet" href="~/ReservationSystem.styles.css" asp-append-version="true" />
+
+    <style>
+        .navbar-nav .nav-link {
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            position: relative;
+            display: inline-flex !important;
+            align-items: center;
+            padding-bottom: 5px !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            transform: scale(1.12);
+            color: #007bff !important;
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+        .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #007bff;
+            transition: width 0.3s cubic-bezier(0.4,0,0.2,1);
+            z-index: 2;
+        }
+        .navbar-nav .nav-link:hover::after,
+        .navbar-nav .nav-link:focus::after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,22 +56,24 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="MeetingRooms" asp-action="Index">Toplantı Odaları</a>
+                            <a class="nav-link" asp-controller="MeetingRooms" asp-action="Index">Toplantı Odaları</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Reservations" asp-action="My">Rezervasyonlarım</a>
+                                <a class="nav-link" asp-controller="Reservations" asp-action="My">Rezervasyonlarım</a>
                             </li>
                         }
                         @if (User.IsInRole("Admin"))
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-danger" asp-controller="Reservations" asp-action="Pending">Bekleyen Rezervasyonlar</a>
-                            </li>
+                                                     
+                               <li class="nav-item">
+                                    <a class="nav-link text-danger" asp-controller="Reservations" asp-action="Pending">Bekleyen Rezervasyonlar</a>
+                                </li>
+                            
                         }
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Reservations" asp-action="Calendar">Takvim</a>
+                            <a class="nav-link" asp-controller="Reservations" asp-action="Calendar">Takvim</a>
                         </li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
@@ -50,11 +87,6 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2025 - ReservationSystem
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

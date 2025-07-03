@@ -8,6 +8,7 @@
         <tr>
             <th>Oda</th>
             <th>Etkinlik</th>
+            <th>Rezervasyon Sahibi</th>
             <th>Başlangıç</th>
             <th>Bitiş</th>
             <th>Açıklama</th>
@@ -19,6 +20,7 @@
     <tr>
         <td>@item.MeetingRoom?.Name</td>
         <td>@item.EventName</td>
+        <td>@item.User?.Email</td>
         <td>@item.StartTime.ToString("g")</td>
         <td>@item.EndTime.ToString("g")</td>
         <td>@item.Description</td>
