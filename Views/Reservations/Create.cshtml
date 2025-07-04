@@ -25,12 +25,12 @@
             </div>
             <div class="mb-3">
                 <label asp-for="StartTime" class="form-label">Başlangıç Tarihi/Saati</label>
-                <input asp-for="StartTime" class="form-control" type="datetime-local" />
+                <input asp-for="StartTime" class="form-control" id="StartTime" type="text" />
                 <span asp-validation-for="StartTime" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="EndTime" class="form-label">Bitiş Tarihi/Saati</label>
-                <input asp-for="EndTime" class="form-control" type="datetime-local" />
+                <input asp-for="EndTime" class="form-control" id="EndTime" type="text" />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-success">Rezervasyon Oluştur</button>
@@ -38,7 +38,23 @@
         </form>
     </div>
 </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#StartTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    flatpickr("#EndTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+</script>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

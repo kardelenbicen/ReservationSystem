@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/test.css" />
     <link rel="stylesheet" href="~/ReservationSystem.styles.css" asp-append-version="true" />
-
     <style>
         .navbar-nav .nav-link {
             transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -66,11 +65,9 @@
                         }
                         @if (User.IsInRole("Admin"))
                         {
-                                                     
                                <li class="nav-item">
                                     <a class="nav-link text-danger" asp-controller="Reservations" asp-action="Pending">Bekleyen Rezervasyonlar</a>
                                 </li>
-                            
                         }
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Reservations" asp-action="Calendar">Takvim</a>

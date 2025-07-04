@@ -18,15 +18,14 @@
             },
             events: '/Reservations/CalendarData',
             eventDidMount: function(info) {
-                if (info.event.extendedProps.description) {
-                    var tooltip = document.createElement('div');
-                    tooltip.innerHTML = '<b>Açıklama:</b> ' + info.event.extendedProps.description;
-                    info.el.appendChild(tooltip);
-                }
-            },
-            eventColor: '#007bff',
+               
+                if (info.event.extendedProps.isFull || info.event.extendedProps.isfull) {
+                    info.el.style.backgroundColor = '#e53935';
+                    info.el.style.color = '#fff';
+                } 
+            }, 
             height: 700
         });
         calendar.render();
     });
-</script> 
+</script>

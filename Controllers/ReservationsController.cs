@@ -118,13 +118,31 @@ namespace ReservationSystem.Controllers
         }
         public IActionResult CalendarData()
         {
-            var events = _context.Reservations.Select(r => new {
+            var events = _context.Reservations
+                .Where(r => r.Status != "İptal Edildi")               
+                .Select(r => new {
                 title = r.EventName,
                 start = r.StartTime,
                 end = r.EndTime,
-                description = r.Description
+                description = r.Description,
+                isfull = true
             }).ToList();
             return Json(events);
         }
+        [Authorize]
+        [HttpPost]
+        public IActionResult Cancel(int id)
+        {
+            var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
+            var userId = _userManager.GetUserId(User);
+            if (reservation.UserId != userId && !User.IsInRole("Admin"))
+                return Forbid();
+            reservation.Status = "İptal Edildi";
+            _context.SaveChanges();
+            return RedirectToAction("My");
+                }
+
     }
 }

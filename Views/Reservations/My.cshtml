@@ -13,6 +13,7 @@
             <th>Bitiş</th>
             <th>Durum</th>
             <th>Reddetme Mesajı</th>
+            <th>İşlem</th>
         </tr>
     </thead>
     <tbody>
@@ -30,12 +31,30 @@
             @if (item.Status == "Pending") {
                 <span class="badge bg-warning text-dark">Beklemede</span>
             } else if (item.Status == "Approved") {
-                <span class="badge bg-success">Onaylandı</span>
-            } else {
+                        <span class="badge bg-success">Onaylandı</span>
+                    } 
+              else if(item.Status == "İptal Edildi"){
+                      <span class="badge bg-secondary">İptal Edildi</span>                                              
+                    }   
+                    
+              else {
                 <span class="badge bg-danger">Reddedildi</span>
-            }
+                    }
         </td>
         <td>@item.RejectMessage</td>
+        <td>
+            @if(item.Status != "İptal Edildi" && item.Status != "Rejected")
+                    {
+                        <form asp-action ="Cancel" asp-route-id="@item.Id" method="post" style="display:inline;"
+                        onsubmit="return confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?');">
+                            <button type ="submit" class="btn btn-danger btn-sm">İptal Et</button>
+                        </form>
+                    }
+                    else if(item.Status =="İptal Edildi")
+                    {
+                        <span class="text-muted">İptal Edildi</span>    
+                    }
+                </td>
     </tr>
     i++;
 }
