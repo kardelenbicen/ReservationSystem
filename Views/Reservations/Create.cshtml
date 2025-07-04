@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Rezervasyon Yap";
 }
-
 <h1>Rezervasyon Yap</h1>
 
 <h4>Reservation</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" id="reservationForm">
             <input type="hidden" asp-for="MeetingRoomId" value="@ViewBag.RoomId" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
@@ -50,6 +49,27 @@
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         time_24hr: true
+    });
+
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var data = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: data
+        })
+        .then(r => r.json())
+        .then(res => {
+            if (res.success) {
+                showToast(res.message, 'success');
+                setTimeout(function() {
+                    window.location.href = '/MeetingRooms/Index';
+                }, 1200);
+            } else {
+                showToast(res.message, 'error');
+            }
+        });
     });
 </script>
 

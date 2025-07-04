@@ -40,22 +40,30 @@ namespace ReservationSystem.Controllers
             return View();
         }
         [HttpPost]
-        [Authorize]
-        public IActionResult Create(Reservation r)
+        public async Task<IActionResult> Create(Reservation reservation)
         {
-            bool conflict = _context.Reservations.Any(x => x.MeetingRoomId == r.MeetingRoomId && x.Status != "Rejected" && ((r.StartTime >= x.StartTime && r.StartTime < x.EndTime) || (r.EndTime > x.StartTime && r.EndTime <= x.EndTime) || (r.StartTime <= x.StartTime && r.EndTime >= x.EndTime)));
-            if (conflict)
+            reservation.UserId = _userManager.GetUserId(User);
+            reservation.Status = "Pending";
+            reservation.RejectMessage = "";
+            ModelState.Remove("User");
+            ModelState.Remove("MeetingRoom");
+            ModelState.Remove("Status");
+            ModelState.Remove("UserId");
+            ModelState.Remove("RejectMessage");
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("StartTime", "Seçilen saat aralığında başka bir rezervasyon var.");
-                ViewBag.RoomId = r.MeetingRoomId;
-                return View(r);
+                var conflict = _context.Reservations.Any(r => r.MeetingRoomId == reservation.MeetingRoomId &&
+                    ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
+                    (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime)));
+                if (conflict)
+                {
+                    return Json(new { success = false, message = " Seçilen saat aralığında başka bir rezervasyon var" });
+                }
+                _context.Add(reservation);
+                await _context.SaveChangesAsync();
+                return Json(new { success = true, message = " Rezervasyon başarıyla oluşturuldu" });
             }
-            r.UserId = _userManager.GetUserId(User);
-            r.Status = "Pending";
-            r.RejectMessage = "";
-            _context.Reservations.Add(r);
-            _context.SaveChanges();
-            return RedirectToAction("Index", "MeetingRooms");
+            return Json(new { success = false, message = string.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)) });
         }
         [Authorize(Roles = "Admin")]
         public IActionResult Pending()
@@ -142,7 +150,6 @@ namespace ReservationSystem.Controllers
             reservation.Status = "İptal Edildi";
             _context.SaveChanges();
             return RedirectToAction("My");
-                }
-
+        }
     }
 }

@@ -1,7 +1,6 @@
 wwwroot\css\deneme.txt
 wwwroot\css\test.css
 wwwroot\favicon.ico
-wwwroot\images\photo.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -63,6 +62,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\images\photo.jpg
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\favicon.ico
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
