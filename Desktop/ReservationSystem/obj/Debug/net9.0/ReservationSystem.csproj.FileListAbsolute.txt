@@ -345,7 +345,6 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\a3y
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\nezrqnk58p-muycvpuwrr.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\v0zgfp0y55-87fc7y1x7t.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\yfc7ypekbg-mlv21k5csn.gz
-C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\nnyvfktxec-vm1kl625vz.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\kszjmxg05l-61n19gt1b8.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\07kdzqn8as-bqjiyaj88i.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\u433za9ary-c2jlpeoesf.gz
@@ -415,9 +414,11 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\ReservationSys
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\ref\ReservationSystem.dll
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\0sybitkb5h-gcbsg5g9dt.gz
-C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\va62fgtwmx-fix2bzms06.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\r4ersx8upv-l3n5xuwxn8.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\50f0kk5qji-ilo7uva0vt.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\6kcc98lax6-qlccset4i1.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\csrppiepy3-xzw0cte36n.gz
 C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\vdcdt0qdys-jfsiqqwiad.gz
+C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\ReservationSystem.sourcelink.json
+C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\va62fgtwmx-dnwmynypsp.gz
+C:\Users\kardelenbicen\Desktop\ReservationSystem\obj\Debug\net9.0\compressed\zahz2hn6xo-arkeregfhu.gz

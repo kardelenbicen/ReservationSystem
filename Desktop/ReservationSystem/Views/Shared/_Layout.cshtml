@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/test.css" />
     <link rel="stylesheet" href="~/ReservationSystem.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/darkmode.css" />
     <style>
         .navbar-nav .nav-link {
             transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -73,6 +74,9 @@
                             <a class="nav-link" asp-controller="Reservations" asp-action="Calendar">Takvim</a>
                         </li>
                     </ul>
+                    <button id="darkModeToggle" class="btn btn-outline-secondary" style="margin-right:10px">
+                        Karanlık Mod
+                    </button>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>

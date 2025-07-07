@@ -1,0 +1,28 @@
+:root {
+    --bg-color: #fff;
+    --text-color: #222;
+    --card-bg: #fff;
+}
+body.dark-mode {
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --card-bg: #242526;
+}
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+.login-register-form, .card, .table {
+    background: var(--card-bg) !important;
+    color: var(--text-color) !important;
+}
+body.dark-mode .fc {
+    background: #23272b !important;
+    color: #e4e6eb !important;
+}
+body.dark-mode .fc th,
+body.dark-mode .fc td {
+    background: #23272b !important;
+    color: #e4e6eb !important;
+}
+   
