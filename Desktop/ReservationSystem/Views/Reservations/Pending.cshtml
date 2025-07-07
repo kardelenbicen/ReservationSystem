@@ -1,0 +1,38 @@
+@model IEnumerable<ReservationSystem.Models.Reservation>
+@{
+    ViewData["Title"] = "Bekleyen Rezervasyonlar";
+}
+<div class="login-register-bg">
+  <div class="login-register-form" style="width:100%;max-width:1100px;">
+    <h1>Bekleyen Rezervasyonlar</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Oda</th>
+                <th>Etkinlik</th>
+                <th>Rezervasyon Sahibi</th>
+                <th>Başlangıç</th>
+                <th>Bitiş</th>
+                <th>Açıklama</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>@item.MeetingRoom?.Name</td>
+            <td>@item.EventName</td>
+            <td>@item.User?.Email</td>
+            <td>@item.StartTime.ToString("g")</td>
+            <td>@item.EndTime.ToString("g")</td>
+            <td>@item.Description</td>
+            <td>
+                <a asp-action="Approve" asp-route-id="@item.Id" class="btn btn-success btn-sm">Onayla</a>
+                <a asp-action="Reject" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Reddet</a>
+            </td>
+        </tr>
+    }
+        </tbody>
+    </table>
+  </div>
+</div> 

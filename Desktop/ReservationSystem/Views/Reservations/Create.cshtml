@@ -1,0 +1,80 @@
+@model ReservationSystem.Models.Reservation
+
+@{
+    ViewData["Title"] = "Rezervasyon Yap";
+}
+<h1>Rezervasyon Yap</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" id="reservationForm">
+            <input type="hidden" asp-for="MeetingRoomId" value="@ViewBag.RoomId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
+                <input asp-for="EventName" class="form-control" />
+                <span asp-validation-for="EventName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label">Açıklama</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="StartTime" class="form-label">Başlangıç Tarihi/Saati</label>
+                <input asp-for="StartTime" class="form-control" id="StartTime" type="text" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="EndTime" class="form-label">Bitiş Tarihi/Saati</label>
+                <input asp-for="EndTime" class="form-control" id="EndTime" type="text" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-success">Rezervasyon Oluştur</button>
+            <a asp-controller="MeetingRooms" asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+        </form>
+    </div>
+</div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#StartTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    flatpickr("#EndTime", {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+    document.getElementById('reservationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var data = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: data
+        })
+        .then(r => r.json())
+        .then(res => {
+            if (res.success) {
+                showToast(res.message, 'success');
+                setTimeout(function() {
+                    window.location.href = '/MeetingRooms/Index';
+                }, 1200);
+            } else {
+                showToast(res.message, 'error');
+            }
+        });
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,66 @@
+@model IEnumerable<ReservationSystem.Models.Reservation>
+@{
+    ViewData["Title"] = "Rezervasyonlarım";
+}
+<div class="login-register-bg">
+  <div class="login-register-form" style="width:100%;max-width:1100px;">
+    <h1>Rezervasyonlarım</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Oda</th>
+                <th>Etkinlik</th>
+                <th>Başlangıç</th>
+                <th>Bitiş</th>
+                <th>Durum</th>
+                <th>Reddetme Mesajı</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+    @{
+        int i = 1;
+    }
+    @foreach (var item in Model) {
+        <tr>
+            <td>@i</td>
+            <td>@item.MeetingRoom?.Name</td>
+            <td>@item.EventName</td>
+            <td>@item.StartTime.ToString("g")</td>
+            <td>@item.EndTime.ToString("g")</td>
+            <td>
+                @if (item.Status == "Pending") {
+                    <span class="badge bg-warning text-dark">Beklemede</span>
+                } else if (item.Status == "Approved") {
+                            <span class="badge bg-success">Onaylandı</span>
+                        } 
+                  else if(item.Status == "İptal Edildi"){
+                          <span class="badge bg-secondary">İptal Edildi</span>                                              
+                        }   
+                        
+                  else {
+                    <span class="badge bg-danger">Reddedildi</span>
+                        }
+            </td>
+            <td>@item.RejectMessage</td>
+            <td>
+                @if(item.Status != "İptal Edildi" && item.Status != "Rejected")
+                        {
+                            <form asp-action ="Cancel" asp-route-id="@item.Id" method="post" style="display:inline;"
+                            onsubmit="return confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?');">
+                                <button type ="submit" class="btn btn-danger btn-sm">İptal Et</button>
+                            </form>
+                        }
+                        else if(item.Status =="İptal Edildi")
+                        {
+                            <span class="text-muted">İptal Edildi</span>    
+                        }
+                    </td>
+        </tr>
+        i++;
+    }
+        </tbody>
+    </table>
+  </div>
+</div> 
