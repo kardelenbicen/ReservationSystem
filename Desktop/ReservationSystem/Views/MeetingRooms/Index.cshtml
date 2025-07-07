@@ -26,6 +26,7 @@
             </div>
         </div>
     </form>
+    <div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -54,6 +55,7 @@
     }
         </tbody>
     </table>
+    </div>
     @if (User.IsInRole("Admin")) {
         <a asp-action="Create" class="btn btn-success">Yeni Oda Ekle</a>
     }

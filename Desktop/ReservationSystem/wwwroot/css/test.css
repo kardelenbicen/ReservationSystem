@@ -9,7 +9,7 @@ html, body {
 body {
     background: #fff !important;
 }
-/* Test iin */
+
 .navbar-nav .nav-link {
     transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important;
     position: relative !important;
@@ -71,4 +71,50 @@ body {
 .login-register-form .form-group, .login-register-form .form-floating, .login-register-form button, .login-register-form .text-danger, .login-register-form .text-info, .login-register-form .text-success {
     width: 100%;
     text-align: center;
+}
+@media (max-width: 768px) {
+    table.responsive-table thead {
+        display: none;
+    }
+
+    table.responsive-table,
+    table.responsive-table tbody,
+    table.responsive-table tr,
+    table.responsive-table td {
+        display: block;
+        width: 100%;
+    }
+
+        table.responsive-table tr {
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 10px 0;
+        }
+
+        table.responsive-table td {
+            text-align: left;
+            padding-left: 50%;
+            position: relative;
+            min-height: 40px;
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+
+            table.responsive-table td:last-child {
+                border-bottom: none;
+            }
+
+            table.responsive-table td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 15px;
+                top: 0;
+                width: 45%;
+                white-space: nowrap;
+                font-weight: bold;
+                color: #555;
+            }
 }
