@@ -166,8 +166,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T13:24:11.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T13:24:11.918Z"
             },
             {
               "$type": "Document",
@@ -179,8 +178,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T12:34:51.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T12:34:51.449Z"
             },
             {
               "$type": "Document",
@@ -192,8 +190,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T11:11:30.966Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T11:11:30.966Z"
             },
             {
               "$type": "Document",
@@ -205,8 +202,7 @@
               "RelativeToolTip": "wwwroot\\js\\site.js",
               "ViewState": "AgIAAIMAAAAAAAAAAAAIwJgAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-07-07T11:17:30.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-07T11:17:30.721Z"
             },
             {
               "$type": "Document",
@@ -218,8 +214,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAFEAAAAAAAAAAAAAAFwAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T11:59:03.478Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T11:59:03.478Z"
             },
             {
               "$type": "Document",
@@ -243,8 +238,7 @@
               "RelativeToolTip": "Views\\Reservations\\Create.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAswBcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-02T08:42:51.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T08:42:51.006Z"
             },
             {
               "$type": "Document",
@@ -254,7 +248,7 @@
               "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
               "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
               "RelativeToolTip": "Controllers\\ReservationsController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAA6wDYAAABnAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAA4wDYAAABnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-04T07:36:42.913Z",
               "EditorCaption": ""
@@ -269,8 +263,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ResetPassword.cshtml",
               "ViewState": "AgIAAAUAAAAAAAAAAAAswBkAAADFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T13:40:33.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T13:40:33.948Z"
             },
             {
               "$type": "Document",
@@ -282,8 +275,7 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-08T13:40:35.255Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-08T13:40:35.255Z"
             },
             {
               "$type": "Document",
@@ -331,8 +323,7 @@
               "RelativeToolTip": "Controllers\\MeetingRoomsController.cs",
               "ViewState": "AgIAADsAAAAAAAAAAAAuwEMAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-02T05:53:09.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T05:53:09.351Z"
             },
             {
               "$type": "Document",
@@ -344,8 +335,7 @@
               "RelativeToolTip": "Views\\Reservations\\My.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-03T12:49:26.114Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-03T12:49:26.114Z"
             },
             {
               "$type": "Document",
