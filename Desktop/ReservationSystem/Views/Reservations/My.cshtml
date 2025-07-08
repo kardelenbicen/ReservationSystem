@@ -29,8 +29,8 @@
                             <td data-label="No">@i</td>
                             <td data-label="Oda">@item.MeetingRoom?.Name</td>
                             <td data-label="Etkinlik">@item.EventName</td>
-                            <td data-label="Başlangıç">@item.StartTime.ToString("g")</td>
-                            <td data-label="Bitiş">@item.EndTime.ToString("g")</td>
+                            <td data-label="Başlangıç">@item.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td data-label="Bitiş">@item.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
                             <td data-label="Durum">
                                 @if (item.Status == "Pending")
                                 {

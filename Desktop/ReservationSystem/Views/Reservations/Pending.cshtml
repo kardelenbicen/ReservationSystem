@@ -25,8 +25,8 @@
                             <td data-label="Oda">@item.MeetingRoom?.Name</td>
                             <td data-label="Etkinlik">@item.EventName</td>
                             <td data-label="Rezervasyon Sahibi">@item.User?.Email</td>
-                            <td data-label="Başlangıç">@item.StartTime.ToString("g")</td>
-                            <td data-label="Bitiş">@item.EndTime.ToString("g")</td>
+                            <td data-label="Başlangıç">@item.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
+                            <td data-label="Bitiş">@item.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
                             <td data-label="Açıklama">@item.Description</td>
                             <td data-label="İşlem">
                                 <a asp-action="Approve" asp-route-id="@item.Id" class="btn btn-success btn-sm">Onayla</a>
