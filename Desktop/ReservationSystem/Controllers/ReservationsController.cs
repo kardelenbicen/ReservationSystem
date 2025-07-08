@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using AspNetCoreGeneratedDocument;
 
 namespace ReservationSystem.Controllers
 {
@@ -37,6 +38,7 @@ namespace ReservationSystem.Controllers
         public IActionResult Create(int? roomId)
         {
             ViewBag.RoomId = roomId;
+            ViewBag.Rooms = _context.MeetingRooms.ToList();
             return View();
         }
         [HttpPost]

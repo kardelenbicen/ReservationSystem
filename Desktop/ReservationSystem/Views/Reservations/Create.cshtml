@@ -10,7 +10,13 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" id="reservationForm">
-            <input type="hidden" asp-for="MeetingRoomId" value="@ViewBag.RoomId" />
+            <div class="mb-3">
+                <label for="MeetingRoomId" class="form-label">Oda Seç</label>
+                <select asp-for="MeetingRoomId" class="form-control" asp-items="@(new SelectList(ViewBag.Rooms, "Id", "Name"))">
+                    <option value="">Oda Seçiniz</option>
+                </select>
+                <span asp-validation-for="MeetingRoomId" class="text-danger"></span>
+            </div>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
