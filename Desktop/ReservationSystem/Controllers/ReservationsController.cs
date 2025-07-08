@@ -50,6 +50,10 @@ namespace ReservationSystem.Controllers
             ModelState.Remove("Status");
             ModelState.Remove("UserId");
             ModelState.Remove("RejectMessage");
+            if (reservation.EndTime <= reservation.StartTime)
+            {
+                return Json(new { sucess = false, message = "Bitiş zamanı başlangıçtan önce olamaz" });
+            }
             if (ModelState.IsValid)
             {
                 var conflict = _context.Reservations.Any(r => r.MeetingRoomId == reservation.MeetingRoomId &&

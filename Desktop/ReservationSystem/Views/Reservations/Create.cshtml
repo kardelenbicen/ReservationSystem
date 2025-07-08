@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
-                <input asp-for="EventName" class="form-control" />
+                <input asp-for="EventName" class="form-control" id="eventName" />
                 <span asp-validation-for="EventName" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Description" class="form-label">Açıklama</label>
-                <textarea asp-for="Description" class="form-control"></textarea>
+                <textarea asp-for="Description" class="form-control" id="description"></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="mb-3">

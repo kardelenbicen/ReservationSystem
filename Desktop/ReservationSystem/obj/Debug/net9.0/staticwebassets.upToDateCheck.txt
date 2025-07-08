@@ -1,7 +1,6 @@
-wwwroot\css\darkmode.css
+wwwroot\css\test.css
 wwwroot\favicon.ico
-wwwroot\images\photo.jpg
-wwwroot\js\site.js
+wwwroot\css\darkmode.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -62,10 +61,11 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\test.css
-C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\css\darkmode.css
+wwwroot\images\photo.jpg
+wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\favicon.ico
-C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\js\site.js
+C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\css\darkmode.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -124,5 +124,5 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.map
-C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\css\test.css
