@@ -81,6 +81,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Approve(int? id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             return View(reservation);
         }
         [HttpPost]
@@ -88,6 +90,8 @@ namespace ReservationSystem.Controllers
         public IActionResult ApproveConfirmed(int id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             reservation.Status = "Approved";
             _context.SaveChanges();
             return RedirectToAction("Pending");
@@ -96,6 +100,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Reject(int? id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             return View(reservation);
         }
         [HttpPost]
@@ -103,6 +109,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Reject(int id, string rejectMessage)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             reservation.Status = "Rejected";
             reservation.RejectMessage = rejectMessage;
             _context.SaveChanges();

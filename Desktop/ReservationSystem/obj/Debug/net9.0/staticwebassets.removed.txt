@@ -1,1 +1,1 @@
-C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\css\deneme.txt
+C:\Users\kardelenbicen\Desktop\ReservationSystem\wwwroot\css\darkmode.css

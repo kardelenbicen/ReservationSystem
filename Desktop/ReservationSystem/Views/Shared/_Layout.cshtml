@@ -58,13 +58,13 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="MeetingRooms" asp-action="Index">Toplantı Odaları</a>
                         </li>
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User?.Identity != null && User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Reservations" asp-action="My">Rezervasyonlarım</a>
                             </li>
                         }
-                        @if (User.IsInRole("Admin"))
+                        @if (User?.IsInRole("Admin") == true)
                         {
                                <li class="nav-item">
                                     <a class="nav-link text-danger" asp-controller="Reservations" asp-action="Pending">Bekleyen Rezervasyonlar</a>
