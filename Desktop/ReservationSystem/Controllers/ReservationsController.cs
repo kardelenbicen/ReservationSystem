@@ -18,22 +18,7 @@ namespace ReservationSystem.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public IActionResult Index(int? meetingRoomId, int? clearFilter)
-        {
-            if (clearFilter.HasValue && clearFilter.Value == 1)
-            {
-                meetingRoomId = null;
-            }
-            var reservations = _context.Reservations.Include(r => r.MeetingRoom).AsQueryable();
-            if (meetingRoomId.HasValue)
-            {
-                reservations = reservations.Where(r => r.MeetingRoomId == meetingRoomId.Value);
-            }
-            var list = reservations.ToList();
-            ViewBag.MeetingRooms = _context.MeetingRooms.ToList();
-            ViewBag.SelectedMeetingRoomId = meetingRoomId;
-            return View(list);
-        }
+
         [Authorize]
         public IActionResult Create(int? roomId)
         {
