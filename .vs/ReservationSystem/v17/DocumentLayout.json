@@ -3,120 +3,120 @@
   "WorkspaceRootPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\MeetingRoomsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\MeetingRoomsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\controllers\\meetingroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:controllers\\meetingroomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\ReservationsController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\My.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Shared\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\MeetingRooms\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Areas\\Identity\\Pages\\Account\\Manage\\_Layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\manage\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\manage\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\wwwroot\\css\\test.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:wwwroot\\css\\test.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\wwwroot\\css\\test.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:wwwroot\\css\\test.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\_ViewStart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\_ViewStart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\pending.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Approve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Reservations\\Approve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\approve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\approve.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\MeetingRooms\\Edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\MeetingRooms\\Details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\MeetingRooms\\Delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\MeetingRooms\\Create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Home\\Privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Home\\Privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Migrations\\ApplicationDbContextModelSnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\ApplicationDbContextModelSnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:migrations\\applicationdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Areas\\Identity\\Pages\\Account\\Register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\Reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\MeetingRoom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\meetingroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\meetingroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\ErrorViewModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\ErrorViewModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\DbInitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\DbInitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\dbinitializer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -147,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Index.cshtml",
@@ -159,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Calendar.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Calendar.cshtml",
@@ -167,12 +167,11 @@
               "RelativeToolTip": "Views\\Reservations\\Calendar.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-02T08:42:54.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-02T08:42:54.861Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ReservationsController.cs",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
@@ -180,8 +179,7 @@
               "RelativeToolTip": "Controllers\\ReservationsController.cs",
               "ViewState": "AgIAAEAAAAAAAAAAAAAkwJsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-04T07:36:42.913Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-04T07:36:42.913Z"
             },
             {
               "$type": "Document",

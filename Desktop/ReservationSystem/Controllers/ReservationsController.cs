@@ -141,14 +141,15 @@ namespace ReservationSystem.Controllers
         public IActionResult CalendarData()
         {
             var events = _context.Reservations
-                .Where(r => r.Status != "İptal Edildi")               
+                .Include(r => r.MeetingRoom)
+                .Where(r => r.Status != "İptal Edildi")
                 .Select(r => new {
-                title = r.EventName,
-                start = r.StartTime,
-                end = r.EndTime,
-                description = r.Description,
-                isfull = true
-            }).ToList();
+                    title = r.MeetingRoom != null ? r.MeetingRoom.Name : "Oda yok",
+                    start = r.StartTime,
+                    end = r.EndTime,
+                    resourceId = r.MeetingRoomId.ToString(),
+                    isfull = true
+                }).ToList();
             return Json(events);
         }
         [Authorize]
