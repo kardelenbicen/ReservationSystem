@@ -118,3 +118,22 @@ body {
                 color: #555;
             }
 }
+.fc-event, .fc-v-event {
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    padding: 4px 8px !important;
+    background: #1976d2 !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+}
+.fc-event:hover {
+    filter: brightness(0.95) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+.custom-tooltip {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    min-width: 220px;
+    font-size: 1rem;
+    pointer-events: none;
+}

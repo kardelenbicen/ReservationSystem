@@ -138,19 +138,27 @@ namespace ReservationSystem.Controllers
         {
             return View();
         }
-        public IActionResult CalendarData()
+        public JsonResult CalendarData()
         {
-            var events = _context.Reservations
+            var reservations = _context.Reservations
                 .Include(r => r.MeetingRoom)
-                .Where(r => r.Status != "İptal Edildi")
-                .Select(r => new {
-                    title = r.MeetingRoom != null ? r.MeetingRoom.Name : "Oda yok",
-                    start = r.StartTime,
-                    end = r.EndTime,
-                    resourceId = r.MeetingRoomId.ToString(),
-                    isfull = true
+                .ToList();
+            var grouped = reservations
+                .GroupBy(r => new { r.StartTime, r.EndTime, r.MeetingRoomId })
+                .Select(g => new
+                {
+                    start = g.Key.StartTime,
+                    end = g.Key.EndTime,
+                    title = g.Count() > 1 ? $"{g.Count()} rezervasyon (DOLU)" : g.First().MeetingRoom.Name,
+                    backgroundColor = g.Count() > 1 ? "#e53935" : "#1976d2",
+                    textColor = "#fff",
+                    allReservations = g.Select(r => new {
+                        salon = r.MeetingRoom.Name,
+                        saat = $"{r.StartTime:HH:mm} - {r.EndTime:HH:mm}",
+                        aciklama = r.Description
+                    }).ToList()
                 }).ToList();
-            return Json(events);
+            return Json(grouped);
         }
         [Authorize]
         [HttpPost]
