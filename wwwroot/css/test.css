@@ -72,3 +72,51 @@ body {
     width: 100%;
     text-align: center;
 }
+
+.fc {
+    background: #fff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+    padding: 24px !important;
+}
+.fc-toolbar-title {
+    font-size: 2.2rem !important;
+    color: #22223b !important;
+    font-weight: 700 !important;
+}
+.fc-button {
+    background: #3a86ff !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    border: none !important;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+}
+.fc-button:hover {
+    background: #26408b !important;
+}
+.fc-event, .fc-v-event {
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+    padding: 4px 8px !important;
+    background: #1976d2 !important;
+    color: #fff !important;
+    font-size: 1rem !important;
+}
+.fc-timegrid-event, .fc-timegrid-event .fc-event-main, .fc-v-event, .fc-event, .fc-event-main {
+    background: linear-gradient(90deg, #e53935 0%, #ff1744 100%) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-size: 1rem !important;
+    padding: 6px 10px !important;
+    box-shadow: 0 2px 8px rgba(229,57,53,0.10) !important;
+}
+.fc-daygrid-day-number {
+    color: #3a86ff !important;
+    font-weight: 600 !important;
+}
+body, .fc {
+    font-family: 'Inter', sans-serif !important;
+}

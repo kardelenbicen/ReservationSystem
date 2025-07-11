@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreGeneratedDocument;
+using System.Collections.Generic;
 
 namespace ReservationSystem.Controllers
 {
@@ -142,23 +143,81 @@ namespace ReservationSystem.Controllers
         {
             var reservations = _context.Reservations
                 .Include(r => r.MeetingRoom)
+                .Include(r => r.User)
+                .Where(r => r.EndTime > r.StartTime)
                 .ToList();
-            var grouped = reservations
-                .GroupBy(r => new { r.StartTime, r.EndTime, r.MeetingRoomId })
-                .Select(g => new
+
+            var intervals = reservations
+                .Select(r => new
                 {
-                    start = g.Key.StartTime,
-                    end = g.Key.EndTime,
-                    title = g.Count() > 1 ? $"{g.Count()} rezervasyon (DOLU)" : g.First().MeetingRoom.Name,
-                    backgroundColor = g.Count() > 1 ? "#e53935" : "#1976d2",
-                    textColor = "#fff",
-                    allReservations = g.Select(r => new {
-                        salon = r.MeetingRoom.Name,
-                        saat = $"{r.StartTime:HH:mm} - {r.EndTime:HH:mm}",
-                        aciklama = r.Description
+                    Reservation = r,
+                    Start = r.StartTime,
+                    End = r.EndTime
+                })
+                .OrderBy(i => i.Start)
+                .ToList();
+
+            var merged = new List<List<Reservation>>();
+
+            foreach (var interval in intervals)
+            {
+                bool found = false;
+                foreach (var group in merged)
+                {
+                    if (group.Any(r => r.EndTime > interval.Start && r.StartTime < interval.End))
+                    {
+                        group.Add(interval.Reservation);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    merged.Add(new List<Reservation> { interval.Reservation });
+                }
+            }
+
+            bool mergedAny;
+            do
+            {
+                mergedAny = false;
+                for (int i = 0; i < merged.Count; i++)
+                {
+                    for (int j = i + 1; j < merged.Count; j++)
+                    {
+                        if (merged[i].Any(r1 => merged[j].Any(r2 => r1.EndTime > r2.StartTime && r1.StartTime < r2.EndTime)))
+                        {
+                            merged[i].AddRange(merged[j]);
+                            merged.RemoveAt(j);
+                            mergedAny = true;
+                            break;
+                        }
+                    }
+                    if (mergedAny) break;
+                }
+            } while (mergedAny);
+
+            var result = merged.Select(g => new
+            {
+                start = g.Min(x => x.StartTime),
+                end = g.Max(x => x.EndTime),
+                title = "",
+                backgroundColor = "#e53935",
+                borderColor = "#e53935",
+                textColor = "#fff",
+                extendedProps = new
+                {
+                    meetings = g.Select(x => new
+                    {
+                        title = x.MeetingRoom.Name,
+                        start = x.StartTime,
+                        end = x.EndTime,
+                        user = x.User != null ? x.User.UserName : null
                     }).ToList()
-                }).ToList();
-            return Json(grouped);
+                }
+            }).ToList();
+
+            return Json(result);
         }
         [Authorize]
         [HttpPost]
