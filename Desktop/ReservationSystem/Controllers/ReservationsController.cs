@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreGeneratedDocument;
 using System.Collections.Generic;
+using System;
 
 namespace ReservationSystem.Controllers
 {
@@ -56,6 +57,10 @@ namespace ReservationSystem.Controllers
             if (reservation.EndTime <= reservation.StartTime)
             {
                 return Json(new { sucess = false, message = "Bitiş zamanı başlangıçtan önce olamaz" });
+            }
+            if (reservation.StartTime < DateTime.Now || reservation.EndTime < DateTime.Now)
+            {
+                return Json(new { success = false, message = "Geçmiş bir tarihe rezervasyon yapılamaz." });
             }
             if (ModelState.IsValid)
             {

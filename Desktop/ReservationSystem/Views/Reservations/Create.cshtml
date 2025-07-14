@@ -3,9 +3,6 @@
 @{
     ViewData["Title"] = "Rezervasyon Yap";
 }
-<h1>Rezervasyon Yap</h1>
-
-<h4>Reservation</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -49,12 +46,14 @@
     flatpickr("#StartTime", {
         enableTime: true,
         dateFormat: "Y-m-d H:i",
-        time_24hr: true
+        time_24hr: true,
+        minDate: "today"
     });
     flatpickr("#EndTime", {
         enableTime: true,
         dateFormat: "Y-m-d H:i",
-        time_24hr: true
+        time_24hr: true,
+        minDate: "today"
     });
 
     document.getElementById('reservationForm').addEventListener('submit', function(e) {
@@ -78,7 +77,6 @@
         });
     });
 </script>
-
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

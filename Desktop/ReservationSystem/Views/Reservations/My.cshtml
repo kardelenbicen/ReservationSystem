@@ -53,10 +53,17 @@
                             <td data-label="İşlem">
                                 @if (item.Status != "İptal Edildi" && item.Status != "Rejected")
                                 {
-                                    <form asp-action="Cancel" asp-route-id="@item.Id" method="post" style="display:inline;"
-                                          onsubmit="return confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?');">
-                                        <button type="submit" class="btn btn-danger btn-sm">İptal Et</button>
-                                    </form>
+                                    if (item.EndTime < DateTime.Now)
+                                    {
+                                        <span class="text-success">Gerçekleşti</span>
+                                    }
+                                    else
+                                    {
+                                        <form asp-action="Cancel" asp-route-id="@item.Id" method="post" style="display:inline;"
+                                              onsubmit="return confirm('Rezervasyonu iptal etmek istediğinize emin misiniz?');">
+                                            <button type="submit" class="btn btn-danger btn-sm">İptal Et</button>
+                                        </form>
+                                    }
                                 }
                                 else if (item.Status == "İptal Edildi")
                                 {
