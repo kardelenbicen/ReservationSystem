@@ -9,8 +9,18 @@
         <form asp-action="Create" id="reservationForm">
             <div class="mb-3">
                 <label for="MeetingRoomId" class="form-label">Oda Seç</label>
-                <select asp-for="MeetingRoomId" class="form-control" asp-items="@(new SelectList(ViewBag.Rooms, "Id", "Name"))">
+                @{
+                    var rooms = ViewBag.Rooms as IEnumerable<ReservationSystem.Models.MeetingRoom>;
+                }
+                <select asp-for="MeetingRoomId" class="form-control">
                     <option value="">Oda Seçiniz</option>
+                    @if (rooms != null)
+                    {
+                        foreach (var room in rooms)
+                        {
+                            <option value="@room.Id">@room.Name</option>
+                        }
+                    }
                 </select>
                 <span asp-validation-for="MeetingRoomId" class="text-danger"></span>
             </div>
