@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\ReservationSystem.csproj": {}
+    "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\ReservationSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\ReservationSystem.csproj": {
+    "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\ReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\ReservationSystem.csproj",
+        "projectUniqueName": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\ReservationSystem.csproj",
         "projectName": "ReservationSystem",
-        "projectPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\ReservationSystem.csproj",
+        "projectPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\ReservationSystem.csproj",
         "packagesPath": "C:\\Users\\kardelenbicen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\obj\\",
+        "outputPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

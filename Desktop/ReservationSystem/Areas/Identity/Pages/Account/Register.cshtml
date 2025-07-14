@@ -1,13 +1,13 @@
 ﻿@page
 @model RegisterModel
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Kayıt ol";
 }
 <div class="login-register-bg">
     <div class="login-register-form">
         <h1>@ViewData["Title"]</h1>
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" novalidate>
-            <h2>Create a new account.</h2>
+            <h2>Yeni hesap oluştur</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
@@ -17,15 +17,10 @@
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" id="password" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
+                <label asp-for="Input.Password">Şifre</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <div class="form-floating mb-3">
-                <input asp-for="Input.ConfirmPassword" class="form-control" id="confirmPassword" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Kayıt ol</button>
         </form>
     </div>
 </div>

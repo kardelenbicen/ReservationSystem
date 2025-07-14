@@ -1,14 +1,13 @@
 @model ReservationSystem.Models.MeetingRoom
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Salonu sil";
 }
 
 <h1>Delete</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Silmek istediðine emin misin?</h3>
 <div>
-    <h4>MeetingRoom</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -43,9 +42,9 @@
         </dd>
     </dl>
     
-    <form asp-action="Delete">
+    <form asp-action="Sil">
         <input type="hidden" asp-for="Id" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <a asp-action="Index">Listeye Dön</a>
     </form>
 </div>

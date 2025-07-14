@@ -1,62 +1,98 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\manage\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\meetingrooms\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\meetingrooms\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\models\\meetingroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\meetingrooms\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\models\\meetingroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\meetingroom.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\meetingrooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\calendar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\resendemailconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\resendemailconfirmation.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\login.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:controllers\\reservationscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\meetingrooms\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:models\\reservation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,7 +102,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,167 +110,277 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReservationsController.cs",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
-              "RelativeToolTip": "Controllers\\ReservationsController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwCcAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
+              "ViewState": "AgIAAFIAAAAAAAAAAADwv0kAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T12:49:25.152Z",
+              "WhenOpened": "2025-07-14T14:34:10.356Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml",
-              "RelativeDocumentMoniker": "Views\\Reservations\\Create.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml",
-              "RelativeToolTip": "Views\\Reservations\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T10:51:32.454Z",
+              "WhenOpened": "2025-07-14T14:33:15.163Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\MeetingRooms\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Edit.cshtml",
+              "RelativeToolTip": "Views\\MeetingRooms\\Edit.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T14:28:45.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\MeetingRooms\\Create.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Create.cshtml",
+              "RelativeToolTip": "Views\\MeetingRooms\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T14:20:08.083Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ResendEmailConfirmation.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T14:03:30.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T14:02:29.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Login.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwCAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T13:59:40.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T13:58:11.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T13:57:09.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ReservationsController.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
+              "RelativeToolTip": "Controllers\\ReservationsController.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAYwCcAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-14T12:49:25.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Reservations\\Create.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml",
+              "RelativeToolTip": "Views\\Reservations\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAF0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-14T10:51:32.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "_LoginPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T09:00:23.426Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 20,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Index.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Index.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Index.cshtml",
               "RelativeToolTip": "Views\\MeetingRooms\\Index.cshtml",
               "ViewState": "AgIAAG8AAAAAAAAAAAAAAHYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T08:58:11.356Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:58:11.356Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 3,
               "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Details.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
               "RelativeToolTip": "Views\\MeetingRooms\\Details.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T08:57:38.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Delete.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Delete.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml",
               "RelativeToolTip": "Views\\MeetingRooms\\Delete.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAkwDIAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T08:57:05.983Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 21,
               "Title": "Reservation.cs",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\Reservation.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Models\\Reservation.cs",
               "RelativeDocumentMoniker": "Models\\Reservation.cs",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\Reservation.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Models\\Reservation.cs",
               "RelativeToolTip": "Models\\Reservation.cs",
               "ViewState": "AgIAABkAAAAAAAAAAAAkwBsAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T08:51:40.614Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:51:40.614Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 5,
               "Title": "MeetingRoom.cs",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs",
               "RelativeDocumentMoniker": "Models\\MeetingRoom.cs",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs",
               "RelativeToolTip": "Models\\MeetingRoom.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-14T08:50:37.376Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "Calendar.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Calendar.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
               "RelativeToolTip": "Views\\Reservations\\Calendar.cshtml",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAABwAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T09:01:56.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 18,
               "Title": "My.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\My.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
               "RelativeToolTip": "Views\\Reservations\\My.cshtml",
               "ViewState": "AgIAADEAAAAAAAAAAAAowDkAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T10:55:07.416Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T10:55:07.416Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 22,
               "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T08:49:18.899Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:49:18.899Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 19,
               "Title": "Logout.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Logout.cshtml.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBgAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T08:46:25.572Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:46:25.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 9,
               "Title": "_Layout.cshtml.css",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
@@ -243,13 +389,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 8,
               "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAiwGcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-14T08:43:44.147Z",
               "EditorCaption": ""
