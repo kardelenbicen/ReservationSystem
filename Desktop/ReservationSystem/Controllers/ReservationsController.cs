@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using AspNetCoreGeneratedDocument;
+using System.Collections.Generic;
 
 namespace ReservationSystem.Controllers
 {
@@ -18,7 +19,22 @@ namespace ReservationSystem.Controllers
             _context = context;
             _userManager = userManager;
         }
-
+        public IActionResult Index(int? meetingRoomId, int? clearFilter)
+        {
+            if (clearFilter.HasValue && clearFilter.Value == 1)
+            {
+                meetingRoomId = null;
+            }
+            var reservations = _context.Reservations.Include(r => r.MeetingRoom).AsQueryable();
+            if (meetingRoomId.HasValue)
+            {
+                reservations = reservations.Where(r => r.MeetingRoomId == meetingRoomId.Value);
+            }
+            var list = reservations.ToList();
+            ViewBag.MeetingRooms = _context.MeetingRooms.ToList();
+            ViewBag.SelectedMeetingRoomId = meetingRoomId;
+            return View(list);
+        }
         [Authorize]
         public IActionResult Create(int? roomId)
         {
@@ -66,6 +82,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Approve(int? id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             return View(reservation);
         }
         [HttpPost]
@@ -73,6 +91,8 @@ namespace ReservationSystem.Controllers
         public IActionResult ApproveConfirmed(int id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             reservation.Status = "Approved";
             _context.SaveChanges();
             return RedirectToAction("Pending");
@@ -81,6 +101,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Reject(int? id)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             return View(reservation);
         }
         [HttpPost]
@@ -88,6 +110,8 @@ namespace ReservationSystem.Controllers
         public IActionResult Reject(int id, string rejectMessage)
         {
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            if (reservation == null)
+                return NotFound();
             reservation.Status = "Rejected";
             reservation.RejectMessage = rejectMessage;
             _context.SaveChanges();
@@ -115,18 +139,85 @@ namespace ReservationSystem.Controllers
         {
             return View();
         }
-        public IActionResult CalendarData()
+        public JsonResult CalendarData()
         {
-            var events = _context.Reservations
-                .Where(r => r.Status != "İptal Edildi")               
-                .Select(r => new {
-                title = r.EventName,
-                start = r.StartTime,
-                end = r.EndTime,
-                description = r.Description,
-                isfull = true
+            var reservations = _context.Reservations
+                .Include(r => r.MeetingRoom)
+                .Include(r => r.User)
+                .Where(r => r.EndTime > r.StartTime)
+                .ToList();
+
+            var intervals = reservations
+                .Select(r => new
+                {
+                    Reservation = r,
+                    Start = r.StartTime,
+                    End = r.EndTime
+                })
+                .OrderBy(i => i.Start)
+                .ToList();
+
+            var merged = new List<List<Reservation>>();
+
+            foreach (var interval in intervals)
+            {
+                bool found = false;
+                foreach (var group in merged)
+                {
+                    if (group.Any(r => r.EndTime > interval.Start && r.StartTime < interval.End))
+                    {
+                        group.Add(interval.Reservation);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    merged.Add(new List<Reservation> { interval.Reservation });
+                }
+            }
+
+            bool mergedAny;
+            do
+            {
+                mergedAny = false;
+                for (int i = 0; i < merged.Count; i++)
+                {
+                    for (int j = i + 1; j < merged.Count; j++)
+                    {
+                        if (merged[i].Any(r1 => merged[j].Any(r2 => r1.EndTime > r2.StartTime && r1.StartTime < r2.EndTime)))
+                        {
+                            merged[i].AddRange(merged[j]);
+                            merged.RemoveAt(j);
+                            mergedAny = true;
+                            break;
+                        }
+                    }
+                    if (mergedAny) break;
+                }
+            } while (mergedAny);
+
+            var result = merged.Select(g => new
+            {
+                start = g.Min(x => x.StartTime),
+                end = g.Max(x => x.EndTime),
+                title = "",
+                backgroundColor = "#e53935",
+                borderColor = "#e53935",
+                textColor = "#fff",
+                extendedProps = new
+                {
+                    meetings = g.Select(x => new
+                    {
+                        title = x.MeetingRoom.Name,
+                        start = x.StartTime,
+                        end = x.EndTime,
+                        user = x.User != null ? x.User.UserName : null
+                    }).ToList()
+                }
             }).ToList();
-            return Json(events);
+
+            return Json(result);
         }
         [Authorize]
         [HttpPost]

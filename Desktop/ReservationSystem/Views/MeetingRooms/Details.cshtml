@@ -6,7 +6,7 @@
     ViewData["Title"] = "Oda Detayı";
 }
 
-<h1>@Model.Name</h1>
+<h1>@(Model?.Name ?? "-")</h1>
 
 <div>
     <h4>MeetingRoom</h4>
@@ -16,7 +16,7 @@
             @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
+            @(Model?.Name ?? "-")
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Capacity)
@@ -28,32 +28,28 @@
             @Html.DisplayNameFor(model => model.Location)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Location)
+            @(Model?.Location ?? "-")
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Devices)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Devices)
+            @(Model?.Devices ?? "-")
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
+            @(Model?.Description ?? "-")
         </dd>
     </dl>
 </div>
 
 <ul class="list-group mb-3">
-    <li class="list-group-item"><b>Kapasite:</b> @Model.Capacity</li>
-    <li class="list-group-item"><b>Lokasyon:</b> @Model.Location</li>
-    <li class="list-group-item"><b>Cihazlar:</b> @Model.Devices</li>
-    <li class="list-group-item"><b>Açıklama:</b> @Model.Description</li>
+    <li class="list-group-item"><b>Kapasite:</b> @(Model?.Capacity.ToString() ?? "-")</li>
+    <li class="list-group-item"><b>Lokasyon:</b> @(Model?.Location ?? "-")</li>
+    <li class="list-group-item"><b>Cihazlar:</b> @(Model?.Devices ?? "-")</li>
+    <li class="list-group-item"><b>Açıklama:</b> @(Model?.Description ?? "-")</li>
 </ul>
-
-@if (SignInManager.IsSignedIn(User)) {
-    <a asp-controller="Reservations" asp-action="Create" asp-route-roomId="@Model.Id" class="btn btn-primary">Rezervasyon Yap</a>
-}
 
 <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>

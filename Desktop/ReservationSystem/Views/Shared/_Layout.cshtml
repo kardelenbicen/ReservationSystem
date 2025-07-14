@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/test.css" />
     <link rel="stylesheet" href="~/ReservationSystem.styles.css" asp-append-version="true" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="~/css/darkmode.css" />
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <style>
         .navbar-nav .nav-link {
             transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
@@ -58,13 +61,13 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="MeetingRooms" asp-action="Index">Toplantı Odaları</a>
                         </li>
-                        @if (User.Identity.IsAuthenticated)
+                        @if (User?.Identity != null && User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Reservations" asp-action="My">Rezervasyonlarım</a>
                             </li>
                         }
-                        @if (User.IsInRole("Admin"))
+                        @if (User?.IsInRole("Admin") == true)
                         {
                                <li class="nav-item">
                                     <a class="nav-link text-danger" asp-controller="Reservations" asp-action="Pending">Bekleyen Rezervasyonlar</a>

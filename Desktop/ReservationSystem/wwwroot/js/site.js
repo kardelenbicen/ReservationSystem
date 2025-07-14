@@ -1,5 +1,4 @@
-﻿
-function showToast(message, type) {
+﻿function showToast(message, type) {
     var toast = document.getElementById('toast');
     var msg = document.getElementById('toast-message');
     var close = document.getElementById('toast-close');
