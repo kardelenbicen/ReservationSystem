@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @{
     ViewData["Title"] = "Toplantı Odası Takvimi";
 }
@@ -51,4 +52,59 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     calendar.render();
 });
+=======
+@{
+    ViewData["Title"] = "Toplantı Odası Takvimi";
+}
+<link rel="stylesheet" href="~/css/test.css" />
+<h1>Toplantı Odası Takvimi</h1>
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+<div id="calendar"></div>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<div id="meetingModal" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:#fff;padding:24px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.15);z-index:9999;">
+  <div id="modalTitle" style="font-weight:bold;font-size:1.2rem;margin-bottom:12px;"></div>
+  <div id="modalContent"></div>
+  <button onclick="document.getElementById('meetingModal').style.display='none'" style="margin-top:16px;">Kapat</button>
+</div>
+<script>
+function showModal(title, content) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalContent').innerHTML = content;
+  document.getElementById('meetingModal').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        locale: 'tr',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: '/Reservations/CalendarData',
+        height: 700,
+        eventMaxStack: 1,
+        eventOverlap: true,
+        slotEventOverlap: true,
+        eventContent: function(arg) {
+            return { domNodes: [] };
+        },
+        eventClick: function(info) {
+            var meetings = info.event.extendedProps.meetings || [];
+            var html = "";
+            meetings.forEach(function(mtg) {
+                html += "<div style='margin-bottom:10px;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#3a86ff 0%,#8338ec 100%);color:#fff;font-weight:600;'>" + mtg.title + "</div>";
+                if (mtg.start && mtg.end) {
+                    html += "<div style='color:#222;font-size:0.95em;margin-bottom:8px;'><b>Başlangıç:</b> " + new Date(mtg.start).toLocaleString('tr-TR') + "<br><b>Bitiş:</b> " + new Date(mtg.end).toLocaleString('tr-TR') + "</div>";
+                }
+            });
+            if (html === "") html = "Bu saat aralığında toplantı yok.";
+            showModal("Toplantı Detayları", html);
+        }
+    });
+    calendar.render();
+});
+>>>>>>> 190b34c23ca54e16e21e59afed68a08214d58036
 </script>

@@ -1,31 +1,53 @@
 @{
     ViewData["Title"] = "Toplantı Odası Takvimi";
 }
+<link rel="stylesheet" href="~/css/test.css" />
 <h1>Toplantı Odası Takvimi</h1>
 <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
 <div id="calendar"></div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+<div id="meetingModal" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:#fff;padding:24px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.15);z-index:9999;">
+  <div id="modalTitle" style="font-weight:bold;font-size:1.2rem;margin-bottom:12px;"></div>
+  <div id="modalContent"></div>
+  <button onclick="document.getElementById('meetingModal').style.display='none'" style="margin-top:16px;">Kapat</button>
+</div>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'timeGridWeek',
-            locale: 'tr',
-            headerToolbar: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'dayGridMonth,timeGridWeek,timeGridDay'
-            },
-            events: '/Reservations/CalendarData',
-            eventDidMount: function(info) {
-               
-                if (info.event.extendedProps.isFull || info.event.extendedProps.isfull) {
-                    info.el.style.backgroundColor = '#e53935';
-                    info.el.style.color = '#fff';
-                } 
-            }, 
-            height: 700
-        });
-        calendar.render();
+function showModal(title, content) {
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalContent').innerHTML = content;
+  document.getElementById('meetingModal').style.display = 'block';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        locale: 'tr',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        },
+        events: '/Reservations/CalendarData',
+        height: 700,
+        eventOverlap: false,
+        slotEventOverlap: false,
+        eventMaxStack: 2,
+        eventContent: function(arg) {
+            return { domNodes: [] };
+        },
+        eventClick: function(info) {
+            var title = info.event.title || "Toplantı Detayları";
+            var start = info.event.start;
+            var end = info.event.end;
+            var html = "<b>Başlangıç:</b> " + start.toLocaleString('tr-TR') + "<br>";
+            html += "<b>Bitiş:</b> " + end.toLocaleString('tr-TR') + "<br>";
+            if (info.event.extendedProps && info.event.extendedProps.description) {
+                html += "<b>Açıklama:</b> " + info.event.extendedProps.description + "<br>";
+            }
+            showModal(title, html);
+        }
     });
+    calendar.render();
+});
 </script>
