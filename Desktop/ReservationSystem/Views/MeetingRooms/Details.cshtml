@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @model ReservationSystem.Models.MeetingRoom
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
@@ -54,60 +53,4 @@
 </ul>
 
 <a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
-=======
-@model ReservationSystem.Models.MeetingRoom
-@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
 
-@{
-    ViewData["Title"] = "Oda Detayı";
-}
-
-<h1>@(Model?.Name ?? "-")</h1>
-
-<div>
-    <h4>MeetingRoom</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Name ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capacity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Capacity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Location ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Devices)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Devices ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Description ?? "-")
-        </dd>
-    </dl>
-</div>
-
-<ul class="list-group mb-3">
-    <li class="list-group-item"><b>Kapasite:</b> @(Model?.Capacity.ToString() ?? "-")</li>
-    <li class="list-group-item"><b>Lokasyon:</b> @(Model?.Location ?? "-")</li>
-    <li class="list-group-item"><b>Cihazlar:</b> @(Model?.Devices ?? "-")</li>
-    <li class="list-group-item"><b>Açıklama:</b> @(Model?.Description ?? "-")</li>
-</ul>
-
-<a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
->>>>>>> 190b34c23ca54e16e21e59afed68a08214d58036

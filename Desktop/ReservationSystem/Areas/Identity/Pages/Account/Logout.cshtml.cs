@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-#nullable disable
-
 using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -32,50 +29,8 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
             }
             else
             {
-
                 return Redirect("/MeetingRooms");
             }
         }
     }
 }
-=======
-#nullable disable
-
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
-
-namespace ReservationSystem.Areas.Identity.Pages.Account
-{
-    public class LogoutModel : PageModel
-    {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly ILogger<LogoutModel> _logger;
-
-        public LogoutModel(SignInManager<IdentityUser> signInManager, ILogger<LogoutModel> logger)
-        {
-            _signInManager = signInManager;
-            _logger = logger;
-        }
-
-        public async Task<IActionResult> OnPost(string returnUrl = null)
-        {
-            await _signInManager.SignOutAsync();
-            _logger.LogInformation("User logged out.");
-            if (returnUrl != null)
-            {
-                return LocalRedirect(returnUrl);
-            }
-            else
-            {
-
-                return Redirect("/MeetingRooms");
-            }
-        }
-    }
-}
->>>>>>> 190b34c23ca54e16e21e59afed68a08214d58036
