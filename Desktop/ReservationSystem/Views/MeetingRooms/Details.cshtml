@@ -6,50 +6,55 @@
     ViewData["Title"] = "Oda Detayı";
 }
 
-<h1>@(Model?.Name ?? "-")</h1>
-
+<h1>@Model.Name</h1>
+<hr />
+<table>
+    <tr>
+        <th>İsim</th>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <th>Kapasite</th>
+        <td>@Model.Capacity</td>
+    </tr>
+    <tr>
+        <th>Konum</th>
+        <td>@Model.Location</td>
+    </tr>
+    <tr>
+        <th>Cihazlar</th>
+        <td>@Model.Devices</td>
+    </tr>
+    <tr>
+        <th>Açıklama</th>
+        <td>@Model.Description</td>
+    </tr>
+</table>
+<h3>Salon Resimleri</h3>
 <div>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Name ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capacity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Capacity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Location ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Devices)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Devices ?? "-")
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @(Model?.Description ?? "-")
-        </dd>
-    </dl>
+@if (Model.Images != null && Model.Images.Any())
+{
+    foreach (var img in Model.Images)
+    {
+        <img src="@img.ImagePath" style="max-width:200px; margin:10px; cursor:pointer;" onclick="showModal('@img.ImagePath')" />
+    }
+}
+else
+{
+    <span>Henüz resim eklenmedi.</span>
+}
 </div>
-
-<ul class="list-group mb-3">
-    <li class="list-group-item"><b>Kapasite:</b> @(Model?.Capacity.ToString() ?? "-")</li>
-    <li class="list-group-item"><b>Lokasyon:</b> @(Model?.Location ?? "-")</li>
-    <li class="list-group-item"><b>Cihazlar:</b> @(Model?.Devices ?? "-")</li>
-    <li class="list-group-item"><b>Açıklama:</b> @(Model?.Description ?? "-")</li>
-</ul>
-
-<a asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+<div id="imgModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+    <img id="modalImg" src="" style="width:auto; height:auto; max-width:98vw; max-height:98vh; margin:auto; display:block;" />
+</div>
+<script>
+function showModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('imgModal').style.display = 'flex';
+}
+document.getElementById('imgModal').onclick = function() {
+    this.style.display = 'none';
+}
+</script>
+<a href="@Url.Action("Index")" class="btn btn-secondary">Geri Dön</a>
 

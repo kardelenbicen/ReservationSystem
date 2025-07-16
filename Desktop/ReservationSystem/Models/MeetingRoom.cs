@@ -7,7 +7,7 @@ public class MeetingRoom
 {
     public int Id { get; set; }
 
-    [Display(Name = "Ýsim")]
+    [Display(Name = "ï¿½sim")]
     public string? Name { get; set; }
 
     [Display(Name = "Kapasite")]
@@ -19,6 +19,7 @@ public class MeetingRoom
     [Display(Name = "Cihazlar")]
     public string? Devices { get; set; }
 
-    [Display(Name = "Açýklama")]
+    [Display(Name = "Aï¿½ï¿½klama")]
     public string? Description { get; set; }
+    public ICollection<MeetingRoomImage> Images { get; set; }
 }

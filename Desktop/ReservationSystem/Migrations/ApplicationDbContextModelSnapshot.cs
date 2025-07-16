@@ -232,24 +232,42 @@ namespace ReservationSystem.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Devices")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("MeetingRooms");
+                });
+
+            modelBuilder.Entity("ReservationSystem.Models.MeetingRoomImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MeetingRoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MeetingRoomId");
+
+                    b.ToTable("MeetingRoomImages");
                 });
 
             modelBuilder.Entity("ReservationSystem.Models.Reservation", b =>
@@ -261,32 +279,29 @@ namespace ReservationSystem.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EventName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int>("MeetingRoomId")
                         .HasColumnType("int");
 
                     b.Property<string>("RejectMessage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Status")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -349,6 +364,17 @@ namespace ReservationSystem.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("ReservationSystem.Models.MeetingRoomImage", b =>
+                {
+                    b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
+                        .WithMany("Images")
+                        .HasForeignKey("MeetingRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MeetingRoom");
+                });
+
             modelBuilder.Entity("ReservationSystem.Models.Reservation", b =>
                 {
                     b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
@@ -359,13 +385,16 @@ namespace ReservationSystem.Migrations
 
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("MeetingRoom");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ReservationSystem.Models.MeetingRoom", b =>
+                {
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

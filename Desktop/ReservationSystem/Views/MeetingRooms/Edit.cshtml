@@ -1,7 +1,7 @@
-@model ReservationSystem.Models.MeetingRoom
+﻿@model ReservationSystem.Models.MeetingRoom
 
 @{
-    ViewData["Title"] = "Oday� D�zenle";
+    ViewData["Title"] = "Odayı Düzenle";
 }
 <hr />
 <div class="row">
@@ -10,27 +10,27 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label">İsim</label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Capacity" class="control-label"></label>
+                <label asp-for="Capacity" class="control-label">Kapasite</label>
                 <input asp-for="Capacity" class="form-control" />
                 <span asp-validation-for="Capacity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
+                <label asp-for="Location" class="control-label">Konum</label>
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Devices" class="control-label"></label>
+                <label asp-for="Devices" class="control-label">Cihazlar</label>
                 <input asp-for="Devices" class="form-control" />
                 <span asp-validation-for="Devices" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label">Açıklama</label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
@@ -41,8 +41,44 @@
     </div>
 </div>
 
+<h3>Salon Resimleri</h3>
 <div>
-    <a asp-action="Index">Listeye D�n</a>
+@if (Model.Images != null && Model.Images.Any())
+{
+    foreach (var img in Model.Images)
+    {
+        <img src="@img.ImagePath" style="max-width:200px; margin:10px; cursor:pointer;" onclick="showModal('@img.ImagePath')" />
+        <form asp-action="DeleteImage" method="post" style="display:inline;">
+            <input type="hidden" name="imageId" value="@img.Id" />
+            <input type="hidden" name="roomId" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+        </form>
+    }
+}
+else
+{
+    <span>Henüz resim eklenmedi.</span>
+}
+</div>
+<form asp-action="UploadImage" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/*" required />
+    <button type="submit" class="btn btn-primary">Resim Yükle</button>
+</form>
+<div id="imgModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+    <img id="modalImg" src="" style="width:auto; height:auto; max-width:98vw; max-height:98vh; margin:auto; display:block;" />
+</div>
+<script>
+function showModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('imgModal').style.display = 'flex';
+}
+document.getElementById('imgModal').onclick = function() {
+    this.style.display = 'none';
+}
+</script>
+
+<div>
+    <a asp-action="Index">Listeye Dön</a>
 </div>
 
 @section Scripts {
