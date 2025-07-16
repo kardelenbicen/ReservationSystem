@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\manage\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -75,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:views\\reservations\\my.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|c:\\users\\kardelenbicen\\desktop\\reservationsystem\\desktop\\reservationsystem\\areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{92C4BB14-AFA1-C0C5-2989-EBCD7005F7A1}|ReservationSystem.csproj|solutionrelative:areas\\identity\\pages\\account\\logout.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -102,7 +102,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -110,7 +110,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml.cs",
@@ -123,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
@@ -131,12 +131,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T14:33:15.163Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T14:33:15.163Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Edit.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Edit.cshtml",
@@ -144,12 +143,11 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Edit.cshtml",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T14:28:45.905Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T14:28:45.905Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Create.cshtml",
@@ -157,12 +155,11 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T14:20:08.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T14:20:08.083Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "ResendEmailConfirmation.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
@@ -170,12 +167,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ResendEmailConfirmation.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T14:03:30.394Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T14:03:30.394Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ForgotPassword.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
@@ -183,12 +179,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T14:02:29.847Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T14:02:29.847Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Login.cshtml.cs",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
@@ -196,12 +191,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAxwCAAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T13:59:40.011Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T13:59:40.011Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
@@ -209,12 +203,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T13:58:11.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T13:58:11.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "Register.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "RelativeDocumentMoniker": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
@@ -222,12 +215,11 @@
               "RelativeToolTip": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T13:57:09.314Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T13:57:09.314Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "ReservationsController.cs",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Controllers\\ReservationsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ReservationsController.cs",
@@ -239,7 +231,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Create.cshtml",
@@ -251,7 +243,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "_LoginPartial.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_LoginPartial.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_LoginPartial.cshtml",
@@ -259,8 +251,7 @@
               "RelativeToolTip": "Views\\Shared\\_LoginPartial.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T09:00:23.426Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T09:00:23.426Z"
             },
             {
               "$type": "Document",
@@ -276,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Details.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Details.cshtml",
@@ -284,12 +275,11 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Details.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T08:57:38.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:57:38.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Delete.cshtml",
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Delete.cshtml",
@@ -297,8 +287,7 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Delete.cshtml",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAC8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T08:57:05.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:57:05.983Z"
             },
             {
               "$type": "Document",
@@ -314,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MeetingRoom.cs",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Models\\MeetingRoom.cs",
               "RelativeDocumentMoniker": "Models\\MeetingRoom.cs",
@@ -322,12 +311,11 @@
               "RelativeToolTip": "Models\\MeetingRoom.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T08:50:37.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:50:37.376Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Calendar.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\Calendar.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\Calendar.cshtml",
@@ -335,20 +323,20 @@
               "RelativeToolTip": "Views\\Reservations\\Calendar.cshtml",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T09:01:56.99Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T09:01:56.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 0,
               "Title": "My.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
               "RelativeDocumentMoniker": "Views\\Reservations\\My.cshtml",
               "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Reservations\\My.cshtml",
               "RelativeToolTip": "Views\\Reservations\\My.cshtml",
-              "ViewState": "AgIAADEAAAAAAAAAAAAowDkAAABVAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAYwD8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T10:55:07.416Z"
+              "WhenOpened": "2025-07-14T10:55:07.416Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -376,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "_Layout.cshtml.css",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml.css",
@@ -384,12 +372,11 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-07-14T08:44:09.267Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:44:09.267Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -397,8 +384,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-14T08:43:44.147Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-14T08:43:44.147Z"
             }
           ]
         }

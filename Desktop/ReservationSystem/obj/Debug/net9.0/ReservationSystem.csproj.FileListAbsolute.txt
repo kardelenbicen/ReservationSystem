@@ -811,10 +811,10 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\D
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\Reservat.FBC7E21A.Up2Date
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\ReservationSystem.dll
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\refint\ReservationSystem.dll
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\ReservationSystem.pdb
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\ReservationSystem.genruntimeconfig.cache
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\ref\ReservationSystem.dll
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

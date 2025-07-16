@@ -25,6 +25,7 @@
                     }
                     @foreach (var item in Model)
                     {
+                        var status = (item.Status ?? "").Trim().ToLower();
                         <tr>
                             <td data-label="No">@i</td>
                             <td data-label="Oda">@item.MeetingRoom?.Name</td>
@@ -32,15 +33,15 @@
                             <td data-label="Başlangıç">@item.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
                             <td data-label="Bitiş">@item.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
                             <td data-label="Durum">
-                                @if (item.Status == "Pending")
+                                @if (status == "pending")
                                 {
                                     <span class="badge bg-warning text-dark">Beklemede</span>
                                 }
-                                else if (item.Status == "Approved")
+                                else if (status == "approved")
                                 {
                                     <span class="badge bg-success">Onaylandı</span>
                                 }
-                                else if (item.Status == "İptal Edildi")
+                                else if (status == "iptal edildi")
                                 {
                                     <span class="badge bg-secondary">İptal Edildi</span>
                                 }
@@ -51,7 +52,15 @@
                             </td>
                             <td data-label="Reddetme Mesajı">@item.RejectMessage</td>
                             <td data-label="İşlem">
-                                @if (item.Status != "İptal Edildi" && item.Status != "Rejected")
+                                @if (status == "iptal edildi")
+                                {
+                                    <span class="text-muted">İptal Edildi</span>
+                                }
+                                else if (status != "pending" && status != "approved")
+                                {
+                                    <span class="text-danger">Reddedildi</span>
+                                }
+                                else
                                 {
                                     if (item.EndTime < DateTime.Now)
                                     {
@@ -64,10 +73,6 @@
                                             <button type="submit" class="btn btn-danger btn-sm">İptal Et</button>
                                         </form>
                                     }
-                                }
-                                else if (item.Status == "İptal Edildi")
-                                {
-                                    <span class="text-muted">İptal Edildi</span>
                                 }
                             </td>
                         </tr>
