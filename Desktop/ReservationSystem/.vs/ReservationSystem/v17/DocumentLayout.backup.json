@@ -50,8 +50,7 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T08:37:18.925Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T08:37:18.925Z"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "Views\\MeetingRooms\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-07-16T08:36:57.606Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T08:36:57.606Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "RelativeToolTip": "Models\\ApplicationDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T08:34:31.192Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T08:34:31.192Z"
             },
             {
               "$type": "Document",
@@ -89,8 +86,7 @@
               "RelativeToolTip": "Models\\MeetingRoom.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T08:31:28.557Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T08:31:28.557Z"
             },
             {
               "$type": "Document",
@@ -100,7 +96,7 @@
               "RelativeDocumentMoniker": "Views\\MeetingRooms\\Details.cshtml",
               "ToolTip": "C:\\Users\\kardelenbicen\\Desktop\\ReservationSystem\\Desktop\\ReservationSystem\\Views\\MeetingRooms\\Details.cshtml",
               "RelativeToolTip": "Views\\MeetingRooms\\Details.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAowC8AAAB+AAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwC8AAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-07-16T08:23:25.09Z",
               "EditorCaption": ""
@@ -115,8 +111,7 @@
               "RelativeToolTip": "Controllers\\MeetingRoomsController.cs",
               "ViewState": "AgIAAIwAAAAAAAAAAAAcwB8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-16T08:14:57.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-16T08:14:57.802Z"
             }
           ]
         }
