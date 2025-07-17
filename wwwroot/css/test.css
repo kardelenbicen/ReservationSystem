@@ -7,7 +7,12 @@ html, body {
 }
 
 body {
-    background: #fff !important;
+    background: url('/images/photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
 }
 /* Test iin */
 .navbar-nav .nav-link {

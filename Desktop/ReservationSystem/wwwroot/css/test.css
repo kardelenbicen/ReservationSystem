@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 html, body {
     height: 100%;
     width: 100vw;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-}
-
-body {
-    background: #fff !important;
 }
 
 .navbar-nav .nav-link {
@@ -190,197 +185,11 @@ body, .fc {
         color: #fff !important;
         font-weight: 600 !important;
     }
-=======
-html, body {
-    height: 100%;
-    width: 100vw;
+body {
+    background: url('/images/photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-}
-
-body {
-    background: #fff !important;
-}
-
-.navbar-nav .nav-link {
-    transition: all 0.3s cubic-bezier(0.4,0,0.2,1) !important;
-    position: relative !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    padding-bottom: 5px !important;
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link:focus {
-        transform: scale(1.12) !important;
-        color: #007bff !important;
-        background: none !important;
-        border: none !important;
-        box-shadow: none !important;
-    }
-
-    .navbar-nav .nav-link::after {
-        content: '';
-        position: absolute;
-        width: 0%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: #007bff;
-        transition: width 0.3s cubic-bezier(0.4,0,0.2,1) !important;
-        z-index: 2;
-    }
-
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link:focus::after {
-        width: 100% !important;
-    }
-
-.login-register-bg {
-    min-height: 100vh;
-    background: url('/images/photo.jpg') no-repeat center center fixed;
-    background-size: 120vw 120vh;
-    background-repeat: no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.login-register-form {
-    background: rgba(255,255,255,0.97);
-    padding: 32px 24px;
-    border-radius: 16px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.08);
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.login-register-form .form-group, .login-register-form .form-floating, .login-register-form button, .login-register-form .text-danger, .login-register-form .text-info, .login-register-form .text-success {
-    width: 100%;
-    text-align: center;
-}
-@media (max-width: 768px) {
-    table.responsive-table thead {
-        display: none;
-    }
-
-    table.responsive-table,
-    table.responsive-table tbody,
-    table.responsive-table tr,
-    table.responsive-table td {
-        display: block;
-        width: 100%;
-    }
-
-        table.responsive-table tr {
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            padding: 10px 0;
-        }
-
-        table.responsive-table td {
-            text-align: left;
-            padding-left: 50%;
-            position: relative;
-            min-height: 40px;
-            border: none;
-            border-bottom: 1px solid #eee;
-        }
-
-            table.responsive-table td:last-child {
-                border-bottom: none;
-            }
-
-            table.responsive-table td:before {
-                content: attr(data-label);
-                position: absolute;
-                left: 15px;
-                top: 0;
-                width: 45%;
-                white-space: nowrap;
-                font-weight: bold;
-                color: #555;
-            }
-}
-.fc-event, .fc-v-event {
-    margin-bottom: 8px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-    padding: 4px 8px !important;
-    background: #1976d2 !important;
-    color: #fff !important;
-    font-size: 1rem !important;
-}
-.fc-event:hover {
-    filter: brightness(0.95) !important;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-}
-.custom-tooltip {
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    min-width: 220px;
-    font-size: 1rem;
-    pointer-events: none;
-}
-body, .fc {
     font-family: 'Inter', sans-serif;
 }
-.fc {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-    padding: 24px;
-}
-.fc-toolbar-title {
-    font-size: 2.2rem;
-    color: #22223b;
-    font-weight: 700;
-}
-.fc-button {
-    background: #3a86ff;
-    color: #fff;
-    border-radius: 8px;
-    border: none;
-    font-weight: 600;
-    transition: background 0.2s;
-}
-.fc-button:hover {
-    background: #26408b;
-}
-.fc-event {
-    background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    padding: 6px 10px;
-    box-shadow: 0 2px 8px rgba(58,134,255,0.10);
-}
-.fc-daygrid-day-number {
-    color: #3a86ff;
-    font-weight: 600;
-}
-.fc-timegrid-event, .fc-timegrid-event .fc-event-main, .fc-v-event, .fc-event, .fc-event-main {
-    background: linear-gradient(90deg, #3a86ff 0%, #8338ec 100%) !important;
-    color: #fff !important;
-    border: none !important;
-    border-radius: 8px !important;
-    font-size: 1rem !important;
-    padding: 6px 10px !important;
-    box-shadow: 0 2px 8px rgba(58,134,255,0.10) !important;
-}
-
-    .fc-timegrid-event .fc-event-time, .fc-event-time {
-        color: #fff !important;
-        font-weight: 600 !important;
-    }
->>>>>>> 190b34c23ca54e16e21e59afed68a08214d58036
-   
