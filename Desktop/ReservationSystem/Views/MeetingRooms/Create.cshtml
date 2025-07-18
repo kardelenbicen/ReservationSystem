@@ -21,6 +21,21 @@
                 <span asp-validation-for="Capacity" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label>Oda Türü</label>
+                <div>
+                    <label><input type="checkbox" name="RoomTypes" value="Konferans" /> Konferans</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Düğün" /> Düğün</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Tiyatro" /> Tiyatro</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Toplantı" /> Toplantı</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Seminer" /> Seminer</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Eğitim/Kurs" /> Eğitim/Kurs</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Sergi/Fuar" /> Sergi/Fuar</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Workshop/Atölye" /> Workshop/Atölye</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Konser" /> Konser</label>
+                    <label><input type="checkbox" name="RoomTypes" value="Tören" /> Tören</label>
+                </div>
+            </div>
+            <div class="form-group">
                 <label asp-for="Location" class="control-label"></label>
                 <input asp-for="Location" class="form-control" />
                 <span asp-validation-for="Location" class="text-danger"></span>

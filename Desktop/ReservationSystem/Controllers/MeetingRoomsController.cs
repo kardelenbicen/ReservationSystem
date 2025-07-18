@@ -52,8 +52,9 @@ namespace ReservationSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Create(MeetingRoom meetingRoom)
+        public IActionResult Create(MeetingRoom meetingRoom, string[] RoomTypes)
         {
+            meetingRoom.RoomType = string.Join(",", RoomTypes);
             _context.MeetingRooms.Add(meetingRoom);
             _context.SaveChanges();
             return RedirectToAction("Index");
@@ -75,9 +76,10 @@ namespace ReservationSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(MeetingRoom meetingRoom)
+        public IActionResult Edit(MeetingRoom meetingRoom, string[] RoomTypes)
         {
-            _context.MeetingRooms.Update(meetingRoom);
+            meetingRoom.RoomType = string.Join(",", RoomTypes);
+            _context.Update(meetingRoom);
             _context.SaveChanges();
             return RedirectToAction("Index");
         }

@@ -150,3 +150,174 @@ $(document).ready(function () {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', function () {
+    var roomTypeSelect = document.getElementById('roomType');
+    var roomSelect = document.getElementById('roomSelect');
+    var eventName = document.getElementById('eventName');
+    var description = document.getElementById('description');
+    var startTime = document.getElementById('startTime');
+    var endTime = document.getElementById('endTime');
+
+    function updateRoomOptions() {
+        var selectedType = roomTypeSelect.value;
+        for (var i = 0; i < roomSelect.options.length; i++) {
+            var option = roomSelect.options[i];
+            if (!option.value) continue;
+            if (option.getAttribute('data-roomtype') === selectedType) {
+                option.style.display = '';
+            } else {
+                option.style.display = 'none';
+            }
+        }
+        roomSelect.value = '';
+        disableInputs();
+    }
+
+    function disableInputs() {
+        if (eventName) eventName.disabled = true;
+        if (description) description.disabled = true;
+        if (startTime) startTime.disabled = true;
+        if (endTime) endTime.disabled = true;
+    }
+
+    function enableInputs() {
+        if (eventName) eventName.disabled = false;
+        if (description) description.disabled = false;
+        if (startTime) startTime.disabled = false;
+        if (endTime) endTime.disabled = false;
+    }
+
+    if (roomTypeSelect && roomSelect) {
+        roomTypeSelect.addEventListener('change', function () {
+            updateRoomOptions();
+        });
+
+        roomSelect.addEventListener('change', function () {
+            if (roomTypeSelect.value && roomSelect.value) {
+                enableInputs();
+            } else {
+                disableInputs();
+            }
+        });
+
+        disableInputs();
+    }
+});
+
+$(document).ready(function() {
+    $('#showReservationForm').click(function() {
+        var isAuthenticated = 'True' === 'True';
+        if (!isAuthenticated) {
+            alert('Rezervasyon yapmak için önce giriş yapınız.');
+            return;
+        }
+        if ($('#reservationModal').is(':visible')) return;
+        $.get('/Reservations/Create', function(data) {
+            var formDiv = $(data).find('.row').parent().html();
+            var panelHtml = '<div style="text-align:center;margin-bottom:12px;font-size:1.2rem;font-weight:600;">Rezervasyon Yap</div>' + formDiv;
+            $('#reservationModalBody').html(panelHtml);
+            $('#reservationModalBody').css({'display':'flex','flexDirection':'column','alignItems':'center','justifyContent':'center','width':'100%'});
+            flatpickr("#StartTime", {
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true
+            });
+            flatpickr("#EndTime", {
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true
+            });
+            $('#reservationForm').css({ 'margin':'0 auto', 'width':'100%', 'max-width':'600px', 'display':'flex', 'flexDirection':'column', 'gap':'10px', 'fontSize':'1rem', 'fontFamily':'Segoe UI, Arial, sans-serif', 'alignItems':'center', 'justifyContent':'center' });
+            $('#reservationForm .mb-3').css({'margin-bottom':'4px'});
+            $('#reservationForm label').css({'fontWeight':'500','marginBottom':'2px','fontSize':'0.95rem'});
+            $('#reservationForm input, #reservationForm select, #reservationForm textarea, #reservationForm button, #reservationForm a.btn-secondary').css({'width':'100%','minWidth':'400px','maxWidth':'580px'});
+            $('#reservationForm input, #reservationForm select').css({'fontSize':'0.95rem','padding':'3px 8px','borderRadius':'5px','border':'1px solid #bbb','marginBottom':'1px','width':'100%','minWidth':'350px','boxSizing':'border-box','height':'28px','minHeight':'28px'});
+            $('#reservationForm textarea').css({'fontSize':'0.95rem','padding':'3px 8px','borderRadius':'5px','border':'1px solid #bbb','marginBottom':'1px','width':'100%','minWidth':'350px','boxSizing':'border-box','height':'38px','minHeight':'38px','resize':'vertical'});
+            $('#reservationForm button[type=submit]').addClass('w-100 btn btn-success').css({'marginTop':'6px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
+            $('#reservationForm a.btn-secondary').addClass('w-100 btn btn-secondary').css({'marginTop':'4px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
+            // --- ODA TÜRÜ SCRIPT ---
+            var roomTypeSelect = document.getElementById('roomType');
+            var roomSelect = document.getElementById('roomSelect');
+            var eventName = document.getElementById('eventName');
+            var description = document.getElementById('description');
+            var startTime = document.getElementById('StartTime');
+            var endTime = document.getElementById('EndTime');
+            function disableInputs() {
+                if (eventName) eventName.disabled = true;
+                if (description) description.disabled = true;
+                if (startTime) startTime.disabled = true;
+                if (endTime) endTime.disabled = true;
+            }
+            function enableInputs() {
+                if (eventName) eventName.disabled = false;
+                if (description) description.disabled = false;
+                if (startTime) startTime.disabled = false;
+                if (endTime) endTime.disabled = false;
+            }
+            if (roomTypeSelect && roomSelect) {
+                roomSelect.disabled = true;
+                disableInputs();
+                roomTypeSelect.addEventListener('change', function() {
+                    if (roomTypeSelect.value) {
+                        roomSelect.disabled = false;
+                        for (var i = 0; i < roomSelect.options.length; i++) {
+                            var option = roomSelect.options[i];
+                            if (!option.value) continue;
+                            var roomTypes = option.getAttribute('data-roomtype');
+                            var show = false;
+                            if (roomTypes) {
+                                var roomTypesArr = roomTypes.split(',');
+                                if (roomTypesArr.includes(roomTypeSelect.value)) {
+                                    show = true;
+                                }
+                            }
+                            option.style.display = show ? '' : 'none';
+                        }
+                        roomSelect.value = '';
+                        disableInputs();
+                    } else {
+                        roomSelect.disabled = true;
+                        roomSelect.value = '';
+                        disableInputs();
+                    }
+                });
+                roomSelect.addEventListener('change', function() {
+                    if (roomTypeSelect.value && roomSelect.value) {
+                        enableInputs();
+                    } else {
+                        disableInputs();
+                    }
+                });
+            }
+            // --- SON ---
+            // --- FORM SUBMIT TOAST ---
+            $('#reservationForm').off('submit').on('submit', function(e) {
+                e.preventDefault();
+                var form = this;
+                var data = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: data
+                })
+                .then(r => r.json())
+                .then(res => {
+                    if (res.success) {
+                        showToast(res.message, 'success');
+                        setTimeout(function() {
+                            window.location.href = '/MeetingRooms/Index';
+                        }, 1200);
+                    } else {
+                        showToast(res.message, 'error');
+                    }
+                });
+            });
+            // --- SON ---
+        });
+        $('#reservationModal').fadeIn();
+    });
+    $('#reservationModal').on('click', function(e) {
+        if (e.target === this) {
+            $(this).fadeOut();
+        }
+    });
+});

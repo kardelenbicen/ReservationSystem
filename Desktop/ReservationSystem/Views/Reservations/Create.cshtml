@@ -8,17 +8,33 @@
     <div class="col-md-4">
         <form asp-action="Create" id="reservationForm">
             <div class="mb-3">
+                <label for="roomType" class="form-label">Oda Türü</label>
+                <select id="roomType" name="roomType" class="form-control" required>
+                    <option value="">Tür Seçiniz</option>
+                    <option>Konferans</option>
+                    <option>Düğün</option>
+                    <option>Tiyatro</option>
+                    <option>Toplantı</option>
+                    <option>Seminer</option>
+                    <option>Eğitim/Kurs</option>
+                    <option>Sergi/Fuar</option>
+                    <option>Workshop/Atölye</option>
+                    <option>Konser</option>
+                    <option>Tören</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="MeetingRoomId" class="form-label">Oda Seç</label>
                 @{
                     var rooms = ViewBag.Rooms as IEnumerable<ReservationSystem.Models.MeetingRoom>;
                 }
-                <select asp-for="MeetingRoomId" class="form-control">
+                <select asp-for="MeetingRoomId" class="form-control" id="roomSelect" required disabled>
                     <option value="">Oda Seçiniz</option>
                     @if (rooms != null)
                     {
                         foreach (var room in rooms)
                         {
-                            <option value="@room.Id">@room.Name</option>
+                            <option value="@room.Id" data-roomtype="@room.RoomType">@room.Name</option>
                         }
                     }
                 </select>
@@ -27,22 +43,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="mb-3">
                 <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
-                <input asp-for="EventName" class="form-control" id="eventName" maxlength="30" />
+                <input asp-for="EventName" class="form-control" id="eventName" maxlength="30" disabled />
                 <span asp-validation-for="EventName" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="Description" class="form-label">Açıklama</label>
-                <textarea asp-for="Description" class="form-control" id="description" maxlength="30"></textarea>
+                <textarea asp-for="Description" class="form-control" id="description" maxlength="30" disabled></textarea>
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="StartTime" class="form-label">Başlangıç Tarihi/Saati</label>
-                <input asp-for="StartTime" class="form-control" id="StartTime" type="text" />
+                <input asp-for="StartTime" class="form-control" id="StartTime" type="text" disabled />
                 <span asp-validation-for="StartTime" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label asp-for="EndTime" class="form-label">Bitiş Tarihi/Saati</label>
-                <input asp-for="EndTime" class="form-control" id="EndTime" type="text" />
+                <input asp-for="EndTime" class="form-control" id="EndTime" type="text" disabled />
                 <span asp-validation-for="EndTime" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-success">Rezervasyon Oluştur</button>
@@ -53,42 +69,62 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    flatpickr("#StartTime", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true,
-        minDate: "today"
-    });
-    flatpickr("#EndTime", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true,
-        minDate: "today"
-    });
+var roomTypeSelect = document.getElementById('roomType');
+var roomSelect = document.getElementById('roomSelect');
+var eventName = document.getElementById('eventName');
+var description = document.getElementById('description');
+var startTime = document.getElementById('StartTime');
+var endTime = document.getElementById('EndTime');
 
-    document.getElementById('reservationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        var form = this;
-        var data = new FormData(form);
-        fetch(form.action, {
-            method: 'POST',
-            body: data
-        })
-        .then(r => r.json())
-        .then(res => {
-            if (res.success) {
-                showToast(res.message, 'success');
-                setTimeout(function() {
-                    window.location.href = '/MeetingRooms/Index';
-                }, 1200);
-            } else {
-                showToast(res.message, 'error');
+function disableInputs() {
+    if (eventName) eventName.disabled = true;
+    if (description) description.disabled = true;
+    if (startTime) startTime.disabled = true;
+    if (endTime) endTime.disabled = true;
+}
+function enableInputs() {
+    if (eventName) eventName.disabled = false;
+    if (description) description.disabled = false;
+    if (startTime) startTime.disabled = false;
+    if (endTime) endTime.disabled = false;
+}
+
+if (roomTypeSelect && roomSelect) {
+    roomSelect.disabled = true;
+    disableInputs();
+    roomTypeSelect.addEventListener('change', function() {
+        if (roomTypeSelect.value) {
+            roomSelect.disabled = false;
+            for (var i = 0; i < roomSelect.options.length; i++) {
+                var option = roomSelect.options[i];
+                if (!option.value) continue;
+                var roomTypes = option.getAttribute('data-roomtype');
+                var show = false;
+                if (roomTypes) {
+                    var roomTypesArr = roomTypes.split(',');
+                    if (roomTypesArr.includes(roomTypeSelect.value)) {
+                        show = true;
+                    }
+                }
+                option.style.display = show ? '' : 'none';
             }
-        });
+            roomSelect.value = '';
+            disableInputs();
+        } else {
+            roomSelect.disabled = true;
+            roomSelect.value = '';
+            disableInputs();
+        }
     });
+    roomSelect.addEventListener('change', function() {
+        if (roomTypeSelect.value && roomSelect.value) {
+            enableInputs();
+        } else {
+            disableInputs();
+        }
+    });
+}
 </script>
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }
