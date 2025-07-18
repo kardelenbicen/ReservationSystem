@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
         eventOverlap: true,
         slotEventOverlap: true,
         eventContent: function(arg) {
-            return { domNodes: [] };
+            return {
+                html: '<div style="display:flex;align-items:center;justify-content:center;height:100%;width:100%;"><span style="font-weight:bold;color:#fff;">Detay Göster</span></div>'
+            };
         },
         eventClick: function(info) {
             var meetings = info.event.extendedProps.meetings || [];
