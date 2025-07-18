@@ -123,32 +123,35 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    $("#reservationForm").submit(function (e) {
-        var eventName = $("#eventName").val();
-        var description = $("#description").val();
-        var startTime = $("#StartTime").val();
-        var endTime = $("#EndTime").val();
-        var errorMsg = "";
-        if (!eventName) {
-            errorMsg += "Etkinlik adı boş olamaz\n";
-        }
-        if (!description) {
-            errorMsg += "Açıklama boş olamaz\n";
-        }
-        if (!startTime) {
-            errorMsg += "Başlangıç tarih ve saati seçilmelidir\n";;
-        }
-        if (!endTime) {
-            errorMsg += "Bitiş tarihi ve saati seçilmelidir\n";
-        }
-        if (startTime && endTime && startTime >= endTime) {
-            errorMsg += "Bitiş zamanı başlangıç zamanından önce olamaz\n";
-        }
-        if (errorMsg) {
-            alert(errorMsg);
-            e.preventDefault();
-        }
-    });
+    // Sadece rezervasyon ekranında çalışsın
+    if (window.location.pathname.toLowerCase().includes('/reservations/create')) {
+        $("#reservationForm").submit(function (e) {
+            var eventName = $("#eventName").val();
+            var description = $("#description").val();
+            var startTime = $("#StartTime").val();
+            var endTime = $("#EndTime").val();
+            var errorMsg = "";
+            if (!eventName) {
+                errorMsg += "Etkinlik adı boş olamaz\n";
+            }
+            if (!description) {
+                errorMsg += "Açıklama boş olamaz\n";
+            }
+            if (!startTime) {
+                errorMsg += "Başlangıç tarih ve saati seçilmelidir\n";
+            }
+            if (!endTime) {
+                errorMsg += "Bitiş tarihi ve saati seçilmelidir\n";
+            }
+            if (startTime && endTime && startTime >= endTime) {
+                errorMsg += "Bitiş zamanı başlangıç zamanından önce olamaz\n";
+            }
+            if (errorMsg) {
+                alert(errorMsg);
+                e.preventDefault();
+            }
+        });
+    }
 });
 document.addEventListener('DOMContentLoaded', function () {
     var roomTypeSelect = document.getElementById('roomType');

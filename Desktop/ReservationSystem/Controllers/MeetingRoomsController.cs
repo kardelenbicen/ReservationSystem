@@ -6,6 +6,8 @@ using System.Linq;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace ReservationSystem.Controllers
 {
@@ -52,11 +54,35 @@ namespace ReservationSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Create(MeetingRoom meetingRoom, string[] RoomTypes)
+        public IActionResult Create(MeetingRoom meetingRoom, string[] RoomTypes, List<IFormFile> images)
         {
             meetingRoom.RoomType = string.Join(",", RoomTypes);
             _context.MeetingRooms.Add(meetingRoom);
             _context.SaveChanges();
+
+            if (images != null && images.Count > 0)
+            {
+                foreach (var image in images)
+                {
+                    if (image.Length > 0)
+                    {
+                        var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+                        var filePath = Path.Combine("wwwroot/images", fileName);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            image.CopyTo(stream);
+                        }
+                        var roomImage = new MeetingRoomImage
+                        {
+                            MeetingRoomId = meetingRoom.Id,
+                            ImagePath = "/images/" + fileName
+                        };
+                        _context.MeetingRoomImages.Add(roomImage);
+                    }
+                }
+                _context.SaveChanges();
+            }
+
             return RedirectToAction("Index");
         }
         [Authorize(Roles = "Admin")]
