@@ -4,65 +4,72 @@
     ViewData["Title"] = "Yeni Oda Ekle";
 }
 
-<h1>Yeni Oda Ekle</h1>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" enctype="multipart/form-data" id="reservationForm">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+<div class="login-register-bg">
+    <div class="login-register-form" style="max-width: 900px;">
+        <h1>Yeni Oda Ekle</h1>
+        <hr />
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <form asp-action="Create" enctype="multipart/form-data" id="reservationForm">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label asp-for="Name" class="form-label">İsim</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Capacity" class="form-label">Kapasite</label>
+                            <input asp-for="Capacity" class="form-control" />
+                            <span asp-validation-for="Capacity" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Oda Türü</label>
+                            <div class="d-flex flex-wrap">
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Konferans"><label class="form-check-label">Konferans</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Düğün"><label class="form-check-label">Düğün</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Tiyatro"><label class="form-check-label">Tiyatro</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Toplantı"><label class="form-check-label">Toplantı</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Seminer"><label class="form-check-label">Seminer</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Eğitim/Kurs"><label class="form-check-label">Eğitim/Kurs</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Sergi/Fuar"><label class="form-check-label">Sergi/Fuar</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Workshop/Atölye"><label class="form-check-label">Workshop/Atölye</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Konser"><label class="form-check-label">Konser</label></div>
+                                <div class="form-check me-3"><input class="form-check-input" type="checkbox" name="RoomTypes" value="Tören"><label class="form-check-label">Tören</label></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Location" class="form-label">Konum</label>
+                            <input asp-for="Location" class="form-control" />
+                            <span asp-validation-for="Location" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Devices" class="form-label">Cihazlar</label>
+                            <input asp-for="Devices" class="form-control" />
+                            <span asp-validation-for="Devices" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <input asp-for="Description" class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="col-12">
+                            <h5 class="mt-2">Salon Resimleri</h5>
+                            <input type="file" name="images" id="images" class="form-control" accept="image/*" multiple>
+                        </div>
+                        <div class="col-12 mt-3">
+                            <input type="submit" value="Ekle" class="btn btn-primary" />
+                            <a asp-action="Index" class="btn btn-secondary">Listeye Dön</a>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="Capacity" class="control-label"></label>
-                <input asp-for="Capacity" class="form-control" />
-                <span asp-validation-for="Capacity" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label>Oda Türü</label>
-                <div>
-                    <label><input type="checkbox" name="RoomTypes" value="Konferans" /> Konferans</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Düğün" /> Düğün</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Tiyatro" /> Tiyatro</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Toplantı" /> Toplantı</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Seminer" /> Seminer</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Eğitim/Kurs" /> Eğitim/Kurs</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Sergi/Fuar" /> Sergi/Fuar</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Workshop/Atölye" /> Workshop/Atölye</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Konser" /> Konser</label>
-                    <label><input type="checkbox" name="RoomTypes" value="Tören" /> Tören</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Location" class="control-label"></label>
-                <input asp-for="Location" class="form-control" />
-                <span asp-validation-for="Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Devices" class="control-label"></label>
-                <input asp-for="Devices" class="form-control" />
-                <span asp-validation-for="Devices" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <h3>Salon Resimleri</h3>
-            <div class="form-group">
-                <input type="file" name="images" id="images" class="form-control" accept="image/*" multiple>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Ekle" class="btn btn-primary" />
-            </div>
-        </form>
+        </div>
     </div>
 </div>
-<div>
-    <a asp-action="Index">Listeye Dön</a>
-</div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
