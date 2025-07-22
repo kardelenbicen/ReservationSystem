@@ -2,17 +2,52 @@
 @{
     ViewData["Title"] = "Rezervasyon Onayla";
 }
-<h1>Rezervasyon Onayla</h1>
-<div class="mb-3">
-    <b>Oda:</b> @Model.MeetingRoom?.Name<br />
-    <b>Etkinlik:</b> @Model.EventName<br />
-    <b>Kullanıcı:</b> @Model.UserId<br />
-    <b>Başlangıç:</b> @Model.StartTime.ToString("g")<br />
-    <b>Bitiş:</b> @Model.EndTime.ToString("g")<br />
-    <b>Açıklama:</b> @Model.Description
+<div class="login-register-bg">
+    @* Bu alan sadece arkaplanı sağlamak için boş bırakıldı *@
 </div>
-<form asp-action="ApproveConfirmed" method="post">
-    <input type="hidden" asp-for="Id" />
-    <button type="submit" class="btn btn-success">Onayla</button>
-    <a asp-action="Pending" class="btn btn-secondary">Geri Dön</a>
-</form> 
+
+<!-- Modal -->
+<div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form asp-action="ApproveConfirmed" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="approveModalLabel">Rezervasyonu Onaylamak İstediğinize Emin misiniz?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    Aşağıdaki rezervasyonu onaylamak üzeresiniz:
+                    <ul class="list-unstyled mt-3">
+                        <li><strong>Oda:</strong> @Model.MeetingRoom?.Name</li>
+                        <li><strong>Etkinlik:</strong> @Model.EventName</li>
+                        <li><strong>Kullanıcı:</strong> @Model.User?.Email</li>
+                        <li><strong>Başlangıç:</strong> @Model.StartTime.ToString("g")</li>
+                        <li><strong>Bitiş:</strong> @Model.EndTime.ToString("g")</li>
+                    </ul>
+                    <input type="hidden" asp-for="Id" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                    <button type="submit" class="btn btn-success">Evet, Onayla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var approveModalEl = document.getElementById('approveModal');
+            var myModal = new bootstrap.Modal(approveModalEl, {
+                backdrop: 'static',
+                keyboard: false
+            });
+            myModal.show();
+            
+            approveModalEl.addEventListener('hidden.bs.modal', function (event) {
+                window.location.href = '@Url.Action("Pending", "Reservations")';
+            });
+        });
+    </script>
+} 
