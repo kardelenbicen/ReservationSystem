@@ -6,89 +6,126 @@
     ViewBag.IsAuthenticated = User.Identity.IsAuthenticated;
 }
 <div class="login-register-bg">
-  <div class="login-register-form" style="width:100%;max-width:1100px;">
-    <h1>Toplantı Odaları</h1>
-    <form method="get" class="mb-3">
-        <div class="row g-2">
-            <div class="col-md-3">
-                <input type="text" name="search" class="form-control" placeholder="Oda Adı ile Ara" value="@query["search"]" />
+    <div class="login-register-form" style="width:100%;max-width:1100px;">
+        <h1>Toplantı Odaları</h1>
+
+        <form method="get" class="mb-3">
+            <div class="row g-2">
+                <div class="col-md-3">
+                    <input type="text" name="search" class="form-control" placeholder="Oda Adı ile Ara" value="@query["search"]" />
+                </div>
+                <div class="col-md-2">
+                    <input type="number" name="capacity" class="form-control" placeholder="Min. Kapasite" value="@query["capacity"]" />
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="location" class="form-control" placeholder="Lokasyon" value="@query["location"]" />
+                </div>
+                <div class="col-md-3">
+                    <input type="text" name="devices" class="form-control" placeholder="Cihazlar (örn: projeksiyon)" value="@query["devices"]" />
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-100">Ara</button>
+                </div>
             </div>
-            <div class="col-md-2">
-                <input type="number" name="capacity" class="form-control" placeholder="Min. Kapasite" value="@query["capacity"]" />
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="location" class="form-control" placeholder="Lokasyon" value="@query["location"]" />
-            </div>
-            <div class="col-md-3">
-                <input type="text" name="devices" class="form-control" placeholder="Cihazlar (örn: projeksiyon)" value="@query["devices"]" />
-            </div>
-            <div class="col-md-1">
-                <button type="submit" class="btn btn-primary w-100">Ara</button>
+        </form>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Oda Adı</th>
+                        <th>Kapasite</th>
+                        <th>Lokasyon</th>
+                        <th>Cihazlar</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Capacity</td>
+                            <td>@item.Location</td>
+                            <td>@item.Devices</td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detay</a>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
+                                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="@item.Id" data-name="@item.Name">Sil</button>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-center my-4">
+            <button id="showReservationForm" class="btn btn-primary btn-lg">Rezervasyon Yap</button>
+        </div>
+        <div id="reservationModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:9999;align-items:center;justify-content:center;display:none;">
+            <div id="reservationModalContent" style="background:#fff;border-radius:12px;padding:32px 24px;max-width:650px;width:95vw;position:relative;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:auto;box-shadow:none;overflow-y:auto;max-height:90vh;">
+                <div id="reservationModalBody"></div>
             </div>
         </div>
-    </form>
-    <div class="table-responsive">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Oda Adı</th>
-                <th>Kapasite</th>
-                <th>Lokasyon</th>
-                <th>Cihazlar</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-    @foreach (var item in Model) {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Capacity</td>
-            <td>@item.Location</td>
-            <td>@item.Devices</td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detay</a>
-                @if (User.IsInRole("Admin")) {
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a>
-                    <form asp-action="Delete" asp-route-id="@item.Id" method="post" style="display:inline;">
-                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-                    </form>
-                }
-            </td>
-        </tr>
-    }
-        </tbody>
-    </table>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn btn-success">Yeni Oda Ekle</a>
+        }
     </div>
-    <div class="d-flex justify-content-center my-4">
-        <button id="showReservationForm" class="btn btn-primary btn-lg">Rezervasyon Yap</button>
-    </div>
-    <div id="reservationModal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.25);z-index:9999;align-items:center;justify-content:center;display:none;">
-        <div id="reservationModalContent" style="background:#fff;border-radius:12px;padding:32px 24px;max-width:650px;width:95vw;position:relative;min-height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:auto;box-shadow:none;overflow-y:auto;max-height:90vh;">
-            <div id="reservationModalBody"></div>
+</div>
+
+<!-- Silme Onay Modalı -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Silme İşlemini Onayla</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+            </div>
+            <div class="modal-body">
+                <p>"<strong id="roomName"></strong>" adlı toplantı odasını silmek istediğinizden emin misiniz?</p>
+            </div>
+            <div class="modal-footer">
+                <form id="deleteForm" asp-action="Delete" method="post">
+                    <input type="hidden" name="Id" id="deleteId" />
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                    <button type="submit" class="btn btn-danger">Evet, Sil</button>
+                </form>
+            </div>
         </div>
     </div>
-    @if (User.IsInRole("Admin")) {
-        <a asp-action="Create" class="btn btn-success">Yeni Oda Ekle</a>
-    }
-  </div>
 </div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-        $(document).ready(function() {
-            $('#showReservationForm').click(function() {
+        $(document).ready(function () {
+            // Delete Modal Script
+            $('#deleteModal').on('show.bs.modal', function (event) {
+                var button = $(event.relatedTarget);
+                var id = button.data('id');
+                var name = button.data('name');
+                
+                var modal = $(this);
+                modal.find('#roomName').text(name);
+                modal.find('#deleteId').val(id);
+            });
+
+            // Reservation Modal Script
+            $('#showReservationForm').click(function () {
                 var isAuthenticated = '@ViewBag.IsAuthenticated' === 'True';
                 if (!isAuthenticated) {
                     alert('Rezervasyon yapmak için önce giriş yapınız.');
                     return;
                 }
                 if ($('#reservationModal').is(':visible')) return;
-                $.get('/Reservations/Create', function(data) {
+                $.get('/Reservations/Create', function (data) {
                     var formDiv = $(data).find('.row').parent().html();
                     var panelHtml = '<div style="text-align:center;margin-bottom:12px;font-size:1.2rem;font-weight:600;">Rezervasyon Yap</div>' + formDiv;
                     $('#reservationModalBody').html(panelHtml);
-                    $('#reservationModalBody').css({'display':'flex','flexDirection':'column','alignItems':'center','justifyContent':'center','width':'100%'});
+                    $('#reservationModalBody').css({ 'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center', 'justifyContent': 'center', 'width': '100%' });
                     flatpickr("#StartTime", {
                         enableTime: true,
                         dateFormat: "Y-m-d H:i",
@@ -99,23 +136,22 @@
                         dateFormat: "Y-m-d H:i",
                         time_24hr: true
                     });
-                    $('#reservationForm').css({ 'margin':'0 auto', 'width':'100%', 'max-width':'600px', 'display':'flex', 'flexDirection':'column', 'gap':'10px', 'fontSize':'1rem', 'fontFamily':'Segoe UI, Arial, sans-serif', 'alignItems':'center', 'justifyContent':'center' });
-                    $('#reservationForm .mb-3').css({'margin-bottom':'4px'});
-                    $('#reservationForm label').css({'fontWeight':'500','marginBottom':'2px','fontSize':'0.95rem'});
-                    $('#reservationForm input, #reservationForm select, #reservationForm textarea, #reservationForm button, #reservationForm a.btn-secondary').css({'width':'100%','minWidth':'400px','maxWidth':'580px'});
-                    $('#reservationForm input, #reservationForm select').css({'fontSize':'0.95rem','padding':'3px 8px','borderRadius':'5px','border':'1px solid #bbb','marginBottom':'1px','width':'100%','minWidth':'350px','boxSizing':'border-box','height':'28px','minHeight':'28px'});
-                    $('#reservationForm textarea').css({'fontSize':'0.95rem','padding':'3px 8px','borderRadius':'5px','border':'1px solid #bbb','marginBottom':'1px','width':'100%','minWidth':'350px','boxSizing':'border-box','height':'38px','minHeight':'38px','resize':'vertical'});
-                    $('#reservationForm button[type=submit]').addClass('w-100 btn btn-success').css({'marginTop':'6px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
-                    $('#reservationForm a.btn-secondary').addClass('w-100 btn btn-secondary').css({'marginTop':'4px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
+                    $('#reservationForm').css({ 'margin': '0 auto', 'width': '100%', 'max-width': '600px', 'display': 'flex', 'flexDirection': 'column', 'gap': '10px', 'fontSize': '1rem', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'alignItems': 'center', 'justifyContent': 'center' });
+                    $('#reservationForm .mb-3').css({ 'margin-bottom': '4px' });
+                    $('#reservationForm label').css({ 'fontWeight': '500', 'marginBottom': '2px', 'fontSize': '0.95rem' });
+                    $('#reservationForm input, #reservationForm select, #reservationForm textarea, #reservationForm button, #reservationForm a.btn-secondary').css({ 'width': '100%', 'minWidth': '400px', 'maxWidth': '580px' });
+                    $('#reservationForm input, #reservationForm select').css({ 'fontSize': '0.95rem', 'padding': '3px 8px', 'borderRadius': '5px', 'border': '1px solid #bbb', 'marginBottom': '1px', 'width': '100%', 'minWidth': '350px', 'boxSizing': 'border-box', 'height': '28px', 'minHeight': '28px' });
+                    $('#reservationForm textarea').css({ 'fontSize': '0.95rem', 'padding': '3px 8px', 'borderRadius': '5px', 'border': '1px solid #bbb', 'marginBottom': '1px', 'width': '100%', 'minWidth': '350px', 'boxSizing': 'border-box', 'height': '38px', 'minHeight': '38px', 'resize': 'vertical' });
+                    $('#reservationForm button[type=submit]').addClass('w-100 btn btn-success').css({ 'marginTop': '6px', 'fontWeight': '600', 'fontSize': '0.95rem', 'padding': '7px 0', 'display': 'block' });
+                    $('#reservationForm a.btn-secondary').addClass('w-100 btn btn-secondary').css({ 'marginTop': '4px', 'fontWeight': '600', 'fontSize': '0.95rem', 'padding': '7px 0', 'display': 'block' });
                 });
                 $('#reservationModal').fadeIn();
             });
-            $('#reservationModal').on('click', function(e) {
+            $('#reservationModal').on('click', function (e) {
                 if (e.target === this) {
                     $(this).fadeOut();
                 }
             });
         });
     </script>
-}
-
+} 
