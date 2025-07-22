@@ -2,21 +2,49 @@
 @{
     ViewData["Title"] = "Rezervasyon Reddet";
 }
-<h1>Rezervasyon Reddet</h1>
-<div class="mb-3">
-    <b>Oda:</b> @Model.MeetingRoom?.Name<br />
-    <b>Etkinlik:</b> @Model.EventName<br />
-    <b>Kullanıcı:</b> @Model.UserId<br />
-    <b>Başlangıç:</b> @Model.StartTime.ToString("g")<br />
-    <b>Bitiş:</b> @Model.EndTime.ToString("g")<br />
-    <b>Açıklama:</b> @Model.Description
+<div class="login-register-bg">
+    @* Bu alan sadece arkaplanı sağlamak için boş bırakıldı *@
 </div>
-<form asp-action="Reject" method="post">
-    <input type="hidden" asp-for="Id" />
-    <div class="mb-3">
-        <label for="rejectMessage" class="form-label">Reddetme Mesajı</label>
-        <textarea name="rejectMessage" class="form-control" required></textarea>
+
+<!-- Modal -->
+<div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="rejectModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form asp-action="Reject" method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="rejectModalLabel">Rezervasyonu Reddetmek İstediğinize Emin misiniz?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="mb-3">
+                        <label for="rejectMessage" class="form-label">Reddetme Mesajı (Gerekli)</label>
+                        <textarea name="rejectMessage" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                    <button type="submit" class="btn btn-danger">Evet, Reddet</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-danger">Reddet</button>
-    <a asp-action="Pending" class="btn btn-secondary">Geri Dön</a>
-</form> 
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var rejectModalEl = document.getElementById('rejectModal');
+            var myModal = new bootstrap.Modal(rejectModalEl, {
+                backdrop: 'static', // Arkaplana tıklayarak kapatmayı engeller
+                keyboard: false // Esc tuşuyla kapatmayı engeller
+            });
+            myModal.show();
+            
+            // Modal kapatıldığında (form gönderimi dışında) kullanıcıyı yönlendir
+            rejectModalEl.addEventListener('hidden.bs.modal', function (event) {
+                window.location.href = '@Url.Action("Pending", "Reservations")';
+            });
+        });
+    </script>
+} 
