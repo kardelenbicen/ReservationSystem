@@ -34,7 +34,6 @@ $(document).ready(function () {
     $("#registerForm").submit(function (e) {
         var email = $("#email").val();
         var password = $("#password").val();
-        var confirmPassword = $("#confirmPassword").val();
         var errorMsg = "";
 
         if (!email) {
@@ -47,9 +46,7 @@ $(document).ready(function () {
         } else if (password.length < 6) {
             errorMsg += "Şifre en az 6 karakter olmalı\n";
         }
-        if (password !== confirmPassword) {
-            errorMsg += "Şifreler aynı değil\n";
-        }
+        // Şifre tekrar kontrolü kaldırıldı
         if (errorMsg) {
             alert(errorMsg);
             e.preventDefault();

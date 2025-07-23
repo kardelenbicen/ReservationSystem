@@ -20,7 +20,6 @@ wwwroot\images\dc4dd308-2749-486a-9bf6-ccea0a14a906.png
 wwwroot\images\eee97b48-1ca9-4b7a-add2-76d64d74f918.jpeg
 wwwroot\images\f90d2c66-eadb-4ed0-914a-a6f3147b4e4a.png
 wwwroot\images\photo.jpg
-wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -81,10 +80,10 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\darkmode.css
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\test.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\favicon.ico
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -143,4 +142,5 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwro
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.map
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\test.css
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\site.js
