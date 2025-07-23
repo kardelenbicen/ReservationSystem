@@ -1,12 +1,11 @@
-@model ReservationSystem.Models.Reservation
+﻿@model ReservationSystem.Models.Reservation
 @{
     ViewData["Title"] = "Rezervasyon Reddet";
 }
 <div class="login-register-bg">
-    @* Bu alan sadece arkaplanı sağlamak için boş bırakıldı *@
+    @**@
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="rejectModal" tabindex="-1" aria-labelledby="rejectModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -36,12 +35,12 @@
         document.addEventListener('DOMContentLoaded', function() {
             var rejectModalEl = document.getElementById('rejectModal');
             var myModal = new bootstrap.Modal(rejectModalEl, {
-                backdrop: 'static', // Arkaplana tıklayarak kapatmayı engeller
-                keyboard: false // Esc tuşuyla kapatmayı engeller
+                backdrop: 'static', 
+                keyboard: false
             });
             myModal.show();
             
-            // Modal kapatıldığında (form gönderimi dışında) kullanıcıyı yönlendir
+         
             rejectModalEl.addEventListener('hidden.bs.modal', function (event) {
                 window.location.href = '@Url.Action("Pending", "Reservations")';
             });

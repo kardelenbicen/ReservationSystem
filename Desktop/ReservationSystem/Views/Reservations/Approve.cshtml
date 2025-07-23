@@ -1,26 +1,25 @@
-@model ReservationSystem.Models.Reservation
+﻿@model ReservationSystem.Models.Reservation
 @{
     ViewData["Title"] = "Rezervasyon Onayla";
 }
 <div class="login-register-bg">
-    @* Bu alan sadece arkaplanı sağlamak için boş bırakıldı *@
+    @*  *@
 </div>
 
-<!-- Modal -->
 <div class="modal fade" id="approveModal" tabindex="-1" aria-labelledby="approveModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form asp-action="ApproveConfirmed" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="approveModalLabel">Rezervasyonu Onaylamak İstediğinize Emin misiniz?</h5>
+                    <h5 class="modal-title" id="approveModalLabel">Rezervasyonu Onaylamak İstediğinize Emin Misiniz?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
                 </div>
                 <div class="modal-body">
-                    Aşağıdaki rezervasyonu onaylamak üzeresiniz:
+                    Aşağıdaki rezervasyonu onaylamak Üzeresiniz:
                     <ul class="list-unstyled mt-3">
                         <li><strong>Oda:</strong> @Model.MeetingRoom?.Name</li>
                         <li><strong>Etkinlik:</strong> @Model.EventName</li>
-                        <li><strong>Kullanıcı:</strong> @Model.User?.Email</li>
+                        <li><strong>Kullanıcı Adı:</strong> @Model.User?.Email</li>
                         <li><strong>Başlangıç:</strong> @Model.StartTime.ToString("g")</li>
                         <li><strong>Bitiş:</strong> @Model.EndTime.ToString("g")</li>
                     </ul>
