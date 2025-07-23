@@ -23,17 +23,17 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class ExternalLoginModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
-        private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        private readonly IUserStore<ReservationSystem.Models.ApplicationUser> _userStore;
+        private readonly IUserEmailStore<ReservationSystem.Models.ApplicationUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
 
         public ExternalLoginModel(
-            SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager,
-            IUserStore<IdentityUser> userStore,
+            SignInManager<ReservationSystem.Models.ApplicationUser> signInManager,
+            UserManager<ReservationSystem.Models.ApplicationUser> userManager,
+            IUserStore<ReservationSystem.Models.ApplicationUser> userStore,
             ILogger<ExternalLoginModel> logger,
             IEmailSender emailSender)
         {
@@ -197,27 +197,27 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private ReservationSystem.Models.ApplicationUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<ReservationSystem.Models.ApplicationUser>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(ReservationSystem.Models.ApplicationUser)}'. " +
+                    $"Ensure that '{nameof(ReservationSystem.Models.ApplicationUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the external login page in /Areas/Identity/Pages/Account/ExternalLogin.cshtml");
             }
         }
 
-        private IUserEmailStore<IdentityUser> GetEmailStore()
+        private IUserEmailStore<ReservationSystem.Models.ApplicationUser> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<IdentityUser>)_userStore;
+            return (IUserEmailStore<ReservationSystem.Models.ApplicationUser>)_userStore;
         }
     }
 }

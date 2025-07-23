@@ -16,9 +16,9 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
 
-        public ConfirmEmailModel(UserManager<IdentityUser> userManager)
+        public ConfirmEmailModel(UserManager<ReservationSystem.Models.ApplicationUser> userManager)
         {
             _userManager = userManager;
         }

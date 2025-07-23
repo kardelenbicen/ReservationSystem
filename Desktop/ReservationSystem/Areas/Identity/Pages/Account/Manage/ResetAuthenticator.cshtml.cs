@@ -13,13 +13,13 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 {
     public class ResetAuthenticatorModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
         private readonly ILogger<ResetAuthenticatorModel> _logger;
 
         public ResetAuthenticatorModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ReservationSystem.Models.ApplicationUser> userManager,
+            SignInManager<ReservationSystem.Models.ApplicationUser> signInManager,
             ILogger<ResetAuthenticatorModel> logger)
         {
             _userManager = userManager;

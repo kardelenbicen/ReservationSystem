@@ -7,7 +7,7 @@ public static class DbInitializer
     public static async Task SeedRolesAndAdminAsync(IServiceProvider serviceProvider)
     {
         var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-        var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+        var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
 
         string[] roles = { "Admin", "User" };
         foreach (var role in roles)
@@ -21,7 +21,7 @@ public static class DbInitializer
         string adminPassword = "Admin123!";
         if (await userManager.FindByEmailAsync(adminEmail) == null)
         {
-            var adminUser = new IdentityUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
+            var adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true };
             var result = await userManager.CreateAsync(adminUser, adminPassword);
             if (result.Succeeded)
             {

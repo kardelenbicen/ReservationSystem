@@ -13,12 +13,12 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 {
     public class SetPasswordModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
 
         public SetPasswordModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager)
+            UserManager<ReservationSystem.Models.ApplicationUser> userManager,
+            SignInManager<ReservationSystem.Models.ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

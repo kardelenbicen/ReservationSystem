@@ -16,13 +16,13 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
 {
     public class LoginWith2faModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
         private readonly ILogger<LoginWith2faModel> _logger;
 
         public LoginWith2faModel(
-            SignInManager<IdentityUser> signInManager,
-            UserManager<IdentityUser> userManager,
+            SignInManager<ReservationSystem.Models.ApplicationUser> signInManager,
+            UserManager<ReservationSystem.Models.ApplicationUser> userManager,
             ILogger<LoginWith2faModel> logger)
         {
             _signInManager = signInManager;

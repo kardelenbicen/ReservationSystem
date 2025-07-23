@@ -14,10 +14,10 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
 {
     public class LoginModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
 
-        public LoginModel(SignInManager<IdentityUser> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<ReservationSystem.Models.ApplicationUser> signInManager, ILogger<LoginModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
@@ -36,7 +36,7 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
             [Required]
             [DataType(DataType.Password)]
             public string Password { get; set; }
-            [Display(Name = "Beni Hatýrla")]
+            [Display(Name = "Beni Hatï¿½rla")]
             public bool RememberMe { get; set; }
         }
 

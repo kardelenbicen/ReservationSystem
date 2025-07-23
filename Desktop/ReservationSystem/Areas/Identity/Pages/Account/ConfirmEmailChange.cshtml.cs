@@ -15,10 +15,10 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
 {
     public class ConfirmEmailChangeModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
 
-        public ConfirmEmailChangeModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
+        public ConfirmEmailChangeModel(UserManager<ReservationSystem.Models.ApplicationUser> userManager, SignInManager<ReservationSystem.Models.ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;

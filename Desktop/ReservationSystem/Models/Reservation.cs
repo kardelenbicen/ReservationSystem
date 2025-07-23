@@ -17,7 +17,7 @@ public class Reservation
     public string? Status { get; set; }
     public string? RejectMessage { get; set; }
     public MeetingRoom? MeetingRoom { get; set; }
-    public Microsoft.AspNetCore.Identity.IdentityUser? User { get; set; }
+    public ReservationSystem.Models.ApplicationUser? User { get; set; }
 }
 
 public enum ReservationStatus

@@ -18,18 +18,17 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 {
     public class EnableAuthenticatorModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
         private readonly ILogger<EnableAuthenticatorModel> _logger;
         private readonly UrlEncoder _urlEncoder;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
 
-        public EnableAuthenticatorModel(
-            UserManager<IdentityUser> userManager,
-            ILogger<EnableAuthenticatorModel> logger,
-            UrlEncoder urlEncoder)
+        public EnableAuthenticatorModel(UserManager<ReservationSystem.Models.ApplicationUser> userManager, SignInManager<ReservationSystem.Models.ApplicationUser> signInManager, ILogger<EnableAuthenticatorModel> logger, UrlEncoder urlEncoder)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
             _logger = logger;
             _urlEncoder = urlEncoder;
         }
@@ -142,7 +141,7 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
             }
         }
 
-        private async Task LoadSharedKeyAndQrCodeUriAsync(IdentityUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(ReservationSystem.Models.ApplicationUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);

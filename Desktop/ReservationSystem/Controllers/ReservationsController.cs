@@ -14,8 +14,8 @@ namespace ReservationSystem.Controllers
     public class ReservationsController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
-        public ReservationsController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+        public ReservationsController(ApplicationDbContext context, UserManager<ReservationSystem.Models.ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
