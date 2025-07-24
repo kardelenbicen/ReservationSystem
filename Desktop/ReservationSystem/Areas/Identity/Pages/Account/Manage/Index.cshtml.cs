@@ -56,7 +56,7 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Phone]
-            [Display(Name = "Telefon Numaras�")]
+            [Display(Name = "Telefon Numarası")]
             public string PhoneNumber { get; set; }
         }
 
