@@ -4,63 +4,133 @@
     ViewData["Title"] = "Profil";
 }
 
-<h2>Profil Bilgilerim</h2>
+<style>
+    body {
+        background: url('/images/photo.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
 
-@if (!string.IsNullOrEmpty(Model.StatusMessage))
-{
-    <div class="alert alert-success">@Model.StatusMessage</div>
-}
+    .profile-card {
+        max-width: 600px;
+        margin: 80px auto;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+</style>
 
-<form method="post">
-    <div class="form-floating mb-3">
-        <input asp-for="Input.FullName" class="form-control" placeholder="Ad Soyad" />
-        <label asp-for="Input.FullName"></label>
-        <span asp-validation-for="Input.FullName" class="text-danger"></span>
-    </div>
+<div class="profile-card">
+    <h2 class="mb-4 text-center">Profil Bilgilerim</h2>
 
-    <div class="form-floating mb-3">
-        <input asp-for="Input.BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi" />
-        <label asp-for="Input.BirthDate"></label>
-        <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
-    </div>
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="alert alert-success">@Model.StatusMessage</div>
+    }
 
-    <div class="form-floating mb-3">
-        <select asp-for="Input.Gender" class="form-select">
-            <option value="">Seçiniz</option>
-            <option value="Kadın">Kadın</option>
-            <option value="Erkek">Erkek</option>
-            <option value="Diğer">Diğer</option>
-        </select>
-        <label asp-for="Input.Gender"></label>
-        <span asp-validation-for="Input.Gender" class="text-danger"></span>
-    </div>
+    <form method="post">
 
-    <div class="form-floating mb-3">
-        <input asp-for="Input.City" class="form-control" placeholder="İl" />
-        <label asp-for="Input.City"></label>
-        <span asp-validation-for="Input.City" class="text-danger"></span>
-    </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Input.FullName" class="form-control" placeholder="Ad Soyad" />
+            <label asp-for="Input.FullName"></label>
+            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+        </div>
 
-    <div class="form-floating mb-3">
-        <input asp-for="Input.District" class="form-control" placeholder="İlçe" />
-        <label asp-for="Input.District"></label>
-        <span asp-validation-for="Input.District" class="text-danger"></span>
-    </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Input.BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi" />
+            <label asp-for="Input.BirthDate"></label>
+            <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+        </div>
 
-    <div class="form-floating mb-3">
-        <textarea asp-for="Input.Address" class="form-control" style="height: 100px;" placeholder="Adres"></textarea>
-        <label asp-for="Input.Address"></label>
-        <span asp-validation-for="Input.Address" class="text-danger"></span>
-    </div>
+        <div class="form-floating mb-3">
+            <select asp-for="Input.Gender" class="form-select">
+                <option value="">Seçiniz</option>
+                <option value="Kadın">Kadın</option>
+                <option value="Erkek">Erkek</option>
+                <option value="Diğer">Diğer</option>
+            </select>
+            <label asp-for="Input.Gender"></label>
+            <span asp-validation-for="Input.Gender" class="text-danger"></span>
+        </div>
 
-    <div class="mb-3">
-        <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
-        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-    </div>
+        <div class="form-floating mb-3">
+            <select asp-for="Input.City" class="form-select" id="citySelect">
+                <option value="">Seçiniz</option>
+            </select>
+            <label asp-for="Input.City"></label>
+            <span asp-validation-for="Input.City" class="text-danger"></span>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Kaydet</button>
-</form>
+        <div class="form-floating mb-3">
+            <select asp-for="Input.District" class="form-select" id="districtSelect">
+                <option value="">Seçiniz</option>
+            </select>
+            <label asp-for="Input.District"></label>
+            <span asp-validation-for="Input.District" class="text-danger"></span>
+        </div>
+
+        <div class="form-floating mb-3">
+            <textarea asp-for="Input.Address" class="form-control" style="height: 100px;" placeholder="Adres"></textarea>
+            <label asp-for="Input.Address"></label>
+            <span asp-validation-for="Input.Address" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
+            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+    </form>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script>
+        const cities = {
+            "İstanbul": ["Kadıköy", "Beşiktaş", "Üsküdar", "Ataşehir", "Ümraniye"],
+            "Ankara": ["Çankaya", "Keçiören", "Mamak", "Altındağ", "Yenimahalle"],
+            "İzmir": ["Konak", "Karşıyaka", "Bornova", "Buca", "Alsancak"]
+        };
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const citySelect = document.getElementById('citySelect');
+            const districtSelect = document.getElementById('districtSelect');
+
+            for (const city in cities) {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city;
+                citySelect.appendChild(option);
+            }
+
+            citySelect.addEventListener('change', () => {
+                districtSelect.innerHTML = '<option value="">Seçiniz</option>';
+                const selectedCity = citySelect.value;
+                if (!selectedCity) return;
+                cities[selectedCity].forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+            });
+
+            const selectedCity = '@Model.Input.City';
+            const selectedDistrict = '@Model.Input.District';
+
+            if (selectedCity && cities[selectedCity]) {
+                citySelect.value = selectedCity;
+                cities[selectedCity].forEach(district => {
+                    const option = document.createElement('option');
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+                if (selectedDistrict) {
+                    districtSelect.value = selectedDistrict;
+                }
+            }
+        });
+    </script>
 }
