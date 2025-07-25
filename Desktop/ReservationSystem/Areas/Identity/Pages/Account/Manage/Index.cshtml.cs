@@ -1,85 +1,80 @@
-// Licensed to the .NET Foundation under one or more agreements.
-// The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
-
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Logging;
+using ReservationSystem.Models;
 
 namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
-        private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
-        private readonly SignInManager<ReservationSystem.Models.ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(
-            UserManager<ReservationSystem.Models.ApplicationUser> userManager,
-            SignInManager<ReservationSystem.Models.ApplicationUser> signInManager)
+        public IndexModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<IndexModel> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
-        public string Username { get; set; }
-
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [TempData]
         public string StatusMessage { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
+        public string Username { get; set; }
+
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Phone]
             [Display(Name = "Telefon Numarası")]
             public string PhoneNumber { get; set; }
+
+            [Display(Name = "Ad Soyad")]
+            public string FullName { get; set; }
+
+            [Display(Name = "Doğum Tarihi")]
+            [DataType(DataType.Date)]
+            public DateTime? BirthDate { get; set; }
+
+            [Display(Name = "Cinsiyet")]
+            public string Gender { get; set; }
+
+            [Display(Name = "İl")]
+            public string City { get; set; }
+
+            [Display(Name = "İlçe")]
+            public string District { get; set; }
+
+            [Display(Name = "Adres")]
+            public string Address { get; set; }
         }
 
-        private async Task LoadAsync(ReservationSystem.Models.ApplicationUser user)
+        private async Task LoadAsync(ApplicationUser user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
-            var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
-            Username = userName;
-
+            Username = await _userManager.GetUserNameAsync(user);
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = await _userManager.GetPhoneNumberAsync(user),
+                FullName = user.FullName,
+                BirthDate = user.BirthDate,
+                Gender = user.Gender,
+                City = user.City,
+                District = user.District,
+                Address = user.Address
             };
         }
 
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             await LoadAsync(user);
             return Page();
@@ -88,16 +83,16 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
-            }
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
 
             if (!ModelState.IsValid)
             {
-                await LoadAsync(user);
+                await LoadAsync(user); 
                 return Page();
             }
+
+            _logger.LogInformation("Formdan gelen veriler: FullName={FullName}, BirthDate={BirthDate}, Gender={Gender}, City={City}, District={District}, Address={Address}",
+                Input.FullName, Input.BirthDate, Input.Gender, Input.City, Input.District, Input.Address);
 
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
@@ -105,14 +100,35 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    StatusMessage = "Unexpected error when trying to set phone number.";
-                    return RedirectToPage();
+                    StatusMessage = "Telefon numarası güncellenemedi.";
+                    await LoadAsync(user);
+                    return Page();
                 }
             }
 
+            user.FullName = Input.FullName;
+            user.BirthDate = Input.BirthDate;
+            user.Gender = Input.Gender;
+            user.City = Input.City;
+            user.District = Input.District;
+            user.Address = Input.Address;
+
+            var updateResult = await _userManager.UpdateAsync(user);
+            if (!updateResult.Succeeded)
+            {
+                foreach (var error in updateResult.Errors)
+                    ModelState.AddModelError(string.Empty, error.Description);
+
+                await LoadAsync(user);
+                return Page();
+            }
+
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
-            return RedirectToPage();
+
+            StatusMessage = "Profil bilgileriniz güncellendi.";
+
+            await LoadAsync(user); 
+            return Page();
         }
     }
 }
