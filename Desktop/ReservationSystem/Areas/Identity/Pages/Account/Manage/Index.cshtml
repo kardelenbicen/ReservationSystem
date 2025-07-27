@@ -116,8 +116,9 @@
                 });
             });
 
-            const selectedCity = '@Model.Input.City';
-            const selectedDistrict = '@Model.Input.District';
+            const selectedCity = '@(Model.Input.City ?? "")';
+            const selectedDistrict = '@(Model.Input.District ?? "")';
+
 
             if (selectedCity && cities[selectedCity]) {
                 citySelect.value = selectedCity;
