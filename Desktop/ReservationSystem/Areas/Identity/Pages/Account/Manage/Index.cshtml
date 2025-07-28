@@ -11,77 +11,110 @@
     }
 
     .profile-card {
-        max-width: 600px;
+        max-width: 800px;
         margin: 80px auto;
         background: rgba(255, 255, 255, 0.95);
         padding: 30px;
         border-radius: 10px;
         box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+
+    .profile-content {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .form-section {
+        flex: 1;
+    }
+
+    .photo-section {
+        width: 150px;
+        text-align: center;
+    }
 </style>
 
 <div class="profile-card">
-    <h2 class="mb-4 text-center">Profil Bilgilerim</h2>
+    <div class="profile-content">
 
-    @if (!string.IsNullOrEmpty(Model.StatusMessage))
-    {
-        <div class="alert alert-success">@Model.StatusMessage</div>
-    }
+        <div class="form-section">
+            <h2 class="mb-4 text-center">Profil Bilgilerim</h2>
 
-    <form method="post">
+            @if (!string.IsNullOrEmpty(Model.StatusMessage))
+            {
+                <div class="alert alert-success">@Model.StatusMessage</div>
+            }
 
-        <div class="form-floating mb-3">
-            <input asp-for="Input.FullName" class="form-control" placeholder="Ad Soyad" />
-            <label asp-for="Input.FullName"></label>
-            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            <form method="post">
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.FullName" class="form-control" placeholder="Ad Soyad" />
+                    <label asp-for="Input.FullName"></label>
+                    <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi" />
+                    <label asp-for="Input.BirthDate"></label>
+                    <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select asp-for="Input.Gender" class="form-select">
+                        <option value="">Seçiniz</option>
+                        <option value="Kadın">Kadın</option>
+                        <option value="Erkek">Erkek</option>
+                        <option value="Diğer">Diğer</option>
+                    </select>
+                    <label asp-for="Input.Gender"></label>
+                    <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select asp-for="Input.City" class="form-select" id="citySelect">
+                        <option value="">Seçiniz</option>
+                    </select>
+                    <label asp-for="Input.City"></label>
+                    <span asp-validation-for="Input.City" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <select asp-for="Input.District" class="form-select" id="districtSelect">
+                        <option value="">Seçiniz</option>
+                    </select>
+                    <label asp-for="Input.District"></label>
+                    <span asp-validation-for="Input.District" class="text-danger"></span>
+                </div>
+
+                <div class="form-floating mb-3">
+                    <textarea asp-for="Input.Address" class="form-control" style="height: 100px;" placeholder="Adres"></textarea>
+                    <label asp-for="Input.Address"></label>
+                    <span asp-validation-for="Input.Address" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
+                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Kaydet</button>
+            </form>
         </div>
 
-        <div class="form-floating mb-3">
-            <input asp-for="Input.BirthDate" type="date" class="form-control" placeholder="Doğum Tarihi" />
-            <label asp-for="Input.BirthDate"></label>
-            <span asp-validation-for="Input.BirthDate" class="text-danger"></span>
+        <div class="photo-section">
+            @if (!string.IsNullOrEmpty(Model.Input.PhotoPath))
+            {
+                <img src="@Model.Input.PhotoPath"
+                     style="margin-bottom:10px; width:120px; height:120px; object-fit:cover; border-radius:50%; border:2px solid #ccc; box-shadow:0 0 8px rgba(0,0,0,0.3);" />
+            }
+
+            <form method="post" asp-page-handler="UploadPhoto" enctype="multipart/form-data">
+                <input type="file" name="photoFile" class="form-control mb-2" />
+                <button type="submit" class="btn btn-sm btn-secondary w-100">Fotoğraf Ekle</button>
+            </form>
         </div>
 
-        <div class="form-floating mb-3">
-            <select asp-for="Input.Gender" class="form-select">
-                <option value="">Seçiniz</option>
-                <option value="Kadın">Kadın</option>
-                <option value="Erkek">Erkek</option>
-                <option value="Diğer">Diğer</option>
-            </select>
-            <label asp-for="Input.Gender"></label>
-            <span asp-validation-for="Input.Gender" class="text-danger"></span>
-        </div>
-
-        <div class="form-floating mb-3">
-            <select asp-for="Input.City" class="form-select" id="citySelect">
-                <option value="">Seçiniz</option>
-            </select>
-            <label asp-for="Input.City"></label>
-            <span asp-validation-for="Input.City" class="text-danger"></span>
-        </div>
-
-        <div class="form-floating mb-3">
-            <select asp-for="Input.District" class="form-select" id="districtSelect">
-                <option value="">Seçiniz</option>
-            </select>
-            <label asp-for="Input.District"></label>
-            <span asp-validation-for="Input.District" class="text-danger"></span>
-        </div>
-
-        <div class="form-floating mb-3">
-            <textarea asp-for="Input.Address" class="form-control" style="height: 100px;" placeholder="Adres"></textarea>
-            <label asp-for="Input.Address"></label>
-            <span asp-validation-for="Input.Address" class="text-danger"></span>
-        </div>
-
-        <div class="mb-3">
-            <input asp-for="Input.PhoneNumber" class="form-control" placeholder="Telefon Numarası" />
-            <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary w-100">Kaydet</button>
-    </form>
+    </div>
 </div>
 
 @section Scripts {
@@ -118,7 +151,6 @@
 
             const selectedCity = '@(Model.Input.City ?? "")';
             const selectedDistrict = '@(Model.Input.District ?? "")';
-
 
             if (selectedCity && cities[selectedCity]) {
                 citySelect.value = selectedCity;

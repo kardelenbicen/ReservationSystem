@@ -92,6 +92,7 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\uploads\3541fbf4-9b73-4773-81b9-7411c73a8dd8.jpg
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\darkmode.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\favicon.ico
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt

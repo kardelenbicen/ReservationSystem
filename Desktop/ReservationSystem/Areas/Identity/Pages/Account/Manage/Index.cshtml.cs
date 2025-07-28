@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using ReservationSystem.Models;
+using System.IO;
+using Microsoft.AspNetCore.Http;
 
 namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 {
@@ -54,6 +56,9 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
 
             [Display(Name = "Adres")]
             public string Address { get; set; }
+
+            [Display(Name = "Profil Fotoğrafı")]
+            public string? PhotoPath { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
@@ -67,7 +72,8 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
                 Gender = user.Gender,
                 City = user.City,
                 District = user.District,
-                Address = user.Address
+                Address = user.Address,
+                PhotoPath = user.PhotoPath
             };
         }
 
@@ -130,5 +136,48 @@ namespace ReservationSystem.Areas.Identity.Pages.Account.Manage
             await LoadAsync(user); 
             return Page();
         }
+        public async Task<IActionResult> OnPostUploadPhotoAsync(IFormFile photoFile)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            if (user == null) return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+
+            if (photoFile != null && photoFile.Length > 0)
+            {
+                var fileName = Guid.NewGuid().ToString() + Path.GetExtension(photoFile.FileName);
+                var uploadsPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+
+                if (!Directory.Exists(uploadsPath))
+                    Directory.CreateDirectory(uploadsPath);
+
+                var filePath = Path.Combine(uploadsPath, fileName);
+
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await photoFile.CopyToAsync(stream);
+                }
+
+                user.PhotoPath = "/uploads/" + fileName;
+                var updateResult = await _userManager.UpdateAsync(user);
+
+                if (!updateResult.Succeeded)
+                {
+                    foreach (var error in updateResult.Errors)
+                        ModelState.AddModelError(string.Empty, error.Description);
+
+                    await LoadAsync(user);
+                    return Page();
+                }
+
+                StatusMessage = "Fotoğraf başarıyla yüklendi.";
+            }
+            else
+            {
+                StatusMessage = "Geçerli bir fotoğraf seçilmedi.";
+            }
+
+            await LoadAsync(user);
+            return RedirectToPage();
+        }
+
     }
 }
