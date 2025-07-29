@@ -1,12 +1,57 @@
 ﻿@model ReservationSystem.Models.MeetingRoom
 @{
     ViewData["Title"] = "Odayı Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<hr />
-<div class="row">
-    <div class="col-md-4">
+
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .background-container {
+        background-image: url('/images/photo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 50px;
+    }
+
+    .edit-card {
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        max-width: 900px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    h3 {
+        margin-top: 30px;
+    }
+
+    img {
+        border-radius: 5px;
+    }
+
+    .form-check-inline {
+        margin-right: 15px;
+    }
+</style>
+
+<div class="background-container">
+    <div class="edit-card">
+        <h2 class="text-center">Odayı Düzenle</h2>
+        <hr />
+
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label">İsim</label>
@@ -20,18 +65,14 @@
             </div>
             <div class="form-group">
                 <label>Oda Türü</label>
-            <div>
-                <label><input type="checkbox" name="RoomTypes" value="Konferans" @(Model.RoomType != null && Model.RoomType.Contains("Konferans") ? "checked" : "") /> Konferans</label>
-                <label><input type="checkbox" name="RoomTypes" value="Düğün" @(Model.RoomType != null && Model.RoomType.Contains("Düğün") ? "checked" : "") /> Düğün</label>
-                <label><input type="checkbox" name="RoomTypes" value="Tiyatro" @(Model.RoomType != null && Model.RoomType.Contains("Tiyatro") ? "checked" : "") /> Tiyatro</label>
-                <label><input type="checkbox" name="RoomTypes" value="Toplantı" @(Model.RoomType != null && Model.RoomType.Contains("Toplantı") ? "checked" : "") /> Toplantı</label>
-                <label><input type="checkbox" name="RoomTypes" value="Seminer" @(Model.RoomType != null && Model.RoomType.Contains("Seminer") ? "checked" : "") /> Seminer</label>
-                <label><input type="checkbox" name="RoomTypes" value="Eğitim/Kurs" @(Model.RoomType != null && Model.RoomType.Contains("Eğitim/Kurs") ? "checked" : "") /> Eğitim/Kurs</label>
-                <label><input type="checkbox" name="RoomTypes" value="Sergi/Fuar" @(Model.RoomType != null && Model.RoomType.Contains("Sergi/Fuar") ? "checked" : "") /> Sergi/Fuar</label>
-                <label><input type="checkbox" name="RoomTypes" value="Workshop/Atölye" @(Model.RoomType != null && Model.RoomType.Contains("Workshop/Atölye") ? "checked" : "") /> Workshop/Atölye</label>
-                <label><input type="checkbox" name="RoomTypes" value="Konser" @(Model.RoomType != null && Model.RoomType.Contains("Konser") ? "checked" : "") /> Konser</label>
-                <label><input type="checkbox" name="RoomTypes" value="Tören" @(Model.RoomType != null && Model.RoomType.Contains("Tören") ? "checked" : "") /> Tören</label>    
-            </div>
+                <div>
+                    @foreach (var item in new[] { "Konferans", "Düğün", "Tiyatro", "Toplantı", "Seminer", "Eğitim/Kurs", "Sergi/Fuar", "Workshop/Atölye", "Konser", "Tören" })
+                    {
+                        <label class="form-check-inline">
+                            <input type="checkbox" name="RoomTypes" value="@item" @(Model.RoomType != null && Model.RoomType.Contains(item) ? "checked" : "") /> @item
+                        </label>
+                    }
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="Location" class="control-label">Konum</label>
@@ -49,49 +90,59 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Kaydet" class="btn btn-primary" />
+                <input type="submit" value="Kaydet" class="btn btn-primary w-100" />
             </div>
         </form>
+
+        <h3>Salon Resimleri</h3>
+        <div>
+            @if (Model.Images != null && Model.Images.Any())
+            {
+                foreach (var img in Model.Images)
+                {
+                    <img src="@img.ImagePath" style="max-width:200px; margin:10px; cursor:pointer;" onclick="showModal('@img.ImagePath')" />
+                    <form asp-action="DeleteImage" method="post" style="display:inline;">
+                        <input type="hidden" name="imageId" value="@img.Id" />
+                        <input type="hidden" name="roomId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+                    </form>
+                }
+            }
+            else
+            {
+                <span>Henüz resim eklenmedi.</span>
+            }
+        </div>
+
+        <form asp-action="UploadImage" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+            <div class="form-group mt-3">
+                <input type="file" name="image" accept="image/*" required class="form-control-file" />
+                <button type="submit" class="btn btn-primary mt-2">Resim Yükle</button>
+            </div>
+        </form>
+
+        <div id="imgModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+            <img id="modalImg" src="" style="width:auto; height:auto; max-width:98vw; max-height:98vh; margin:auto; display:block;" />
+        </div>
+
+        <script>
+            function showModal(src) {
+                document.getElementById('modalImg').src = src;
+                document.getElementById('imgModal').style.display = 'flex';
+            }
+            document.getElementById('imgModal').onclick = function () {
+                this.style.display = 'none';
+            }
+        </script>
+
+        <div class="mt-4">
+            <a asp-action="Index" class="btn btn-secondary w-100">Listeye Dön</a>
+        </div>
     </div>
 </div>
-<h3>Salon Resimleri</h3>
-<div>
-@if (Model.Images != null && Model.Images.Any())
-{
-    foreach (var img in Model.Images)
-    {
-        <img src="@img.ImagePath" style="max-width:200px; margin:10px; cursor:pointer;" onclick="showModal('@img.ImagePath')" />
-        <form asp-action="DeleteImage" method="post" style="display:inline;">
-            <input type="hidden" name="imageId" value="@img.Id" />
-            <input type="hidden" name="roomId" value="@Model.Id" />
-            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
-        </form>
-    }
-}
-else
-{
-    <span>Henüz resim eklenmedi.</span>
-}
-</div>
-<form asp-action="UploadImage" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
-    <input type="file" name="image" accept="image/*" required />
-    <button type="submit" class="btn btn-primary">Resim Yükle</button>
-</form>
-<div id="imgModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
-    <img id="modalImg" src="" style="width:auto; height:auto; max-width:98vw; max-height:98vh; margin:auto; display:block;" />
-</div>
-<script>
-function showModal(src) {
-    document.getElementById('modalImg').src = src;
-    document.getElementById('imgModal').style.display = 'flex';
-}
-document.getElementById('imgModal').onclick = function() {
-    this.style.display = 'none';
-}
-</script>
-<div>
-    <a asp-action="Index">Listeye Dön</a>
-</div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
