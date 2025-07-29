@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity
 
 @inject SignInManager<ReservationSystem.Models.ApplicationUser> SignInManager
 @inject UserManager<ReservationSystem.Models.ApplicationUser> UserManager
@@ -6,6 +6,15 @@
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
+    <li class="nav-item">
+        <a id="notifications" class="nav-link text-dark position-relative" href="/Home/Index">
+            Bildirimler
+            @if (ViewBag.HasNotifications == true)
+            {
+                <span class="badge bg-danger rounded-pill position-absolute" style="top: 0; right: -5px;">1</span>
+            }
+        </a>
+    </li>
     <li class="nav-item">
         <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Merhaba @UserManager.GetUserName(User)!</a>
     </li>

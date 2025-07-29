@@ -40,12 +40,9 @@ app.UseStaticFiles();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapStaticAssets();
-
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=MeetingRooms}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=MeetingRooms}/{action=Index}/{id?}");
 
 app.MapRazorPages();
 
