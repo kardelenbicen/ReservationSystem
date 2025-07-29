@@ -206,7 +206,7 @@ namespace ReservationSystem.Controllers
             {
                 start = g.Min(x => x.StartTime),
                 end = g.Max(x => x.EndTime),
-                title = "",
+                title = g.FirstOrDefault()?.MeetingRoom?.Name ?? "Salon",
                 backgroundColor = "#e53935",
                 borderColor = "#e53935",
                 textColor = "#fff",
@@ -214,7 +214,8 @@ namespace ReservationSystem.Controllers
                 {
                     meetings = g.Select(x => new
                     {
-                        title = x.MeetingRoom.Name,
+                        room = x.MeetingRoom?.Name ?? "Salon",
+                        title = x.EventName,
                         start = x.StartTime,
                         end = x.EndTime,
                         user = x.User != null ? x.User.UserName : null
