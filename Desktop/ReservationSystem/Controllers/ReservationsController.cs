@@ -46,17 +46,21 @@ namespace ReservationSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Reservation reservation)
         {
-            reservation.UserId = _userManager.GetUserId(User);
-            reservation.Status = "Pending";
-            reservation.RejectMessage = "";
+            var userId = _userManager.GetUserId(User);
             ModelState.Remove("User");
             ModelState.Remove("MeetingRoom");
             ModelState.Remove("Status");
             ModelState.Remove("UserId");
             ModelState.Remove("RejectMessage");
+            ModelState.Remove("TotalAmount");
+            ModelState.Remove("DurationHours");
+            ModelState.Remove("IsPaid");
+            ModelState.Remove("PaymentId");
+            ModelState.Remove("Payment");
+            
             if (reservation.EndTime <= reservation.StartTime)
             {
-                return Json(new { sucess = false, message = "Bitiş zamanı başlangıçtan önce olamaz" });
+                return Json(new { success = false, message = "Bitiş zamanı başlangıçtan önce olamaz" });
             }
             if (reservation.StartTime < DateTime.Now || reservation.EndTime < DateTime.Now)
             {
@@ -71,16 +75,41 @@ namespace ReservationSystem.Controllers
                 {
                     return Json(new { success = false, message = " Seçilen saat aralığında başka bir rezervasyon var" });
                 }
-                _context.Add(reservation);
+
+                var room = await _context.MeetingRooms.FindAsync(reservation.MeetingRoomId);
+                if (room == null)
+                {
+                    return Json(new { success = false, message = "Oda bulunamadı." });
+                }
+
+                var duration = (reservation.EndTime - reservation.StartTime).TotalHours;
+                var totalAmount = (decimal)duration * room.HourlyRate;
+
+                var cartItem = new CartItem
+                {
+                    UserId = userId,
+                    MeetingRoomId = reservation.MeetingRoomId,
+                    StartTime = reservation.StartTime,
+                    EndTime = reservation.EndTime,
+                    EventName = reservation.EventName,
+                    Description = reservation.Description,
+                    TotalAmount = totalAmount,
+                    DurationHours = duration,
+                    CreatedAt = DateTime.Now
+                };
+
+                _context.CartItems.Add(cartItem);
                 await _context.SaveChangesAsync();
-                return Json(new { success = true, message = " Rezervasyon başarıyla oluşturuldu" });
+
+                return Json(new { success = true, message = "Rezervasyon sepete eklendi!", redirectUrl = "/Cart" });
             }
-            return Json(new { success = false, message = string.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)) });
+            return Json(new { success = false, message = "Lütfen tüm alanları doldurun." });
         }
+        
         [Authorize(Roles = "Admin")]
         public IActionResult Pending()
         {
-            var pending = _context.Reservations.Include(r => r.MeetingRoom).Include(r => r.User).Where(r => r.Status == "Pending").OrderBy(r => r.StartTime).ToList();
+            var pending = _context.Reservations.Include(r => r.MeetingRoom).Include(r => r.User).Where(r => r.Status == "Pending" && r.IsPaid).OrderBy(r => r.StartTime).ToList();
             return View(pending);
         }
         [Authorize(Roles = "Admin")]
@@ -202,42 +231,26 @@ namespace ReservationSystem.Controllers
                 }
             } while (mergedAny);
 
-            var result = merged.Select(g => new
+            var events = new List<object>();
+            foreach (var group in merged)
             {
-                start = g.Min(x => x.StartTime),
-                end = g.Max(x => x.EndTime),
-                title = g.FirstOrDefault()?.MeetingRoom?.Name ?? "Salon",
-                backgroundColor = "#e53935",
-                borderColor = "#e53935",
-                textColor = "#fff",
-                extendedProps = new
+                for (int i = 0; i < group.Count; i++)
                 {
-                    meetings = g.Select(x => new
+                    var reservation = group[i];
+                    events.Add(new
                     {
-                        room = x.MeetingRoom?.Name ?? "Salon",
-                        title = x.EventName,
-                        start = x.StartTime,
-                        end = x.EndTime,
-                        user = x.User != null ? x.User.UserName : null
-                    }).ToList()
+                        id = reservation.Id,
+                        title = $"{reservation.MeetingRoom?.Name} - {reservation.EventName}",
+                        start = reservation.StartTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        end = reservation.EndTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        description = reservation.Description,
+                        userName = reservation.User?.Email,
+                        status = reservation.Status,
+                        resourceId = i
+                    });
                 }
-            }).ToList();
-
-            return Json(result);
-        }
-        [Authorize]
-        [HttpPost]
-        public IActionResult Cancel(int id)
-        {
-            var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
-            if (reservation == null)
-                return NotFound();
-            var userId = _userManager.GetUserId(User);
-            if (reservation.UserId != userId && !User.IsInRole("Admin"))
-                return Forbid();
-            reservation.Status = "İptal Edildi";
-            _context.SaveChanges();
-            return RedirectToAction("My");
+            }
+            return Json(events);
         }
     }
 }

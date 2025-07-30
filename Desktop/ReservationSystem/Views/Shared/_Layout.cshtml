@@ -66,6 +66,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="Reservations" asp-action="My">Rezervasyonlarım</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Cart" asp-action="Index">🛒 Sepetim</a>
+                            </li>
                         }
                         @if (User?.IsInRole("Admin") == true)
                         {

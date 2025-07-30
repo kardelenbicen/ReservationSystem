@@ -21,6 +21,11 @@ public class MeetingRoom
 
     [Display(Name = "Açıklama")]
     public string? Description { get; set; }
+    
+    [Display(Name = "Saatlik Ücret (₺)")]
+    [Range(0, double.MaxValue, ErrorMessage = "Saatlik ücret 0'dan büyük olmalıdır.")]
+    public decimal HourlyRate { get; set; }
+    
     public string RoomType { get; set; }
     public ICollection<MeetingRoomImage> Images { get; set; }
 }

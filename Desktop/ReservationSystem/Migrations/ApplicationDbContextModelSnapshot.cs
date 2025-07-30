@@ -164,14 +164,12 @@ namespace ReservationSystem.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("BirthDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -179,7 +177,6 @@ namespace ReservationSystem.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("District")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -190,11 +187,9 @@ namespace ReservationSystem.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("FullName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
@@ -221,7 +216,6 @@ namespace ReservationSystem.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("PhotoPath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SecurityStamp")
@@ -247,6 +241,52 @@ namespace ReservationSystem.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("ReservationSystem.Models.CartItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<double>("DurationHours")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EventName")
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<int>("MeetingRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MeetingRoomId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CartItems");
+                });
+
             modelBuilder.Entity("ReservationSystem.Models.MeetingRoom", b =>
                 {
                     b.Property<int>("Id")
@@ -263,6 +303,9 @@ namespace ReservationSystem.Migrations
 
                     b.Property<string>("Devices")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("HourlyRate")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -301,6 +344,47 @@ namespace ReservationSystem.Migrations
                     b.ToTable("MeetingRoomImages");
                 });
 
+            modelBuilder.Entity("ReservationSystem.Models.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CVV")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CardNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ExpiryDate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PaymentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PaymentMethod")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Payments");
+                });
+
             modelBuilder.Entity("ReservationSystem.Models.Reservation", b =>
                 {
                     b.Property<int>("Id")
@@ -313,6 +397,9 @@ namespace ReservationSystem.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<double>("DurationHours")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
@@ -320,7 +407,13 @@ namespace ReservationSystem.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("bit");
+
                     b.Property<int>("MeetingRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PaymentId")
                         .HasColumnType("int");
 
                     b.Property<string>("RejectMessage")
@@ -332,12 +425,17 @@ namespace ReservationSystem.Migrations
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MeetingRoomId");
+
+                    b.HasIndex("PaymentId");
 
                     b.HasIndex("UserId");
 
@@ -395,18 +493,7 @@ namespace ReservationSystem.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ReservationSystem.Models.MeetingRoomImage", b =>
-                {
-                    b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
-                        .WithMany("Images")
-                        .HasForeignKey("MeetingRoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("MeetingRoom");
-                });
-
-            modelBuilder.Entity("ReservationSystem.Models.Reservation", b =>
+            modelBuilder.Entity("ReservationSystem.Models.CartItem", b =>
                 {
                     b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
                         .WithMany()
@@ -419,6 +506,49 @@ namespace ReservationSystem.Migrations
                         .HasForeignKey("UserId");
 
                     b.Navigation("MeetingRoom");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ReservationSystem.Models.MeetingRoomImage", b =>
+                {
+                    b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
+                        .WithMany("Images")
+                        .HasForeignKey("MeetingRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("MeetingRoom");
+                });
+
+            modelBuilder.Entity("ReservationSystem.Models.Payment", b =>
+                {
+                    b.HasOne("ReservationSystem.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("ReservationSystem.Models.Reservation", b =>
+                {
+                    b.HasOne("ReservationSystem.Models.MeetingRoom", "MeetingRoom")
+                        .WithMany()
+                        .HasForeignKey("MeetingRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ReservationSystem.Models.Payment", "Payment")
+                        .WithMany()
+                        .HasForeignKey("PaymentId");
+
+                    b.HasOne("ReservationSystem.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("MeetingRoom");
+
+                    b.Navigation("Payment");
 
                     b.Navigation("User");
                 });
