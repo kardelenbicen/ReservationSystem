@@ -193,3 +193,75 @@ body {
     padding: 0;
     font-family: 'Inter', sans-serif;
 }
+
+.background-container {
+    min-height: 100vh;
+    background: url('/images/photo.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.edit-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    max-width: 800px;
+    width: 100%;
+    padding: 36px;
+    margin: 20px auto;
+}
+
+.edit-card h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #22223b;
+}
+
+.edit-card .form-group {
+    margin-bottom: 20px;
+}
+
+.edit-card .form-control {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    font-size: 1rem;
+}
+
+.edit-card .btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.edit-card .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.edit-card .form-check-inline {
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.edit-card h3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #22223b;
+    font-weight: 600;
+}
+.fc-event:hover {
+    filter: brightness(0.95) !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+}
+.custom-tooltip {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    min-width: 220px;
+    font-size: 1rem;
+    pointer-events: none;
+}
