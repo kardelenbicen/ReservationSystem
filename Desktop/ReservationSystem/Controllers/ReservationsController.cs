@@ -178,7 +178,7 @@ namespace ReservationSystem.Controllers
             var reservations = _context.Reservations
                 .Include(r => r.MeetingRoom)
                 .Include(r => r.User)
-                .Where(r => r.EndTime > r.StartTime)
+                .Where(r => r.EndTime > r.StartTime && r.Status != "İptal Edildi")
                 .ToList();
 
             var intervals = reservations
@@ -258,6 +258,22 @@ namespace ReservationSystem.Controllers
                 });
             }
             return Json(events);
+        }
+        
+        [HttpPost]
+        [Authorize]
+        public IActionResult Cancel(int id)
+        {
+            var userId = _userManager.GetUserId(User);
+            var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id && r.UserId == userId);
+            
+            if (reservation == null)
+                return NotFound();
+     
+            reservation.Status = "İptal Edildi";
+            _context.SaveChanges();
+            
+            return RedirectToAction("My");
         }
     }
 }
