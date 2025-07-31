@@ -32,8 +32,8 @@
                                 <td>@item.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
                                 <td>@item.EndTime.ToString("dd.MM.yyyy HH:mm")</td>
                                 <td>@item.DurationHours.ToString("F1") saat</td>
-                                <td>@item.MeetingRoom?.HourlyRate.ToString("C")</td>
-                                <td>@item.TotalAmount.ToString("C")</td>
+                                <td>@item.MeetingRoom?.HourlyRate.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
+                                <td>@item.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
                                 <td>
                                     <button class="btn btn-danger btn-sm" onclick="removeFromCart(@item.Id)">Sil</button>
                                 </td>
@@ -45,7 +45,7 @@
             
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <h4>Toplam Ödeme: @ViewBag.TotalAmount.ToString("C")</h4>
+                    <h4>Toplam Ödeme: @ViewBag.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</h4>
                 </div>
                 <div class="col-md-6 text-end">
                     <a href="/Cart/Payment" class="btn btn-success btn-lg">Öde</a>
