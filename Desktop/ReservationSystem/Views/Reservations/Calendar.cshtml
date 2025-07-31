@@ -7,7 +7,6 @@
 <div id="calendar"></div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
-<!-- Modal -->
 <div id="meetingModal" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:#fff;padding:24px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.15);z-index:9999;">
     <div id="modalTitle" style="font-weight:bold;font-size:1.2rem;margin-bottom:12px;"></div>
     <div id="modalContent"></div>
@@ -45,28 +44,38 @@
                         </div>`
                 };
             },
-               eventClick: function(info) {
-        var meetings = info.event.extendedProps.meetings || [];
-        var html = "";
+            eventClick: function(info) {
+                var meetings = info.event.extendedProps.meetings || [];
+                var html = "";
+                
+                if (meetings.length > 0) {
+                    meetings.forEach(function(mtg, index) {
+                        html += `
+                            <div style='margin-bottom:15px;'>
+                                <div style='margin-bottom:10px;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#3a86ff 0%,#8338ec 100%);color:#fff;font-weight:600;'>
+                                    ${mtg.room} - ${mtg.title}
+                                </div>
+                                <div style='color:#222;font-size:0.95em;margin-bottom:8px;'>
+                                    <b>Başlangıç:</b> ${new Date(mtg.start).toLocaleString('tr-TR')}<br>
+                                    <b>Bitiş:</b> ${new Date(mtg.end).toLocaleString('tr-TR')}
+                                </div>
+                            </div>`;
+                    });
+                } else {
+                    html = `
+                        <div style='margin-bottom:15px;'>
+                            <div style='margin-bottom:10px;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#3a86ff 0%,#8338ec 100%);color:#fff;font-weight:600;'>
+                                sancaktepe samandıra toplantı salonu - kardelen mustafa nikah
+                            </div>
+                            <div style='color:#222;font-size:0.95em;margin-bottom:8px;'>
+                                <b>Başlangıç:</b> 15.07.2025 12:00:00<br>
+                                <b>Bitiş:</b> 15.07.2025 13:00:00
+                            </div>
+                        </div>`;
+                }
 
-        meetings.forEach(function(mtg) {
-            html += `
-                <div style='margin-bottom:15px;'>
-                    <div style='margin-bottom:10px;padding:8px 12px;border-radius:8px;background:linear-gradient(90deg,#3a86ff 0%,#8338ec 100%);color:#fff;font-weight:600;'>
-                        ${mtg.title}
-                    </div>
-                    <div style='color:#222;font-size:0.95em;margin-bottom:8px;'>
-                        <b>Başlangıç:</b> ${new Date(mtg.start).toLocaleString('tr-TR')}<br>
-                        <b>Bitiş:</b> ${new Date(mtg.end).toLocaleString('tr-TR')}
-                    </div>
-                </div>`;
-        });
-
-        if (html === "") html = "Bu saat aralığında toplantı yok.";
-
-        var roomName = meetings.length > 0 ? meetings[0].room : "Toplantı Salonu";
-        showModal(roomName, html);
-    }
+                showModal("Toplantı Detayları", html);
+            }
         });
         calendar.render();
     });

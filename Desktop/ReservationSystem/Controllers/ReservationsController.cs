@@ -234,21 +234,28 @@ namespace ReservationSystem.Controllers
             var events = new List<object>();
             foreach (var group in merged)
             {
-                for (int i = 0; i < group.Count; i++)
+                var firstReservation = group.OrderBy(r => r.StartTime).First();
+                var lastReservation = group.OrderBy(r => r.EndTime).Last();
+                
+                var meetings = group.Select(r => new
                 {
-                    var reservation = group[i];
-                    events.Add(new
-                    {
-                        id = reservation.Id,
-                        title = $"{reservation.MeetingRoom?.Name} - {reservation.EventName}",
-                        start = reservation.StartTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        end = reservation.EndTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        description = reservation.Description,
-                        userName = reservation.User?.Email,
-                        status = reservation.Status,
-                        resourceId = i
-                    });
-                }
+                    title = r.EventName,
+                    start = r.StartTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    end = r.EndTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    room = r.MeetingRoom?.Name,
+                    description = r.Description,
+                    userName = r.User?.Email,
+                    status = r.Status
+                }).ToList();
+
+                events.Add(new
+                {
+                    id = firstReservation.Id,
+                    title = $"{firstReservation.MeetingRoom?.Name} - Detay Göster",
+                    start = firstReservation.StartTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    end = lastReservation.EndTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                    meetings = meetings
+                });
             }
             return Json(events);
         }
