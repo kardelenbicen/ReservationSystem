@@ -95,7 +95,18 @@ namespace ReservationSystem.Areas.Identity.Pages.Account
                 }
                 foreach (var error in result.Errors)
                 {
-                    ModelState.AddModelError(string.Empty, error.Description);
+                    string errorMessage = error.Code switch
+                    {
+                        "DuplicateUserName" => "Bu kullanıcı adı zaten kullanılıyor.",
+                        "DuplicateEmail" => "Bu e-posta adresi zaten kullanılıyor.",
+                        "PasswordTooShort" => "Şifre çok kısa.",
+                        "PasswordRequiresNonAlphanumeric" => "Şifre en az bir özel karakter içermelidir.",
+                        "PasswordRequiresDigit" => "Şifre en az bir rakam içermelidir.",
+                        "PasswordRequiresUpper" => "Şifre en az bir büyük harf içermelidir.",
+                        "PasswordRequiresLower" => "Şifre en az bir küçük harf içermelidir.",
+                        _ => error.Description
+                    };
+                    ModelState.AddModelError(string.Empty, errorMessage);
                 }
             }
             return Page();
