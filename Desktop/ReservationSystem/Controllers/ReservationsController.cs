@@ -15,27 +15,33 @@ namespace ReservationSystem.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ReservationSystem.Models.ApplicationUser> _userManager;
+
         public ReservationsController(ApplicationDbContext context, UserManager<ReservationSystem.Models.ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
         }
+
         public IActionResult Index(int? meetingRoomId, int? clearFilter)
         {
             if (clearFilter.HasValue && clearFilter.Value == 1)
             {
                 meetingRoomId = null;
             }
+
             var reservations = _context.Reservations.Include(r => r.MeetingRoom).AsQueryable();
+
             if (meetingRoomId.HasValue)
             {
                 reservations = reservations.Where(r => r.MeetingRoomId == meetingRoomId.Value);
             }
+
             var list = reservations.ToList();
             ViewBag.MeetingRooms = _context.MeetingRooms.ToList();
             ViewBag.SelectedMeetingRoomId = meetingRoomId;
             return View(list);
         }
+
         [Authorize]
         public IActionResult Create(int? roomId)
         {
@@ -43,10 +49,12 @@ namespace ReservationSystem.Controllers
             ViewBag.Rooms = _context.MeetingRooms.ToList();
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> Create(Reservation reservation)
         {
             var userId = _userManager.GetUserId(User);
+
             ModelState.Remove("User");
             ModelState.Remove("MeetingRoom");
             ModelState.Remove("Status");
@@ -57,20 +65,23 @@ namespace ReservationSystem.Controllers
             ModelState.Remove("IsPaid");
             ModelState.Remove("PaymentId");
             ModelState.Remove("Payment");
-            
+
             if (reservation.EndTime <= reservation.StartTime)
             {
                 return Json(new { success = false, message = "Bitiş zamanı başlangıçtan önce olamaz" });
             }
+
             if (reservation.StartTime < DateTime.Now || reservation.EndTime < DateTime.Now)
             {
                 return Json(new { success = false, message = "Geçmiş bir tarihe rezervasyon yapılamaz." });
             }
+
             if (ModelState.IsValid)
             {
                 var conflict = _context.Reservations.Any(r => r.MeetingRoomId == reservation.MeetingRoomId &&
                     ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
                     (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime)));
+
                 if (conflict)
                 {
                     return Json(new { success = false, message = " Seçilen saat aralığında başka bir rezervasyon var" });
@@ -103,15 +114,24 @@ namespace ReservationSystem.Controllers
 
                 return Json(new { success = true, message = "Rezervasyon sepete eklendi!", redirectUrl = "/Cart" });
             }
+
             return Json(new { success = false, message = "Lütfen tüm alanları doldurun." });
         }
-        
+
         [Authorize(Roles = "Admin")]
         public IActionResult Pending()
         {
-            var pending = _context.Reservations.Include(r => r.MeetingRoom).Include(r => r.User).Where(r => r.Status == "Pending" && r.IsPaid).OrderBy(r => r.StartTime).ToList();
+            var pending = _context.Reservations
+                .Include(r => r.MeetingRoom)
+                .ThenInclude(m => m.Images)
+                .Include(r => r.User)
+                .Where(r => r.Status == "Pending" && r.IsPaid)
+                .OrderBy(r => r.StartTime)
+                .ToList();
+
             return View(pending);
         }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Approve(int? id)
         {
@@ -120,6 +140,7 @@ namespace ReservationSystem.Controllers
                 return NotFound();
             return View(reservation);
         }
+
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public IActionResult ApproveConfirmed(int id)
@@ -127,10 +148,12 @@ namespace ReservationSystem.Controllers
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
             if (reservation == null)
                 return NotFound();
+
             reservation.Status = "Approved";
             _context.SaveChanges();
             return RedirectToAction("Pending");
         }
+
         [Authorize(Roles = "Admin")]
         public IActionResult Reject(int? id)
         {
@@ -139,6 +162,7 @@ namespace ReservationSystem.Controllers
                 return NotFound();
             return View(reservation);
         }
+
         [HttpPost]
         [Authorize(Roles = "Admin")]
         public IActionResult Reject(int id, string rejectMessage)
@@ -146,18 +170,27 @@ namespace ReservationSystem.Controllers
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
             if (reservation == null)
                 return NotFound();
+
             reservation.Status = "Rejected";
             reservation.RejectMessage = rejectMessage;
             _context.SaveChanges();
             return RedirectToAction("Pending");
         }
+
         [Authorize]
-        public IActionResult My()
+        public async Task<IActionResult> My()
         {
             var userId = _userManager.GetUserId(User);
-            var myReservations = _context.Reservations.Include(r => r.MeetingRoom).Where(r => r.UserId != null && r.UserId == userId).ToList();
-            return View(myReservations);
+            var reservations = await _context.Reservations
+                .Include(r => r.MeetingRoom)
+                .ThenInclude(m => m.Images)
+                .Where(r => r.UserId == userId)
+                .OrderByDescending(r => r.StartTime)
+                .ToListAsync();
+
+            return View(reservations);
         }
+
         [Authorize(Roles = "Admin")]
         public IActionResult CleanNullUserId()
         {
@@ -169,10 +202,12 @@ namespace ReservationSystem.Controllers
             }
             return Content($"Silinen kayıt sayısı: {nullReservations.Count}");
         }
+
         public IActionResult Calendar()
         {
             return View();
         }
+
         public JsonResult CalendarData()
         {
             var reservations = _context.Reservations
@@ -236,7 +271,7 @@ namespace ReservationSystem.Controllers
             {
                 var firstReservation = group.OrderBy(r => r.StartTime).First();
                 var lastReservation = group.OrderBy(r => r.EndTime).Last();
-                
+
                 var meetings = group.Select(r => new
                 {
                     title = r.EventName,
@@ -257,22 +292,23 @@ namespace ReservationSystem.Controllers
                     meetings = meetings
                 });
             }
+
             return Json(events);
         }
-        
+
         [HttpPost]
         [Authorize]
         public IActionResult Cancel(int id)
         {
             var userId = _userManager.GetUserId(User);
             var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id && r.UserId == userId);
-            
+
             if (reservation == null)
                 return NotFound();
-     
+
             reservation.Status = "İptal Edildi";
             _context.SaveChanges();
-            
+
             return RedirectToAction("My");
         }
     }

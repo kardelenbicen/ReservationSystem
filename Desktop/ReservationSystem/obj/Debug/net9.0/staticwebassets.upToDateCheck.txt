@@ -118,8 +118,9 @@ wwwroot\uploads\cbdda1a4-c212-4e00-9304-5b99316f6615.jpg
 wwwroot\uploads\cd5c4cd8-929a-4ba8-b0d7-fbb68ad73d17.jpg
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\darkmode.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\css\test.css
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\favicon.ico
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\location-dropdown.js
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.js
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\notifications.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\site.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
@@ -177,7 +178,6 @@ C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwro
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.min.map
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.js
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\favicon.ico
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.js
 C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\dist\jquery.slim.min.map
-C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\js\notifications.js
+C:\Users\kardelenbicen\Desktop\ReservationSystem\Desktop\ReservationSystem\wwwroot\lib\jquery\LICENSE.txt

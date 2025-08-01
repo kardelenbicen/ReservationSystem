@@ -26,8 +26,8 @@ namespace ReservationSystem.Controllers
             var userId = _userManager.GetUserId(User);
             var cartItems = await _context.CartItems
                 .Include(c => c.MeetingRoom)
+                .ThenInclude(m => m.Images)
                 .Where(c => c.UserId == userId)
-                .OrderBy(c => c.CreatedAt)
                 .ToListAsync();
 
             ViewBag.TotalAmount = cartItems.Sum(c => c.TotalAmount);

@@ -13,6 +13,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Kapak</th>
                             <th>Salon Adı</th>
                             <th>Etkinlik Adı</th>
                             <th>Başlangıç</th>
@@ -27,6 +28,20 @@
                         @foreach (var item in Model)
                         {
                             <tr id="cart-item-@item.Id">
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.MeetingRoom?.CoverImagePath))
+                                    {
+                                        <img src="@item.MeetingRoom.CoverImagePath" alt="@item.MeetingRoom.Name" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" />
+                                    }
+                                    else if (item.MeetingRoom?.Images != null && item.MeetingRoom.Images.Any())
+                                    {
+                                        <img src="@item.MeetingRoom.Images.First().ImagePath" alt="@item.MeetingRoom.Name" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="/images/photo.jpg" alt="@item.MeetingRoom?.Name" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" />
+                                    }
+                                </td>
                                 <td>@item.MeetingRoom?.Name</td>
                                 <td>@item.EventName</td>
                                 <td>@item.StartTime.ToString("dd.MM.yyyy HH:mm")</td>
