@@ -14,12 +14,31 @@
                         @foreach (var reservation in ViewBag.UpcomingReservations)
                         {
                             <div class="list-group-item notification-item p-3 mb-2">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">@reservation.EventName</h5>
-                                    <small>@((reservation.StartTime - DateTime.Now).TotalHours.ToString("0.0")) saat kaldı</small>
+                                <div class="d-flex align-items-center">
+                                    <div class="me-3">
+                                        @{
+                                            var coverImagePath = "/images/photo.jpg"; // Varsayılan resim
+                                            if (!string.IsNullOrEmpty(reservation.MeetingRoom.CoverImagePath))
+                                            {
+                                                coverImagePath = reservation.MeetingRoom.CoverImagePath;
+                                            }
+                                            else if (reservation.MeetingRoom.Images != null && reservation.MeetingRoom.Images.Any())
+                                            {
+                                                coverImagePath = reservation.MeetingRoom.Images.First().ImagePath;
+                                            }
+                                        }
+                                        <img src="@coverImagePath" alt="@reservation.MeetingRoom.Name" 
+                                             style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;" />
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">@reservation.EventName</h5>
+                                            <small>@((reservation.StartTime - DateTime.Now).TotalHours.ToString("0.0")) saat kaldı</small>
+                                        </div>
+                                        <p class="mb-1">Toplantı Odası: @reservation.MeetingRoom.Name</p>
+                                        <small>@reservation.StartTime.ToString("dd MMMM yyyy HH:mm") - @reservation.EndTime.ToString("HH:mm")</small>
+                                    </div>
                                 </div>
-                                <p class="mb-1">Toplantı Odası: @reservation.MeetingRoom.Name</p>
-                                <small>@reservation.StartTime.ToString("dd MMMM yyyy HH:mm") - @reservation.EndTime.ToString("HH:mm")</small>
                             </div>
                         }
                     </div>
@@ -27,7 +46,7 @@
                 else
                 {
                     <div class="alert alert-info">
-                        <p class="mb-0">Yaklaşan bildiriminiz bulunmamaktadır.</p>
+                        Yaklaşan rezervasyonunuz bulunmamaktadır.
                     </div>
                 }
             </div>

@@ -29,10 +29,11 @@ public class HomeController : Controller
         {
             var userId = _userManager.GetUserId(User);
             var today = DateTime.Now;
-            var tomorrow = today.AddHours(24); // 24 saatten az kalan rezervasyonlar
+            var tomorrow = today.AddHours(24); 
             
             var upcomingReservations = await _context.Reservations
                 .Include(r => r.MeetingRoom)
+                .ThenInclude(m => m.Images)
                 .Where(r => r.UserId == userId && 
                        r.Status == "Approved" && 
                        r.StartTime >= today && 
