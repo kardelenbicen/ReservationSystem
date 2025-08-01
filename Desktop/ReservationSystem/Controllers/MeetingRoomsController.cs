@@ -54,9 +54,21 @@ namespace ReservationSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Create(MeetingRoom meetingRoom, string[] RoomTypes, List<IFormFile> images)
+        public IActionResult Create(MeetingRoom meetingRoom, string[] RoomTypes, List<IFormFile> images, IFormFile coverImage)
         {
             meetingRoom.RoomType = string.Join(",", RoomTypes);
+            
+            if (coverImage != null && coverImage.Length > 0)
+            {
+                var coverFileName = Guid.NewGuid().ToString() + Path.GetExtension(coverImage.FileName);
+                var coverFilePath = Path.Combine("wwwroot/images", coverFileName);
+                using (var stream = new FileStream(coverFilePath, FileMode.Create))
+                {
+                    coverImage.CopyTo(stream);
+                }
+                meetingRoom.CoverImagePath = "/images/" + coverFileName;
+            }
+            
             _context.MeetingRooms.Add(meetingRoom);
             _context.SaveChanges();
 
@@ -102,9 +114,21 @@ namespace ReservationSystem.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public IActionResult Edit(MeetingRoom meetingRoom, string[] RoomTypes)
+        public IActionResult Edit(MeetingRoom meetingRoom, string[] RoomTypes, IFormFile coverImage)
         {
             meetingRoom.RoomType = string.Join(",", RoomTypes);
+            
+            if (coverImage != null && coverImage.Length > 0)
+            {
+                var coverFileName = Guid.NewGuid().ToString() + Path.GetExtension(coverImage.FileName);
+                var coverFilePath = Path.Combine("wwwroot/images", coverFileName);
+                using (var stream = new FileStream(coverFilePath, FileMode.Create))
+                {
+                    coverImage.CopyTo(stream);
+                }
+                meetingRoom.CoverImagePath = "/images/" + coverFileName;
+            }
+            
             _context.Update(meetingRoom);
             _context.SaveChanges();
             return RedirectToAction("Index");

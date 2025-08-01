@@ -9,8 +9,9 @@
         <h2 class="text-center">Odayı Düzenle</h2>
         <hr />
 
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CoverImagePath" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label">İsim</label>
                 <input asp-for="Name" class="form-control" />
@@ -53,6 +54,24 @@
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <div class="form-group">
+                    <label class="control-label">Mevcut Kapak Fotoğrafı</label>
+                    @if (!string.IsNullOrEmpty(Model.CoverImagePath))
+                    {
+                        <div>
+                            <img src="@Model.CoverImagePath" style="max-width:200px; margin:10px;" />
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Henüz kapak fotoğrafı eklenmemiş.</p>
+                    }
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Yeni Kapak Fotoğrafı</label>
+                    <input type="file" name="coverImage" accept="image/*" class="form-control-file" />
+                    <small class="form-text text-muted">Yeni bir kapak fotoğrafı seçerseniz eskisi değiştirilecektir.</small>
+                </div>
                 <input type="submit" value="Kaydet" class="btn btn-primary w-100" />
             </div>
         </form>

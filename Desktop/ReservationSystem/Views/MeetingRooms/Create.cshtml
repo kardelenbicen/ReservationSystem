@@ -59,6 +59,11 @@
                             <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                         <div class="col-12">
+                            <h5 class="mt-2">Kapak Fotoğrafı</h5>
+                            <input type="file" name="coverImage" id="coverImage" class="form-control" accept="image/*">
+                            <small class="form-text text-muted">Bu fotoğraf salon listesinde kapak resmi olarak gösterilecektir.</small>
+                        </div>
+                        <div class="col-12">
                             <h5 class="mt-2">Salon Resimleri</h5>
                             <input type="file" name="images" id="images" class="form-control" accept="image/*" multiple>
                         </div>

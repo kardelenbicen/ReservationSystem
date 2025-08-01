@@ -35,7 +35,11 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="meeting-room-card">
                         <div class="room-image">
-                            @if (item.Images != null && item.Images.Any())
+                            @if (!string.IsNullOrEmpty(item.CoverImagePath))
+                            {
+                                <img src="@item.CoverImagePath" alt="@item.Name" class="card-img" />
+                            }
+                            else if (item.Images != null && item.Images.Any())
                             {
                                 <img src="@item.Images.First().ImagePath" alt="@item.Name" class="card-img" />
                             }

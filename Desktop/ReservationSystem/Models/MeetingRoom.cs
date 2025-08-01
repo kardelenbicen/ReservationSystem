@@ -26,6 +26,9 @@ public class MeetingRoom
     [Range(0, double.MaxValue, ErrorMessage = "Saatlik ücret 0'dan büyük olmalıdır.")]
     public decimal HourlyRate { get; set; }
     
+    [Display(Name = "Kapak Fotoğrafı")]
+    public string? CoverImagePath { get; set; }
+    
     public string RoomType { get; set; }
     public ICollection<MeetingRoomImage> Images { get; set; }
 }
