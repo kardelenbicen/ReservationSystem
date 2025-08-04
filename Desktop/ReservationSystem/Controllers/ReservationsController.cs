@@ -84,7 +84,16 @@ namespace ReservationSystem.Controllers
 
                 if (conflict)
                 {
-                    return Json(new { success = false, message = " Seçilen saat aralığında başka bir rezervasyon var" });
+                    return Json(new { success = false, message = "Seçilen saat aralığında bu odada başka bir rezervasyon var." });
+                }
+
+                var userConflict = _context.Reservations.Any(r => r.UserId == userId &&
+                    ((reservation.StartTime >= r.StartTime && reservation.StartTime < r.EndTime) ||
+                    (reservation.EndTime > r.StartTime && reservation.EndTime <= r.EndTime)));
+
+                if (userConflict)
+                {
+                    return Json(new { success = false, message = "Bu saatlerde zaten başka bir rezervasyonunuz bulunmaktadır." });
                 }
 
                 var room = await _context.MeetingRooms.FindAsync(reservation.MeetingRoomId);
@@ -135,7 +144,10 @@ namespace ReservationSystem.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Approve(int? id)
         {
-            var reservation = _context.Reservations.FirstOrDefault(r => r.Id == id);
+            var reservation = _context.Reservations
+                .Include(r => r.MeetingRoom)
+                .Include(r => r.User)
+                .FirstOrDefault(r => r.Id == id);
             if (reservation == null)
                 return NotFound();
             return View(reservation);

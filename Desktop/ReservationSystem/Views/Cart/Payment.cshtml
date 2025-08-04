@@ -13,12 +13,12 @@
                 {
                     <tr>
                         <td>@item.MeetingRoom?.Name - @item.EventName</td>
-                        <td class="text-end">@item.TotalAmount.ToString("C")</td>
+                        <td class="text-end">@item.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
                     </tr>
                 }
                 <tr class="table-dark">
                     <td><strong>Toplam</strong></td>
-                    <td class="text-end"><strong>@ViewBag.TotalAmount.ToString("C")</strong></td>
+                    <td class="text-end"><strong>@ViewBag.TotalAmount.ToString("C", new System.Globalization.CultureInfo("tr-TR"))</td>
                 </tr>
             </table>
         </div>
