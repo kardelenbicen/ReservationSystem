@@ -16,7 +16,6 @@ public static class DbInitializer
                 await roleManager.CreateAsync(new IdentityRole(role));
         }
 
-        // Varsayılan admin hesabı
         string adminEmail = "admin@admin.com";
         string adminPassword = "Admin123!";
         if (await userManager.FindByEmailAsync(adminEmail) == null)

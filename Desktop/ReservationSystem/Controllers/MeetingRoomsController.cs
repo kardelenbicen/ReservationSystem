@@ -19,7 +19,7 @@ namespace ReservationSystem.Controllers
             _context = context;
         }
 
-        public IActionResult Index(string search, int? capacity, string location, string devices)
+        public IActionResult Index(string search, int? capacity, string location, string devices, string roomType)
         {
             var rooms = _context.MeetingRooms.AsQueryable();
             if (!string.IsNullOrEmpty(search))
@@ -30,6 +30,18 @@ namespace ReservationSystem.Controllers
                 rooms = rooms.Where(r => r.Location != null && r.Location.Contains(location));
             if (!string.IsNullOrEmpty(devices))
                 rooms = rooms.Where(r => r.Devices != null && r.Devices.Contains(devices));
+            if (!string.IsNullOrEmpty(roomType))
+                rooms = rooms.Where(r => r.RoomType != null && r.RoomType.Contains(roomType));
+             ViewBag.RoomTypes = _context.MeetingRooms
+                .Where(r => !string.IsNullOrEmpty(r.RoomType))
+                .Select(r => r.RoomType)
+                .ToList()
+                .SelectMany(rt => rt.Split(',', StringSplitOptions.RemoveEmptyEntries))
+                .Select(rt => rt.Trim())
+                .Distinct()
+                .OrderBy(rt => rt)
+                .ToList();
+            
             return View(rooms.ToList());
         }
         public async Task<IActionResult> Details(int? id)

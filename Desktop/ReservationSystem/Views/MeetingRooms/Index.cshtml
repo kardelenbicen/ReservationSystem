@@ -11,19 +11,31 @@
 
         <form method="get" class="mb-4">
             <div class="row g-2">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="text" name="search" class="form-control" placeholder="Oda Adı ile Ara" value="@query["search"]" />
                 </div>
                 <div class="col-md-2">
                     <input type="number" name="capacity" class="form-control" placeholder="Min. Kapasite" value="@query["capacity"]" />
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="text" name="location" class="form-control" placeholder="Lokasyon" value="@query["location"]" />
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input type="text" name="devices" class="form-control" placeholder="Cihazlar (örn: projeksiyon)" value="@query["devices"]" />
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2">
+                    <select name="roomType" class="form-control">
+                        <option value="">Tüm Oda Türleri</option>
+                        @if (ViewBag.RoomTypes != null)
+                        {
+                            @foreach (string roomType in ViewBag.RoomTypes)
+                            {
+                                <option value="@roomType" selected="@(query["roomType"] == roomType)">@roomType</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="col-md-2">
                     <button type="submit" class="btn btn-primary w-100">Ara</button>
                 </div>
             </div>

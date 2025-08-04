@@ -46,7 +46,6 @@ $(document).ready(function () {
         } else if (password.length < 6) {
             errorMsg += "Şifre en az 6 karakter olmalı\n";
         }
-        // Şifre tekrar kontrolü kaldırıldı
         if (errorMsg) {
             alert(errorMsg);
             e.preventDefault();
@@ -120,7 +119,6 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    // Sadece rezervasyon ekranında çalışsın
     if (window.location.pathname.toLowerCase().includes('/reservations/create')) {
         $("#reservationForm").submit(function (e) {
             var eventName = $("#eventName").val();
@@ -235,7 +233,6 @@ $(document).ready(function() {
             $('#reservationForm textarea').css({'fontSize':'0.95rem','padding':'3px 8px','borderRadius':'5px','border':'1px solid #bbb','marginBottom':'1px','width':'100%','minWidth':'350px','boxSizing':'border-box','height':'38px','minHeight':'38px','resize':'vertical'});
             $('#reservationForm button[type=submit]').addClass('w-100 btn btn-success').css({'marginTop':'6px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
             $('#reservationForm a.btn-secondary').addClass('w-100 btn btn-secondary').css({'marginTop':'4px','fontWeight':'600','fontSize':'0.95rem','padding':'7px 0','display':'block'});
-            // --- ODA TÜRÜ SCRIPT ---
             var roomTypeSelect = document.getElementById('roomType');
             var roomSelect = document.getElementById('roomSelect');
             var eventName = document.getElementById('eventName');
@@ -289,8 +286,6 @@ $(document).ready(function() {
                     }
                 });
             }
-            // --- SON ---
-            // --- FORM SUBMIT TOAST ---
             $('#reservationForm').off('submit').on('submit', function(e) {
                 e.preventDefault();
                 var form = this;
@@ -311,7 +306,6 @@ $(document).ready(function() {
                     }
                 });
             });
-            // --- SON ---
         });
         $('#reservationModal').fadeIn();
     });
