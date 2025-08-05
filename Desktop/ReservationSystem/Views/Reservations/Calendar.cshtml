@@ -1,10 +1,16 @@
 @{
-    ViewData["Title"] = "Toplantı Odası Takvimi";
+    ViewData["Title"] = "Konferans Salonları Takvimi";
 }
 <link rel="stylesheet" href="~/css/test.css" />
-<h1>Toplantı Odası Takvimi</h1>
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
-<div id="calendar"></div>
+
+<div class="background-container">
+    <div class="calendar-card">
+        <h1 style="text-align: center; margin-bottom: 20px; color: #22223b; font-weight: 600; font-size: clamp(1.2rem, 4vw, 1.8rem);">Toplantı Odası Takvimi</h1>
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+        <div id="calendar"></div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
 <div id="meetingModal" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:#fff;padding:24px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.15);z-index:9999;">
@@ -23,7 +29,7 @@
     document.addEventListener('DOMContentLoaded', function () {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'timeGridWeek',
+            initialView: 'dayGridMonth',
             locale: 'tr',
             firstDay: 1,
             headerToolbar: {
@@ -32,7 +38,7 @@
                 right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             events: '/Reservations/CalendarData',
-            height: 700,
+            height: 650,
             eventMaxStack: 1,
             eventOverlap: true,
             slotEventOverlap: true,
@@ -80,3 +86,16 @@
         calendar.render();
     });
 </script>
+
+<style>
+.calendar-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.13);
+    max-width: min(1200px, 95vw);
+    width: 95%;
+    padding: clamp(15px, 4vw, 35px);
+    margin: 20px auto;
+    min-width: 300px;
+}
+</style>

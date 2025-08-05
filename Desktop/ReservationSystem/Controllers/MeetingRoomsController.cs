@@ -90,6 +90,7 @@ namespace ReservationSystem.Controllers
                 {
                     if (image.Length > 0)
                     {
+                        
                         var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
                         var filePath = Path.Combine("wwwroot/images", fileName);
                         using (var stream = new FileStream(filePath, FileMode.Create))
@@ -198,13 +199,49 @@ namespace ReservationSystem.Controllers
             if (image != null)
             {
                 var filePath = Path.Combine("wwwroot", image.ImagePath.TrimStart('/'));
+               
                 if (System.IO.File.Exists(filePath))
-                    System.IO.File.Delete(filePath);
-
+                {
+                    try
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                    catch (Exception ex)
+                    {
+                    }
+                }
+                
                 _context.MeetingRoomImages.Remove(image);
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction("Details", new { id = roomId });
+        }
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CleanupMissingImages()
+        {
+            var allImages = await _context.MeetingRoomImages.ToListAsync();
+            var imagesToRemove = new List<MeetingRoomImage>();
+            
+            foreach (var image in allImages)
+            {
+                var filePath = Path.Combine("wwwroot", image.ImagePath.TrimStart('/'));
+                if (!System.IO.File.Exists(filePath))
+                {
+                    imagesToRemove.Add(image);
+                }
+            }
+            
+            _context.MeetingRoomImages.RemoveRange(imagesToRemove);
+            await _context.SaveChangesAsync();
+            
+            return Json(new { removed = imagesToRemove.Count });
+        }
+
+        private bool FileExists(string imagePath)
+        {
+            if (string.IsNullOrEmpty(imagePath)) return false;
+            var fullPath = Path.Combine("wwwroot", imagePath.TrimStart('/'));
+            return System.IO.File.Exists(fullPath);
         }
     }
 }
