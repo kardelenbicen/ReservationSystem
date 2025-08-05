@@ -91,6 +91,4 @@ Bildirimler
 Kardelen Biçen
 - GitHub: @kardelenbicen
 - Email: kardelen.bicen.tr@gmail.com
-
-- Email ile iletişime geçin
-- Dokümantasyonu kontrol edin
+- Linkedln https://www.linkedin.com/in/kardelen-bi%C3%A7en-83a423251/
