@@ -70,7 +70,7 @@ namespace ReservationSystem.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ProcessPayment(string paymentMethod, string cardNumber, string expiryDate, string cvv)
+        public async Task<IActionResult> ProcessPayment(string paymentMethod, string cardNumber, string expiryDate, string cvv, string cardHolder)
         {
             var userId = _userManager.GetUserId(User);
             var cartItems = await _context.CartItems
@@ -96,7 +96,7 @@ namespace ReservationSystem.Controllers
 
             if (paymentMethod == "CreditCard")
             {
-                payment.CardNumber = cardNumber?.Substring(cardNumber.Length - 4);
+                payment.CardNumber = cardNumber?.Replace(" ", "").Substring(cardNumber.Replace(" ", "").Length - 4);
                 payment.ExpiryDate = expiryDate;
             }
 
@@ -126,7 +126,10 @@ namespace ReservationSystem.Controllers
             _context.CartItems.RemoveRange(cartItems);
             await _context.SaveChangesAsync();
 
-            string message = paymentMethod == "CreditCard" ? "Ödeme başarılı!" : "Nakit ödeme seçildi. Rezervasyonlarınız admin onayına gönderildi.";
+            string message = paymentMethod == "CreditCard" 
+                ? "🎉 Ödeme başarıyla tamamlandı! Rezervasyonlarınız onay için gönderildi." 
+                : "✅ Nakit ödeme seçildi. Rezervasyonlarınız admin onayına gönderildi.";
+                
             return Json(new { success = true, message = message });
         }
     }
