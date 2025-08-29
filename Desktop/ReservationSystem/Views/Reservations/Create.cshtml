@@ -3,176 +3,305 @@
 @{
     ViewData["Title"] = "Rezervasyon Yap";
 }
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" id="reservationForm">
-            <div class="mb-3">
-                <label for="roomType" class="form-label">Oda Türü</label>
-                <select id="roomType" name="roomType" class="form-control" required>
-                    <option value="">Tür Seçiniz</option>
-                    <option>Konferans</option>
-                    <option>Düğün</option>
-                    <option>Tiyatro</option>
-                    <option>Toplantı</option>
-                    <option>Seminer</option>
-                    <option>Eğitim/Kurs</option>
-                    <option>Sergi/Fuar</option>
-                    <option>Workshop/Atölye</option>
-                    <option>Konser</option>
-                    <option>Tören</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="MeetingRoomId" class="form-label">Oda Seç</label>
-                @{
-                    var rooms = ViewBag.Rooms as IEnumerable<ReservationSystem.Models.MeetingRoom>;
-                }
-                <select asp-for="MeetingRoomId" class="form-control" id="roomSelect" required disabled>
-                    <option value="">Oda Seçiniz</option>
-                    @if (rooms != null)
-                    {
-                        foreach (var room in rooms)
-                        {
-                            <option value="@room.Id" data-roomtype="@room.RoomType" data-hourlyrate="@room.HourlyRate">@room.Name</option>
-                        }
-                    }
-                </select>
-                <span asp-validation-for="MeetingRoomId" class="text-danger"></span>
-            </div>
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="mb-3">
-                <label asp-for="EventName" class="form-label">Etkinlik Adı</label>
-                <input asp-for="EventName" class="form-control" id="eventName" maxlength="30" disabled />
-                <span asp-validation-for="EventName" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="Description" class="form-label">Açıklama</label>
-                <textarea asp-for="Description" class="form-control" id="description" maxlength="30" disabled></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="StartTime" class="form-label">Başlangıç Tarihi/Saati</label>
-                <input asp-for="StartTime" class="form-control" id="StartTime" type="text" disabled />
-                <span asp-validation-for="StartTime" class="text-danger"></span>
-            </div>
-            <div class="mb-3">
-                <label asp-for="EndTime" class="form-label">Bitiş Tarihi/Saati</label>
-                <input asp-for="EndTime" class="form-control" id="EndTime" type="text" disabled />
-                <span asp-validation-for="EndTime" class="text-danger"></span>
-            </div>
-            <div class="mb-3" id="priceInfo" style="display:none;">
-                <div class="alert alert-info">
-                    <h5>Ücret Bilgisi</h5>
-                    <p>Saatlik Ücret: <span id="hourlyRate"></span>₺</p>
-                    <p>Süre: <span id="duration"></span> saat</p>
-                    <p><strong>Toplam: <span id="totalAmount"></span>₺</strong></p>
+
+<style>
+    .reservation-container {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 2rem 0;
+    }
+
+    .reservation-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2.5rem;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .reservation-title {
+        color: #2c3e50;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        color: #34495e;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 12px;
+        padding: 0.75rem 1rem;
+        font-size: 0.95rem;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            background: white;
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+    .alert-info {
+        background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        border: none;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .price-info {
+        text-align: center;
+    }
+
+        .price-info h5 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+        }
+
+    .form-control:disabled {
+        background-color: #f8f9fa;
+        opacity: 0.6;
+    }
+
+    .text-danger {
+        font-size: 0.875rem;
+        margin-top: 0.25rem;
+    }
+</style>
+
+<div class="reservation-container">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="reservation-card">
+                    <h1 class="reservation-title">@ViewData["Title"]</h1>
+                    <form asp-action="Create" id="reservationForm">
+                        <div class="mb-3">
+                            <label for="roomType" class="form-label">Oda Türü</label>
+                            <select id="roomType" name="roomType" class="form-control" required>
+                                <option value="">Tür Seçiniz</option>
+                                <option>Konferans</option>
+                                <option>Düğün</option>
+                                <option>Tiyatro</option>
+                                <option>Toplantı</option>
+                                <option>Seminer</option>
+                                <option>Eğitim/Kurs</option>
+                                <option>Sergi/Fuar</option>
+                                <option>Workshop/Atölye</option>
+                                <option>Konser</option>
+                                <option>Tören</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="MeetingRoomId" class="form-label">🏨 Oda Seç</label>
+                            @{
+                                var rooms = ViewBag.Rooms as IEnumerable<ReservationSystem.Models.MeetingRoom>;
+                            }
+                            <select asp-for="MeetingRoomId" class="form-control" id="roomSelect" required disabled>
+                                <option value="">Oda Seçiniz</option>
+                                @if (rooms != null)
+                                {
+                                    foreach (var room in rooms)
+                                    {
+                                        <option value="@room.Id" data-roomtype="@room.RoomType" data-hourlyrate="@room.HourlyRate">@room.Name</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="MeetingRoomId" class="text-danger"></span>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="EventName" class="form-label">ℹ️ Etkinlik Adı</label>
+                            <input asp-for="EventName" class="form-control" id="eventName" maxlength="30" disabled />
+                            <span asp-validation-for="EventName" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">📝 Açıklama</label>
+                            <textarea asp-for="Description" class="form-control" id="description" maxlength="30" disabled></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="StartTime" class="form-label">⏳ Başlangıç Tarihi/Saati</label>
+                            <input asp-for="StartTime" class="form-control" id="StartTime" type="text" readonly />
+                            <span asp-validation-for="StartTime" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="EndTime" class="form-label">⏳ Bitiş Tarihi/Saati</label>
+                            <input asp-for="EndTime" class="form-control" id="EndTime" type="text" readonly />
+                            <span asp-validation-for="EndTime" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3" id="priceInfo" style="display:none;">
+                            <div class="alert alert-info">
+                                <h5>💵 Ücret Bilgisi</h5>
+                                <p>Saatlik Ücret: <span id="hourlyRate"></span>₺</p>
+                                <p>Süre: <span id="duration"></span> saat</p>
+                                <p><strong>Toplam: <span id="totalAmount"></span>₺</strong></p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success">Sepete Ekle</button>
+                        <a asp-controller="MeetingRooms" asp-action="Index" class="btn btn-secondary">Geri Dön</a>
+                    </form>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success">Sepete Ekle</button>
-            <a asp-controller="MeetingRooms" asp-action="Index" class="btn btn-secondary">Geri Dön</a>
-        </form>
-    </div>
-</div>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-var roomTypeSelect = document.getElementById('roomType');
-var roomSelect = document.getElementById('roomSelect');
-var eventName = document.getElementById('eventName');
-var description = document.getElementById('description');
-var startTime = document.getElementById('StartTime');
-var endTime = document.getElementById('EndTime');
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var roomTypeSelect = document.getElementById('roomType');
+                    var roomSelect = document.getElementById('roomSelect');
+                    var eventName = document.getElementById('eventName');
+                    var description = document.getElementById('description');
+                    var startTime = document.getElementById('StartTime');
+                    var endTime = document.getElementById('EndTime');
 
-function disableInputs() {
-    if (eventName) eventName.disabled = true;
-    if (description) description.disabled = true;
-    if (startTime) startTime.disabled = true;
-    if (endTime) endTime.disabled = true;
-}
-function enableInputs() {
-    if (eventName) eventName.disabled = false;
-    if (description) description.disabled = false;
-    if (startTime) startTime.disabled = false;
-    if (endTime) endTime.disabled = false;
-}
+                    // Flatpickr ile geçmiş tarih engelleme
+                    flatpickr(startTime, {
+                        enableTime: true,
+                        dateFormat: "Y-m-d H:i",
+                        minDate: "today"
+                    });
 
-if (roomTypeSelect && roomSelect) {
-    roomSelect.disabled = true;
-    disableInputs();
-    roomTypeSelect.addEventListener('change', function() {
-        if (roomTypeSelect.value) {
-            roomSelect.disabled = false;
-            for (var i = 0; i < roomSelect.options.length; i++) {
-                var option = roomSelect.options[i];
-                if (!option.value) continue;
-                var roomTypes = option.getAttribute('data-roomtype');
-                var show = false;
-                if (roomTypes) {
-                    var roomTypesArr = roomTypes.split(',');
-                    if (roomTypesArr.includes(roomTypeSelect.value)) {
-                        show = true;
+                    flatpickr(endTime, {
+                        enableTime: true,
+                        dateFormat: "Y-m-d H:i",
+                        minDate: "today"
+                    });
+
+                    function disableInputs() {
+                        if (eventName) eventName.disabled = true;
+                        if (description) description.disabled = true;
+                        if (startTime) startTime.disabled = true;
+                        if (endTime) endTime.disabled = true;
                     }
-                }
-                option.style.display = show ? '' : 'none';
-            }
-            roomSelect.value = '';
-            disableInputs();
-        } else {
-            roomSelect.disabled = true;
-            roomSelect.value = '';
-            disableInputs();
-        }
-    });
-    roomSelect.addEventListener('change', function() {
-        if (roomTypeSelect.value && roomSelect.value) {
-            enableInputs();
-        } else {
-            disableInputs();
-        }
-    });
-}
+                    function enableInputs() {
+                        if (eventName) eventName.disabled = false;
+                        if (description) description.disabled = false;
+                        if (startTime) startTime.disabled = false;
+                        if (endTime) endTime.disabled = false;
+                    }
 
-function calculatePrice() {
-    const roomSelect = document.getElementById('roomSelect');
-    const startTime = document.getElementById('StartTime');
-    const endTime = document.getElementById('EndTime');
-    const priceInfo = document.getElementById('priceInfo');
-    
-    if (roomSelect.value && startTime.value && endTime.value) {
-        const selectedOption = roomSelect.options[roomSelect.selectedIndex];
-        const hourlyRate = parseFloat(selectedOption.getAttribute('data-hourlyrate') || 0);
-        
-        const start = new Date(startTime.value);
-        const end = new Date(endTime.value);
-        const duration = (end - start) / (1000 * 60 * 60);
-        
-        if (duration > 0) {
-            const total = duration * hourlyRate;
-            
-            document.getElementById('hourlyRate').textContent = hourlyRate.toFixed(2);
-            document.getElementById('duration').textContent = duration.toFixed(1);
-            document.getElementById('totalAmount').textContent = total.toFixed(2);
-            
-            priceInfo.style.display = 'block';
-        } else {
-            priceInfo.style.display = 'none';
-        }
-    } else {
-        priceInfo.style.display = 'none';
-    }
-}
+                    if (roomTypeSelect && roomSelect) {
+                        roomSelect.disabled = true;
+                        disableInputs();
 
-if (startTime) {
-    startTime.addEventListener('change', calculatePrice);
-}
-if (endTime) {
-    endTime.addEventListener('change', calculatePrice);
-}
-if (roomSelect) {
-    roomSelect.addEventListener('change', calculatePrice);
-}
-</script>
+                        roomTypeSelect.addEventListener('change', function() {
+                            if (roomTypeSelect.value) {
+                                roomSelect.disabled = false;
+                                for (var i = 0; i < roomSelect.options.length; i++) {
+                                    var option = roomSelect.options[i];
+                                    if (!option.value) continue;
+                                    var roomTypes = option.getAttribute('data-roomtype');
+                                    var show = false;
+                                    if (roomTypes) {
+                                        var roomTypesArr = roomTypes.split(',');
+                                        if (roomTypesArr.includes(roomTypeSelect.value)) {
+                                            show = true;
+                                        }
+                                    }
+                                    option.style.display = show ? '' : 'none';
+                                }
+                                roomSelect.value = '';
+                                disableInputs();
+                            } else {
+                                roomSelect.disabled = true;
+                                roomSelect.value = '';
+                                disableInputs();
+                            }
+                        });
+
+                        roomSelect.addEventListener('change', function() {
+                            if (roomTypeSelect.value && roomSelect.value) {
+                                enableInputs();
+                            } else {
+                                disableInputs();
+                            }
+                        });
+                    }
+
+                    function calculatePrice() {
+                        const roomSelect = document.getElementById('roomSelect');
+                        const startTime = document.getElementById('StartTime');
+                        const endTime = document.getElementById('EndTime');
+                        const priceInfo = document.getElementById('priceInfo');
+
+                        if (roomSelect.value && startTime.value && endTime.value) {
+                            const selectedOption = roomSelect.options[roomSelect.selectedIndex];
+                            const hourlyRate = parseFloat(selectedOption.getAttribute('data-hourlyrate') || 0);
+
+                            const start = new Date(startTime.value);
+                            const end = new Date(endTime.value);
+                            const duration = (end - start) / (1000 * 60 * 60);
+
+                            if (duration > 0) {
+                                const total = duration * hourlyRate;
+
+                                document.getElementById('hourlyRate').textContent = hourlyRate.toFixed(2);
+                                document.getElementById('duration').textContent = duration.toFixed(1);
+                                document.getElementById('totalAmount').textContent = total.toFixed(2);
+
+                                priceInfo.style.display = 'block';
+                            } else {
+                                priceInfo.style.display = 'none';
+                            }
+                        } else {
+                            priceInfo.style.display = 'none';
+                        }
+                    }
+
+                    if (startTime) startTime.addEventListener('change', calculatePrice);
+                    if (endTime) endTime.addEventListener('change', calculatePrice);
+                    if (roomSelect) roomSelect.addEventListener('change', calculatePrice);
+
+                });
+            </script>
 @section Scripts {
-    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
